@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Share Tiền</title>
+
+</head>
+<body>
+<label>Nhập Tổng Số Tiền:</label><input type="text" id="sotien">
+<label>Nhập Tổng Số Người:</label><input type="text" id="songuoi">
+<button id="share" onclick="chiatien()">Số tiền 1 người phải trả là</button>
+<input type="text" id="1nguoi">
+
+
+</body>
+
+<script >
+   function chiatien() {
+       let a = document.getElementById("sotien").value;
+      a = parseInt(a);
+       let b = document.getElementById("songuoi").value;
+      b = parseInt(b);
+      let c = a / b;
+       document.getElementById("1nguoi").value = c;
+
+   }
+</script>
+
+</html>

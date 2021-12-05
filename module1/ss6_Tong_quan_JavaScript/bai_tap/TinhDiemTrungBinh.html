@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input type="text" id="T">Toán</label>
+<label><input type="text" id="L">Lý</label>
+<label><input type="text" id="H">Hóa</label>
+<button onclick="diemtb()">Điểm Trung Bình</button>
+</body>
+<script>
+    function diemtb() {
+        let a = document.getElementById('T').value;
+        a = parseInt(a);
+        let b = document.getElementById('L').value;
+        b = parseInt(b);
+        let c = document.getElementById('H').value;
+        c = parseInt(c);
+        let avg = (a+b+c)/3;
+
+        alert('Điểm Trung Bình Của Bạn Là : ' + avg);
+
+
+
+
+    }
+</script>
+</html>
