@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng chuyển đổi tiền tệ</title>
+</head>
+<body>
+
+
+<div style="float:left">
+    <form>
+        <label style="margin-left: 60px;font-size:10pt"><b>Amount</b></label><br>
+        <input type="text" id="amount">
+    </form>
+    <div>
+        <p id="rs" style="color:blue">Result :</p>
+    </div>
+</div>
+<div style="float:left;margin-left: 100px">
+    <label style="font-size: 10pt"><b>From Currency</b></label><br>
+    <select id="fromCurrency">
+        <option id="fcvnd" value="vnd">VND</option>
+        <option id="fcusd" value="usd">USD</option>
+    </select>
+</div>
+<div style="float:left;margin-left: 100px">
+    <label style="font-size: 10pt"><b>To Currency</b></label><br>
+    <select id="toCurrency">
+        <option id="tcvnd" value="vnd">VND</option>
+        <option id="tcusd" value="usd">USD</option>
+    </select>
+</div>
+<div style="float:left;margin-left: 100px">
+    <br>
+    <button onclick="chuyenDoi()">Convert</button>
+
+</div>
+
+
+<script>
+
+    function chuyenDoi() {
+        let a = document.getElementById('amount').value;
+        a = parseFloat(a);
+        let fCur = fromCurrency.options[fromCurrency.selectedIndex].text;
+        let tCur = toCurrency.options[toCurrency.selectedIndex].text;
+        if (fCur == "VND") {
+            if (tCur == "USD") {
+                document.getElementById('rs').innerHTML = a / 23000;
+            } else {
+                document.getElementById('rs').innerHTML = a;
+            }
+
+        } else {
+            if (tCur == "USD") {
+                document.getElementById('rs').innerHTML = a;
+
+            } else {
+                document.getElementById('rs').innerHTML = a * 23000;
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

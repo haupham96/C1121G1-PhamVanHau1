@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+</head>
+<body>
+<h1>Calculator</h1>
+<form>
+    <input id="giatria" type="text">
+    <input id="giatrib" type="text">
+</form>
+<br>
+<button id="cong" onclick="phepcong()">Addiction(+)</button>
+<button id="tru" onclick="pheptru()">Subtraction(-)</button>
+<button id="nhan" onclick="phepnhan()">Multiplication(X)</button>
+<button id="chia" onclick="phepchia()">Division(/)</button>
+<p id="result">Result:</p>
+</body>
+<script>
+    function phepcong() {
+        let a = document.getElementById('giatria').value;
+        a = parseFloat(a);
+        let b = document.getElementById('giatrib').value;
+        b = parseFloat(b);
+        let addiction = a + b ;
+        document.getElementById('result').innerHTML = "Result addiction : " + addiction;}
+        function pheptru() {
+            let a = document.getElementById('giatria').value;
+            a = parseFloat(a);
+            let b = document.getElementById('giatrib').value;
+            b = parseFloat(b);
+        let subtraction = a - b ;
+        document.getElementById('result').innerHTML = "Result subtraction : " + subtraction;
+        }
+    function phepnhan() {
+        let a = document.getElementById('giatria').value;
+        a = parseFloat(a);
+        let b = document.getElementById('giatrib').value;
+        b = parseFloat(b);
+        let multiplication = a * b ;
+        document.getElementById('result').innerHTML = "Result multiplication : " + multiplication;
+    }function phepchia() {
+        let a = document.getElementById('giatria').value;
+        a = parseFloat(a);
+        let b = document.getElementById('giatrib').value;
+        b = parseFloat(b);
+        let division = a / b ;
+        document.getElementById('result').innerHTML = "Result division : " + division;
+    }
+
+
+
+</script>
+</html>
