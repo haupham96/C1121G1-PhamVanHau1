@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT9</title>
+</head>
+<body>
+<p> Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác.</p>
+<script>
+    let a= parseFloat(prompt('Nhập cạnh a của tam giác (cm) :'));
+    let b= parseFloat(prompt('Nhập cạnh b của tam giác (cm) :'));
+    let c= parseFloat(prompt('Nhập cạnh c của tam giác (cm) :'));
+    if (a>0 && b>0 && c>0 && (a+b)>c && (b+c)>a && (a+c)>b){
+        alert('bạn đã nhập đúng 3 cạnh của tam giác !');
+    } else {
+        alert('3 số bạn vừa nhập ko thỏa điều kiện là cạnh của tam giác !')
+    }
+</script>
+</body>
+</html>

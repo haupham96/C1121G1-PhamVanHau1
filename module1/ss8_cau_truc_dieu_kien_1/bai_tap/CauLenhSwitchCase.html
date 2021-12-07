@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày</title>
+</head>
+<body>
+
+<input id="nhap" type="text">
+<input id="nut" type="button" onclick="tinhSoNgay()" value="Tính Số Ngày">
+<br>
+<p id="rs"></p>
+<script>
+
+    function tinhSoNgay() {
+        let nhapThang = parseInt(document.getElementById('nhap').value);
+        switch (nhapThang) {
+            case 1:
+                document.getElementById('rs').innerText = 'Tháng 1 có 31 ngày';
+                break;
+            case 2:
+                document.getElementById('rs').innerText = 'Tháng 2 có 28 ngày';
+                break;
+            case 3:
+                document.getElementById('rs').innerText = 'Tháng 3 có 31 ngày';
+                break;
+            case 4:
+                document.getElementById('rs').innerText = 'Tháng 4 có 30 ngày';
+                break;
+            case 5:
+                document.getElementById('rs').innerText = 'Tháng 5 có 31 ngày';
+                break;
+            case 6:
+                document.getElementById('rs').innerText = 'Tháng 6 có 30 ngày';
+                break;
+            case 7:
+                document.getElementById('rs').innerText = 'Tháng 7 có 31 ngày';
+                break;
+            case 8:
+                document.getElementById('rs').innerText = 'Tháng 8 có 31 ngày';
+                break;
+            case 9:
+                document.getElementById('rs').innerText = 'Tháng 9 có 30 ngày';
+                break;
+            case 10:
+                document.getElementById('rs').innerText = 'Tháng 10 có 31 ngày';
+                break;
+            case 11:
+                document.getElementById('rs').innerText = 'Tháng 11 có 30 ngày';
+                break;
+            case 12:
+                document.getElementById('rs').innerText = 'Tháng 12 có 31 ngày';
+                break;
+
+        }
+
+    }
+
+</script>
+</body>
+</html>

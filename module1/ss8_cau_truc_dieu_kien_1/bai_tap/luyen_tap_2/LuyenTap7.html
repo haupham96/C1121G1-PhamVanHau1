@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT7</title>
+</head>
+<body>
+<p>
+    giải phương trình bậc 2 :
+<br>
+    a*x^2 + b*x + c = 0
+</p>
+<script>
+    let a = parseFloat(prompt('Nhập a :'));
+    let b = parseFloat(prompt('Nhập b :'));
+    let c = parseFloat(prompt('Nhập c :'));
+
+    if(a != 0) {
+        let delta = b^2 - (4*a*c);
+        if(delta>0) {
+            let x1 = (-b + ((delta)^(1/2)))/(2*a);
+            let x2 = (-b - ((delta)^(1/2)))/(2*a);
+
+            alert('x1 = ' + x1 + ' and x2 = ' + x2);
+
+        } else if (delta == 0) {
+            let x3 = -b/(2*a);
+            alert('x1 = x2 = ' + x3 );
+        } else {
+            alert('phương trình vô nghiệm');
+        }
+    } else {
+        alert('phương trình vô nghiệm .');
+    }
+</script>
+
+</body>
+</html>

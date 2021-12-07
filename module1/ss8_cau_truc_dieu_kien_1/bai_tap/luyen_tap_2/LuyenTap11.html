@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT11</title>
+</head>
+<body>
+<p>
+    Viết chương trình tính thuế thu nhập cá nhân.
+    <br>
+    nếu thu nhập >= 10 tr thì thuế thu nhập cá nhân là 10% tổng thu nhập
+    nếu dưới 10tr thì ko lấy thuế .
+</p>
+<script>
+    let thuNhap = parseInt(prompt('Nhập thu nhập 1 tháng của bạn :'));
+    if(thuNhap >= 10000000) {
+        let thue = thuNhap * 0.1 ;
+        alert('Thuế thu nhập của bạn là : ' + thue + ' VND');
+    } else {
+        alert('Bạn chưa cần phải đóng thuế :D ');
+    }
+</script>
+</body>
+</html>

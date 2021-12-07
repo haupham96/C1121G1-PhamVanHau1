@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT7</title>
+</head>
+<body>
+<p>
+    tính cước điện thoại :
+    <br>
+    nhập số phút :
+    <br>
+    cước dt = 1000đ / 1 phút nội mạng ;
+    <br>
+    cước dt = 3000đ / 1 phút ngoại mạng;
+<script>
+    let mang = prompt('cước nội mạng hay ngoại mạng ?');
+    if(mang=='noimang') {
+        let phut = parseInt(prompt('Nhập số phút :'));
+        let tienCuoc = phut * 1000;
+        alert('Tiền cước nội mạng : ' + tienCuoc +'đ' );
+    } else {
+        let phut = parseInt(prompt('Nhập số phút :'));
+        let tienCuoc = phut * 3000;
+        alert('Tiền cước ngoại mạng : ' + tienCuoc +'đ' );
+    }
+</script>
+</p>
+</body>
+</html>

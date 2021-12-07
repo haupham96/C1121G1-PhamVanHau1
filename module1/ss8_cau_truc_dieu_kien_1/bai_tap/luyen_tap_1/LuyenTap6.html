@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT6</title>
+</head>
+<body>
+<p>
+    hoa hồng 5% nếu doanh thu 20tr trở lên
+    <br>
+    hoa hồng 10% nếu doanh thu 50tr trở lên
+    <br>
+    hoa hồng 15 % nếu doanh thu 100tr trở lên
+    <br>
+    dưới 20tr ko có hoa hồng
+</p>
+</body>
+<script>
+    let doanhThu = parseInt(prompt('Nhập doanh thu : '));
+    if (doanhThu >= 20000000) {
+        let hoaHong = doanhThu * 0.05;
+        alert('Tiền Hoa Hồng là : ' + hoaHong);
+    } else if (doanhThu >= 50000000) {
+        let hoaHong = doanhThu * 0.1;
+        alert('Tiền Hoa Hồng là : ' + hoaHong);
+    } else if (doanhThu>=100000000) {
+        let hoaHong = doanhThu*0.15;
+        alert('Tiền Hoa Hồng là : ' + hoaHong);
+    } else {
+        alert('Bạn chưa đạt đủ doanh số !')
+    }
+</script>
+</html>
