@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT12</title>
+</head>
+<body>
+<p>
+    Tính lãi kép hằng năm .
+    <br>
+    công thức : FV = PV x (1 + i)^n .
+    <br>
+    FV: giá trị của tương lai ở năm thứ n
+    <br>
+
+    PV: giá trị của số vốn tại thời điểm hiện tại
+    <br>
+
+    n: số năm
+    <br>
+
+    i : là lãi suất
+    <br>
+</p>
+<script>
+    let tienVon = parseFloat(prompt('Nhập vào vốn ban đầu (VND) :'));
+    let n = parseFloat(prompt('Nhập vào số năm gởi ngân hàng :'));
+    let i = parseFloat(prompt('Nhập vào lãi suất hằng năm (%) :'));
+    let tienLai = tienVon * (1 + i) ^ n;
+    alert('Tiền lãi sau ' + n + ' Năm của bạn là : ' + tienLai + ' VND');
+
+</script>
+
+</body>
+</html>
