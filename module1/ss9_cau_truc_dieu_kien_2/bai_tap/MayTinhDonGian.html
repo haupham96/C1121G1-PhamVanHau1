@@ -2,78 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ứng dụng máy tính</title>
+    <title>Ứng Dụng Máy tính đơn giản</title>
 </head>
 <body>
-<div style="background-color:gray;width: 240px;height: 240px">
+<input type = text id="result">
+<br>
+<input type="button" value="1" onclick="tinhToan(this.value)">
+<input type="button" value="2" onclick="tinhToan(this.value)">
+<input type="button" value="3" onclick="tinhToan(this.value)">
+<input type="button" value="+" onclick="tinhToan(this.value)">
+<br>
+<input type="button" value="4" onclick="tinhToan(this.value)">
+<input type="button" value="5" onclick="tinhToan(this.value)">
+<input type="button" value="6" onclick="tinhToan(this.value)">
+<input type="button" value="-" onclick="tinhToan(this.value)">
+<br>
+<input type="button" value="7" onclick="tinhToan(this.value)">
+<input type="button" value="8" onclick="tinhToan(this.value)">
+<input type="button" value="9" onclick="tinhToan(this.value)">
+<input type="button" value="*" onclick="tinhToan(this.value)">
+<br>
+<input type="button" value="C" onclick="delAll()">
+<input type="button" value="0" onclick="tinhToan(this.value)">
+<input type="button" value="=" onclick="ketQua()">
+<input type="button" value="/" onclick="tinhToan(this.value)">
+<input type="button" value="DEL1" onclick="delOne()">
 
-    <div style="padding-left: 20px;padding-top: 20px">
-
-        <table  style="border-collapse: collapse;  background-color: white;width: 200px;height: 200px;align-content: center ">
-            <tr>
-                <td align="center" colspan="4"><input style="color:blue" id="input" type="text" value="0"></td>
-            </tr>
-            <tr align="center">
-                <td>
-                    <button style="color:blue" class="btn" value="1" onclick="input.value+=this.value">1</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="2" onclick="input.value+=this.value">2</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="3" onclick="input.value+=this.value">3</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="+" onclick="input.value+=this.value">+</button>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>
-                    <button style="color:blue" class="btn" value="4" onclick="input.value+=this.value">4</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="5" onclick="input.value+=this.value">5</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="6" onclick="input.value+=this.value">6</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="-" onclick="input.value+=this.value">-</button>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>
-                    <button style="color:blue" class="btn" value="7" onclick="input.value+=this.value">7</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="8" onclick="input.value+=this.value">8</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="9" onclick="input.value+=this.value">9</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="*" onclick="input.value+=this.value">X</button>
-                </td>
-            </tr>
-            <tr align="center">
-                <td>
-                    <button style="color:blue" class="btn" value="*=0" onclick="input.value=''">C</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="0" onclick="input.value+=this.value">0</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" onclick="input.value=eval(input.value)" >=</button>
-                </td>
-                <td>
-                    <button style="color:blue" class="btn" value="/" onclick="input.value+=this.value">/</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-<script>
-
-</script>
 </body>
+<script>
+    function tinhToan(valu) {
+    document.getElementById('result').value += valu;
+    }
+    function ketQua() {
+        let bieuThuc = document.getElementById('result').value;
+        let ketQua = eval(bieuThuc);
+        document.getElementById('result').value = ketQua ;
+
+    }
+    function delAll() {
+        document.getElementById('result').value = '';
+
+    }
+    function delOne() {
+    let del1 = document.getElementById('result').value;
+    document.getElementById('result').value = del1.substr(0,del1.length-1);
+
+
+
+    }
+</script>
 </html>
