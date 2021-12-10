@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng Fibonacci</title>
+</head>
+<body>
+<script>
+    let count = 20 ;
+    let n1 = 0,n2=1;
+    let total ; let i = 1 ;
+    for (i=1;i<=20;i++){
+        total = n1+n2;
+        n1=n2;
+        n2=total;
+        total+=total;
+
+    }
+    document.write('tổng 20 số Fibonacci đầu tiên là : ' + total);
+</script>
+</body>
+</html>

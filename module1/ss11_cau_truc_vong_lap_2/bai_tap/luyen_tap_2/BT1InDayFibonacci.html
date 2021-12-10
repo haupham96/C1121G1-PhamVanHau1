@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In dãy Fibonacci</title>
+</head>
+<body>
+<SCRIPT>
+    let N = parseInt(prompt('Nhập số lượng Fibonacci cần in '));
+    let n1=0;
+    let n2=1;
+    let total;
+    let i=1;
+    for(i=1;i<=N;i++){
+        total=n1+n2;
+        n1=n2;
+        n2=total;
+        document.write(n1+'<br>');
+    }
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+<!--<table style="border-collapse: collapse" border="1">-->
+<!--    <tr>-->
+<!--        <td>1</td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<p id="test"></p>-->
+<script>
+    let h, c;
+    let bangCuuChuong = '<table style="border-collapse: collapse" border="1">';
+    for (h = 1; h < 10; h++) {
+        bangCuuChuong += '<tr>';
+        for (c = 2; c < 10; c++) {
+            bangCuuChuong += '<td>'+c+'x'+h+'='+(h*c)+ '</td>'
+
+        }
+        bangCuuChuong += '</tr>';
+    }
+
+    bangCuuChuong += '</table>';
+    document.write(bangCuuChuong);
+
+
+</script>
+</body>
+</html>
