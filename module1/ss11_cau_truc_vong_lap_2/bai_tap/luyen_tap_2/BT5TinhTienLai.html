@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiền Lãi cộng dồn</title>
+</head>
+<body>
+<script>
+    let nam = parseInt(prompt('Nhập vào số năm gởi tiết kiệm'));
+    let tienGoiTietKiem = parseInt(prompt('Nhập vào số Tiền đã gởi :'));
+    let laiSuat = 0.05 ; // lãi suất 5% 1 tháng .
+    let i = 1;
+    let tienLai = 12*(tienGoiTietKiem*0.05) //12 tháng * (tiền gởi * lãi suất 1 tháng) : lãi 1 năm ;
+    for(i=1;i<=nam;i++){
+
+        tongTien = tienLai + tienGoiTietKiem;
+        tienGoiTietKiem = tongTien;
+        tienLai = 12*(tienGoiTietKiem*0.1);
+
+
+    }
+    alert('Tổng Vốn là Lãi trong' +nam+' năm của bạn là :'+tongTien)
+</script>
+</body>
+</html>
