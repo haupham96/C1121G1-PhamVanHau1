@@ -2,57 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game Đoán Số</title>
+    <title>Game Đoán Số :</title>
 </head>
 <body>
-<h2>Nhấn bắt đầu và
-    Chọn khoảng mà bạn muốn đoán :</h2>
-<p>1 : từ 1 đến 100</p>
-<p>100 : từ 101 đến 1000</p>
-<button id="play" onclick="batDau()">Chơi!</button>
-<p id="result"></p>
-
 <script>
-    function batDau() {
-        let chon = prompt('chọn 1 hoặc 100 !')
-        while (chon == 1 || chon == 100) {
-
-            if (chon == 1) {
-                let soCanDoan = Math.floor((Math.random() * 100));
-                let soNguoiChoiDoan = parseInt(prompt('Nhập vào số bạn dự đoán trong khoảng từ 1 đến 100 :'));
-                if (soNguoiChoiDoan == soCanDoan) {
-                    alert('Chúc Mừng bạn đã đoán đúng');
-                } else {
-                    let luaChon = parseInt(prompt('Sai rồi nhập 1 để tiếp tục , 2 để out  :'));
-                    alert('Số cần đoán là :' + soCanDoan);
-                    if (luaChon == 2) {
-                        break;
-                    } else if (luaChon == 1) {
-
-                        continue;
-
-                    }
-
-                }
-            }
-            if (chon == 100) {
-                let soCanDoan = Math.floor((Math.random() * 1000));
-                let soNguoiChoiDoan = parseInt(prompt('Nhập vào số bạn dự đoán trong khoảng từ 1 đến 1000 :'));
-                if (soNguoiChoiDoan == soCanDoan) {
-                    alert('Chúc Mừng bạn đã đoán đúng');
-                } else {
-                    let luaChon = parseInt(prompt('Sai rồi nhập 1 để tiếp tục , 2 để out  :'));
-                    alert('Số cần đoán là :' + soCanDoan);
-                    if (luaChon == 2) {
-                        break;
-                    } else if (luaChon == 1) {
-                        continue;
-                    }
-                }
-            }
+    let min = parseInt(prompt('nhập vào giá trị nhỏ nhất cần đoán'));
+    let max = parseInt(prompt('nhập vào giá trị lớn nhất cần đoán'));
+    let random = Math.round(Math.random()*(max-min))+min;
+    let count = 0 ;
+    do{ count ++
+        let yourNumber = parseInt(prompt('nhập vào số bạn đoán ( lần dự đoán thứ :'+count+')'));
+        if(yourNumber==random){
+            alert('Bạn đã đoán đúng');
+            break;
+        } else if(yourNumber>random) {
+            alert('Bạn đoán sai rồi , nhỏ hơn chút nữa');
+        } else {
+            alert('Bạn đoán sai rồi , lớn hơn chút nữa');
         }
-    }
+        if(count==3){
+            alert('bạn đã đoán sai 3 lần , bye !')
+        }
 
+    } while(count<3);
 </script>
 </body>
 </html>

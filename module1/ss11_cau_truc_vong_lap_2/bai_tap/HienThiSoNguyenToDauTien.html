@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in ra số nguyên tố</title>
+</head>
+<body>
+<script>
+    let number = prompt('nhập số lượng số NT cần in ra :')
+    let count = 0 ;
+    let n=2;
+    let dayNT = "";
+    while(count<number){
+        let flag = true;
+        for(let i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0){
+                flag = false;
+                break;
+            }
+        }
+        if(flag){
+            dayNT+=n+',';
+            count++;
+        }
+        n++;
+    }
+    document.write('dãy số NT là ' + dayNT);
+
+
+</script>
+</body>
+</html>
