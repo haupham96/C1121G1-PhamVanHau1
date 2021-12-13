@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sizea = parseInt(prompt('chiều dài mảng a :'));
+    let arraya = new Array(sizea);
+    for(let i=0;i<sizea;i++){
+        arraya[i] = parseInt(prompt('nhập giá trị a '+i));
+    }
+    let sizeb = parseInt(prompt('chiều dài mảng b :'));
+    let arrayb = new Array(sizeb);
+    for(let i=0;i<sizeb;i++){
+        arrayb[i] = parseInt(prompt('nhập giá trị b '+i));
+    }
+    document.write('Mảng a : '+arraya +'<br>');
+    document.write('Mảng b : '+arrayb + '<br>');
+    let arrayc = arraya.concat(arrayb);
+    document.write('Mảng c : '+arrayc + '<br>');
+
+
+</script>
+</body>
+</html>

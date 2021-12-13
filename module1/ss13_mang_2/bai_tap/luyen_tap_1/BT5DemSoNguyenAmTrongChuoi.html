@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size = parseInt(prompt('Nhập chiều dài mảng:'));
+    let soNguyen = new Array(size);
+    for(let i=0;i<size;i++){
+        soNguyen[i]=parseInt(prompt('Nhập vào số nguyên '+ i));
+    }
+    document.write('mảng : '+soNguyen+'<br>');
+    let count = 0;
+    let soNguyenAm=""  ;
+    for(let i=0;i<size;i++){
+        if(soNguyen[i]<0){
+            soNguyenAm += soNguyen[i]+',';
+            count += 1;
+            continue;
+        }
+    }
+    document.write('có '+count+' số âm '+'<br>');
+    document.write('số âm : '+soNguyenAm+'<br>');
+
+</script>
+</body>
+</html>

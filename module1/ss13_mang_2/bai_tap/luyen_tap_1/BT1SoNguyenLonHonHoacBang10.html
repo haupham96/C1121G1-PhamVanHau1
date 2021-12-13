@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="display">số nguyên > 10</p>
+<script>
+let size = parseInt(prompt('nhập chiều dài mảng :'));
+let soNguyen = new Array(size);
+let result="";
+for(let i =0;i<size;i++){
+    soNguyen[i]=parseInt(prompt('nhập vào phần tử thứ '+i))
+    if(soNguyen[i]>10){
+        result+=soNguyen[i]+',';
+        continue;
+
+    }
+}
+alert('số nguyên lớn hơn 10 : '+result);
+</script>
+</body>
+</html>

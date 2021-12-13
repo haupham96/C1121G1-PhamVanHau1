@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body>
+<input type="text" id="input">
+<input type="button" onclick="timKiem()" value="Search">
+<p id="display">Tiếng Việt :</p>
+<script>
+    let english = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+    let vietNam = ['một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín', 'mười'];
+    let check = true;
+    let result = "";
+
+    function timKiem() {
+
+        for (let i = 0; i < english.length; i++) {
+            let check = true;
+            document.getElementById('input').value;
+            if (document.getElementById('input').value == english[i]) {
+                check = true;
+                result = vietNam[i];
+                break;
+            } else {
+                check = false;
+                result = 'not found';
+                continue;
+            }
+
+        }
+        if (check) {
+            document.getElementById('display').innerText = result;
+        } else {
+            document.getElementById('display').innerText = result;
+        }
+    }
+
+
+</script>
+</body>
+</html>

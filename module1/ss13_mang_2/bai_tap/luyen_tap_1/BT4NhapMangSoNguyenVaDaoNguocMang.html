@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size = parseInt(prompt('Nhập độ dài mảng '));
+    let soNguyen=new Array((size));
+    for(let i=0;i<size;i++){
+        soNguyen[i]=parseInt(prompt('Nhập số nguyên '+i))
+    }
+    document.write(soNguyen+'<br>');
+    document.write(soNguyen.reverse());
+</script>
+</body>
+</html>

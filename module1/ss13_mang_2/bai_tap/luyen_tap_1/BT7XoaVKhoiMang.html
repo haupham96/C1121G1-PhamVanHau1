@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size = parseInt(prompt('Nhập vào chiều dài mảng :'));
+    let array= new Array(size); // khởi tạo mảng với chiều dài = size;
+    for(let i=0;i<size;i++){
+        array[i]=parseInt(prompt('nhập số nguyên '+i))
+    }
+    let V = parseInt(prompt('Nhập số nguyên V'));
+    let check = true;
+    for(let i=0;i<size;i++){
+        if(array[i]==V){
+            check = true;
+            break;
+        } else {
+            check = false ;
+            continue;
+        }
+    }
+    if(check){
+        let indexOfV = array.indexOf(V);
+        array.splice(indexOfV,1);
+    }
+    document.write('mảng sau khi cắt V = '+V+' là : '+''+array);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size = parseInt(prompt('nhập chiều dài mảng :'));
+    let soNguyen=new Array(size);
+    for(let i=0;i<size;i++){
+        soNguyen[i]=parseInt(prompt('nhập số nguyên '+i))
+    }
+    let max = soNguyen[0];
+    for(let i=0;i<size;i++){
+        if(soNguyen[i]>max){
+            max = soNguyen[i];
+        }
+    }
+    let result=0;
+    let j=0;
+    for(let i=0;i<size;i++){
+        result+=soNguyen[i];
+        j+=1;
+    }
+    alert('max = '+max);
+    alert('avg = '+(result/j));
+</script>
+</body>
+</html>

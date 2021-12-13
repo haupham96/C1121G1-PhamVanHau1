@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let size = parseInt(prompt('nhập chiều dài mảng :'));
+    let array=new Array(size);
+    for(let i=0;i<size;i++){
+        array[i]=prompt('nhập giá trị '+i);
+    }
+    document.write(array);
+    let doDaiMang = array.length;
+    alert('mảng có '+doDaiMang+' kí tự');
+</script>
+</body>
+</html>
