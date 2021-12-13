@@ -7,12 +7,20 @@
 <body>
 <script>
     let nhietDo = parseInt(prompt('Nhập nhiệt độ (độ C) :'));
-    while(nhietDo>100){
-        nhietDo = parseInt(prompt('giảm nhiệt độ xuống (độ C) :'));
-    }
-    while(nhietDo<20){
-        nhietDo = parseInt(prompt('tăng nhiệt độ lên (độ C) :'));
-    }
+    while(true){
+        if(nhietDo>100){
+            nhietDo = parseInt(prompt('giảm nhiệt độ xuống (độ C) :'));
+
+        } else if (nhietDo<20) {
+            nhietDo = parseInt(prompt('tăng nhiệt độ lên (độ C) :'));
+        } else {
+            alert('Nhiệt độ thích hợp !')
+            break;
+        }
+
+        }
+
+
 
 </script>
 </body>
