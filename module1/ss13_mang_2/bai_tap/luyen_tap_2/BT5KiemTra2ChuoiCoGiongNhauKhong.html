@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let sizea = parseInt(prompt('nhập length chuỗi a'));
+    let arraya = new Array(sizea);
+    for(let i=0;i<sizea;i++){
+        arraya[i]=parseInt(prompt('nhập giá trị index a '+i));
+    }
+    let sizeb = parseInt(prompt('nhập length chuỗi b'));
+    let arrayb = new Array(sizea);
+    for(let i=0;i<sizeb;i++){
+        arrayb[i]=parseInt(prompt('nhập giá trị index b '+i));
+    }
+    document.write('array a = '+arraya);
+    document.write('<br>');
+    document.write('array b = '+arrayb);
+    document.write('<br>');
+    let count = 0;
+    let result="";
+    for(let i=0;i<sizea;i++){
+        for(let j=0;j<sizeb;j++){
+            if(arraya[i]==arrayb[j]){
+                count+=1;
+                result+=arraya[i]+',';
+                continue;
+            }
+        }
+    }
+    document.write('có '+count+' phần tử giống nhau là : '+result);
+</script>
+</body>
+</html>
