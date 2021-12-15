@@ -6,9 +6,21 @@
 </head>
 <body>
 <script>
-    let chuoi =prompt('nhập vào chuỗi');
-    let dem = chuoi.length;
-    alert('độ dài chuỗi là : '+ dem);
+    let chuoi ="  Pham   Van   Hau   ";
+    chuoi = chuoi.trim();
+    let arr = chuoi.split(' ');
+
+    let count=0;
+    let name = "";
+    for (let i=0;i<arr.length;i++){
+        if(arr[i]!=0){
+            name+=arr[i]+"&nbsp;";
+            count += 1;
+        }
+    }
+    document.write(name);
+    alert('số từ = '+count);
+
 </script>
 </body>
 </html>

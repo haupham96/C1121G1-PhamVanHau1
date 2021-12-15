@@ -6,27 +6,22 @@
 </head>
 <body>
 <script>
-    let size = parseInt(prompt('Nhập vào chiều dài mảng :'));
-    let array= new Array(size); // khởi tạo mảng với chiều dài = size;
-    for(let i=0;i<size;i++){
-        array[i]=parseInt(prompt('nhập số nguyên '+i))
-    }
-    let V = parseInt(prompt('Nhập số nguyên V'));
-    let check = true;
-    for(let i=0;i<size;i++){
-        if(array[i]==V){
-            check = true;
-            break;
-        } else {
-            check = false ;
-            continue;
+    let V = 2;
+    let arr = [1, 2, 2, 3, 4];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == V) {
+            for (let j = i; j < arr.length - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            arr[arr.length - 1] = 0;
+            for (let j = i; j < arr.length - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            arr[arr.length - 1] = 0;
         }
     }
-    if(check){
-        let indexOfV = array.indexOf(V);
-        array.splice(indexOfV,1);
-    }
-    document.write('mảng sau khi cắt V = '+V+' là : '+''+array);
+    alert(arr);
+
 </script>
 </body>
 </html>
