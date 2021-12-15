@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    function kiemTraSNT(num) {
+
+        if (num < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+                break;
+            }
+
+        }
+        return true;
+    }
+    let n = parseInt(prompt('nhập số vào'));
+    if(n<10000){
+        let result = kiemTraSNT(n);
+        if (result == true) {
+            alert(n+' là số nguyên tố');
+        } else {
+            alert(n+' không phải nguyên tố');
+
+        }
+
+        }
+
+
+
+
+
+</script>
+</body>
+</html>
