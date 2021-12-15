@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const PI = 3.14;
+    function tinhDienTichHinhTron(r) {
+        let S = r*r*PI;
+        return S;
+
+    }
+    function tinhChuViHinhTron(r) {
+        let P = r*2*PI;
+        return P;
+
+    }
+    let nhapBanKinhHinhTron= parseInt(prompt('Nhập bán kính r '));
+    alert('Diện tích hình tròn = '+tinhDienTichHinhTron(nhapBanKinhHinhTron));
+    alert('Chu Vi hình tròn = '+tinhChuViHinhTron(nhapBanKinhHinhTron));
+</script>
+</body>
+</html>

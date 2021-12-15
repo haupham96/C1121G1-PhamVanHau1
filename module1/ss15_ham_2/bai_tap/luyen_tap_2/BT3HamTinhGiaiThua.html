@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let giaiThua = 1;
+
+    function tinhGiaiThua(num) {
+        for (let i = 1; i <= num; i++) {
+
+            giaiThua *= i;
+        }
+        return giaiThua;
+    }
+
+    let number = parseInt(prompt('Enter number '));
+    if (number == 0) {
+        alert('0! = 1');
+    } else if (number < 0) {
+        alert('Math Error !')
+    } else {
+        let result = tinhGiaiThua(number);
+        alert(result);
+    }
+
+</script>
+</body>
+</html>
