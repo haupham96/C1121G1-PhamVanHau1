@@ -6,20 +6,20 @@
 </head>
 <body>
 <script>
-    let sizea = parseInt(prompt('chiều dài mảng a :'));
-    let arraya = new Array(sizea);
-    for(let i=0;i<sizea;i++){
-        arraya[i] = parseInt(prompt('nhập giá trị a '+i));
+    let sizeA = parseInt(prompt('chiều dài mảng a :'));
+    let arrayA = new Array(sizeA);
+    for(let i=0;i<sizeA;i++){
+        arrayA[i] = parseInt(prompt('nhập giá trị a '+i));
     }
-    let sizeb = parseInt(prompt('chiều dài mảng b :'));
-    let arrayb = new Array(sizeb);
-    for(let i=0;i<sizeb;i++){
-        arrayb[i] = parseInt(prompt('nhập giá trị b '+i));
+    let sizeB = parseInt(prompt('chiều dài mảng b :'));
+    let arrayB = new Array(sizeB);
+    for(let i=0;i<sizeB;i++){
+        arrayB[i] = parseInt(prompt('nhập giá trị b '+i));
     }
-    document.write('Mảng a : '+arraya +'<br>');
-    document.write('Mảng b : '+arrayb + '<br>');
-    let arrayc = arraya.concat(arrayb);
-    document.write('Mảng c : '+arrayc + '<br>');
+    document.write('Mảng a : '+arrayA +'<br>');
+    document.write('Mảng b : '+arrayB + '<br>');
+    let arrayC = arrayA.concat(arrayB);
+    document.write('Mảng c : '+arrayC + '<br>');
 
 
 </script>
