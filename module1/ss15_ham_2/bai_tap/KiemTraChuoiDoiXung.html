@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let check;
+    let chuoi = "abcbba";
+    chuoi = chuoi.split('');
+
+    function kiemTraChuoiDoiXung() {
+        for (let i = 0; i <= chuoi.length / 2; i++) {
+
+            if (chuoi[i] != chuoi[chuoi.length - i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    if(kiemTraChuoiDoiXung(chuoi)){
+        alert(chuoi+' là chuỗi đối xứng!')
+    } else {
+        alert(chuoi+' ko đối xứng!')
+    }
+
+
+</script>
+</body>
+</html>
