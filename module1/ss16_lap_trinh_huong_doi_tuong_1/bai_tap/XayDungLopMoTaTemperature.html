@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(doC) {
+            this.doC=doC;
+        }
+        getdoC(doC){
+            return this.doC;
+        }
+        setdoC(doC){
+            this.doC=doC;
+        }
+        doiDoCQuaDoF(doC){
+            return ((this.doC*9)/5)+32;
+        }
+        doiDoCQuaDoKevin(doC){
+            return this.doC+273;
+        }
+    }
+    let nhapDoC = parseInt(prompt('nhập vào độ C'));
+    do {
+        if(nhapDoC<(-273)){
+            nhapDoC=parseInt(prompt('độ C phải lớn hơn -273'));
+        }
+
+    } while(nhapDoC<(-273));
+    let temperature = new Temperature(20);
+    temperature.setdoC(nhapDoC);
+    let doF =temperature.doiDoCQuaDoF();
+    let doKenvin=temperature.doiDoCQuaDoKevin();
+    let doC=temperature.getdoC();
+    document.write(doC+' độ C = '+doF+' độ F');
+    document.write('<br>');
+    document.write(doC+' độ C = '+doKenvin+' độ Kenvin');
+</script>
+</body>
+</html>
