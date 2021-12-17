@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Sản Phẩm</title>
+</head>
+<body>
+<input type="input" id="input" placeholder="Nhập tên sản phẩm">
+<input type="button" value="ADD" id="addNewProDuct" onclick="addNewProduct()">
+<br>
+<span>Số lượng sản phẩm : </span><span id="soLuong"></span>
+<p id="display"></p>
+<br>
+<hr>
+<!--<table border="1" style="border-collapse: collapse">-->
+<!--    <tr>-->
+<!--        <td>STT</td>-->
+<!--        <td>Tên</td>-->
+<!--        <td>Xóa</td>-->
+<!--        <td>Sửa</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>iPhone20ProMass</td>-->
+<!--        <td><input type="button" value="Edit" onclick="editProduct()"></td>-->
+<!--        <td><input type="button" value="Delete" onclick="deleteProduct()"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<script>
+    let data = ["iPhone","Samsung","Nokia"];
+    tableSanPham(data);
+    function tableSanPham (data){
+        let tableProduct='<table border="1" style="border-collapse: collapse">\n' +
+            '    <tr>\n' +
+            '        <td>STT</td>\n' +
+            '        <td>Tên</td>\n' +
+            '        <td>Xóa</td>\n' +
+            '        <td>Sửa</td>\n' +
+            '    </tr>';
+        for(let i=0;i<data.length;i++){
+            tableProduct+=
+                '<tr>\n' +
+                '        <td>'+(1+i)+'</td>\n' +
+                '        <td>'+ data[i] +'</td>\n' +
+                '        <td><input type="button" value="Edit" onclick="editProduct('+i+')"></td>\n' +
+                '        <td><input type="button" value="Delete" onclick="deleteProduct('+i+')"></td>\n' +
+                '    </tr>';
+        }
+        tableProduct+='</table>';
+        document.getElementById('display').innerHTML=tableProduct;
+        document.getElementById('soLuong').innerHTML=data.length;
+    }
+function addNewProduct(product) {
+        product = document.getElementById('input').value;
+        if(product !="" && product != null){
+            data.push(product);
+        } else {
+            alert('không được để trống!');
+        }
+    document.getElementById('input').value="";
+    tableSanPham(data);
+}
+function deleteProduct(index) {
+        let check = confirm('bạn chắc chắn muốn xóa '+data[index]+' chứ ?');
+        if(check==true){
+            data.splice(index,1);
+        } else {
+            alert('đã hủy xóa!');
+        }
+        tableSanPham(data);
+}
+function editProduct(index) {
+        let edit=prompt('nhập tên muốn sửa');
+        if(edit !="" && edit !=null){
+            data[index]=edit;
+        } else {
+            alert('không được để trống!');
+        }
+        tableSanPham(data);
+
+}
+</script>
+</body>
+</html>
