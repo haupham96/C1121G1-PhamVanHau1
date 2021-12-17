@@ -6,13 +6,19 @@
 </head>
 <body>
 <script>
+    let giatriA=parseInt(prompt('nhập giá trị a :'));
+    let giatriB=parseInt(prompt('nhập giá trị b :'));
     function hoanDoi2So(a,b) {
-        let c = b+","+a;
-        return c;
+        let c=0;
+        c=a;
+        a=b;
+        b=c;
+        document.write('giá trị a sau khi đổi : '+a)
+        document.write('<br>')
+        document.write('giá trị b sau khi đổi : '+b)
 
     }
-    let result=hoanDoi2So(1,2)
-    alert(result);
+    hoanDoi2So(giatriA,giatriB);
 </script>
 </body>
 </html>

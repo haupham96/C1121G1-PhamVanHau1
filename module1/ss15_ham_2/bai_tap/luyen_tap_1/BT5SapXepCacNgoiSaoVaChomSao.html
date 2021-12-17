@@ -11,7 +11,7 @@
     let inputTenNgoiSao = prompt('nhập tên ngôi sao ');
     let display = "";
 
-    function checkNgoiSao() {
+    function checkNgoiSao(inputTenNgoiSao,tenNgoiSao,tenChomSao) {
         for (let i = 0; i < tenNgoiSao.length; i++) {
             if (inputTenNgoiSao == tenNgoiSao[i]) {
                 display = tenChomSao[i];
@@ -21,7 +21,7 @@
         return "not found";
     }
 
-    alert('chòm sao tương ứng :'+checkNgoiSao());
+    alert('chòm sao tương ứng :'+checkNgoiSao(inputTenNgoiSao,tenNgoiSao,tenChomSao));
 
 
 </script>
