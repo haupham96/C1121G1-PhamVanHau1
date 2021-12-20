@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = 10;
+        }
+
+        getAppleWeight() {
+            return this.weight;
+        }
+
+        decreaseAppleWeight() {
+            this.weight--;
+        }
+    }
+
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
+        setGender(gender) {
+            this.gender = gender;
+        }
+
+        getGender() {
+            if (this.gender == true) {
+                return "Male";
+            } else {
+                return "Female";
+            }
+        }
+
+        checkAppleWeight(Apple) {
+            if (Apple.weight > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+        eat(Apple) {
+            if (Apple.weight) {
+                Apple.decreaseAppleWeight();
+                this.weight++;
+                alert(this.name + ' is Eating Apple , ' + 'Apple Weight decrease : ' + Apple.weight);
+            } else {
+                alert('no more Apple!');
+            }
+
+        }
+
+        say() {
+            alert('Hello! My Name is ' + this.name + ' , ' + ' i am : ' + this.getGender() + ' , ' + ' My Weight is : ' + this.getWeight() + ' kg');
+        }
+    }
+
+    let apple = new Apple();
+    let adam = new Human('Adam', true, 70);
+    let eva = new Human('Eva', false, 50);
+    adam.say();
+    adam.eat(apple);
+    alert("Adam Weight is gain to : " + adam.weight);
+
+    eva.say();
+    eva.eat(apple);
+    alert("Eva Weight is gain to : " + eva.weight);
+
+
+</script>
+</body>
+</html>
