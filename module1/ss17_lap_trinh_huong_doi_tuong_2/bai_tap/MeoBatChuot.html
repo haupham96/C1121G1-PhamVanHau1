@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal {
+        constructor(name,weight,speed) {
+            this.name=name;
+            this.weight=weight;
+            this.speed=speed;
+        }
+        say(message){
+            document.write(message);
+            document.write('<br>');
+        }
+    }
+  class Rat extends Animal {
+        constructor(name,weight,speed,status) {
+            super(name,weight,speed);
+            this.status=status;
+        }
+        setStatus(status){
+            this.status=status;
+        }
+    }
+    class Cat extends Animal {
+        constructor(name,weight,speed) {
+            super(name,weight,speed);
+        }
+        setSpeed(speed){
+            document.write('mèo tăng tốc!'+'<br>');
+            this.speed=speed;
+        }
+        catch(Rat){
+            if (this.speed>Rat.speed&&Rat.status){
+                document.write('Mèo dí chuột'+'<br>');
+                document.write('Đã bắt đc!'+'<br>');
+                return true;
+            } else {
+                document.write('Mèo dí chuột'+'<br>');
+                document.write('ko đủ tốc độ!'+'<br>');
+                document.write('ko bắt được!'+'<br>');
+                return false;
+            }
+        }
+        eat(Rat){
+                if(this.catch(Rat)){
+                    document.write('đang ăn chuột'+'<br>')
+                    this.weight+=Rat.weight;
+                    document.write('đã ăn xong , tăng cân = '+cat1.weight +' kg');
+            } else {
+                    document.write('cân nặng vẫn giữ nguyên!')
+                }
+        }
+    }
+    let rat1=new Rat("Rat",5,20,true);
+    rat1.say("ta là chuột!"+' nặng '+rat1.weight+' kg');
+    let cat1=new Cat('Cat',20,15);
+    cat1.say("ta là mèo !"+' nặng '+cat1.weight+' kg ');
+    cat1.catch(rat1);
+    cat1.setSpeed(30);
+    rat1.setStatus(true);
+    cat1.eat(rat1);
+
+
+</script>
+</body>
+</html>
