@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<p id="display"></p>
 <canvas id="myCanvas" width="200" height="100"></canvas>
 <script>
     class Rectangle {
@@ -12,16 +13,16 @@
             this.chieuDai=chieuDai;
             this.chieuRong=chieuRong;
         }
-        getchieuDai(chieuDai){
+        getChieuDai(chieuDai){
             return this.chieuDai;
         }
-        getchieuRong(chieuRong){
+        getChieuRong(chieuRong){
             return this.chieuRong;
         }
-        setchieuDai(chieuDai){
+        setChieuDai(chieuDai){
             this.chieuDai=chieuDai;
         }
-        setchieuRong(chieuRong){
+        setChieuRong(chieuRong){
             this.chieuRong=chieuRong;
         }
         tinhChuVi(chieuDai,chieuRong){
@@ -36,12 +37,12 @@
             ctx.fillRect(x,y,this.chieuDai,this.chieuRong);
         }
     }
-    let rectangle1=new Rectangle(100,50);
-    let chieuDaiHCN= rectangle1.getchieuDai();
-    let chieuRongHCN=rectangle1.getchieuRong();
-    document.write('chu vi HCN = '+rectangle1.tinhChuVi());
-    document.write('<br>');
-    document.write('diện tích HCN = '+rectangle1.tinhDienTich());
+    let rectangle1=new Rectangle(200,100);
+    let chieuDaiHCN= rectangle1.getChieuDai();
+    let chieuRongHCN=rectangle1.getChieuRong();
+
+    document.getElementById('display').innerHTML='chu vi HCN = '+rectangle1.tinhChuVi()+' ; ' +'diện tích HCN = '+rectangle1.tinhDienTich()
+
     rectangle1.display(50,10);
 
 
