@@ -12,13 +12,13 @@
         }
 
         turnOn() {
-            alert('đèn bật');
-            return this.status = true;
+            document.write('đèn bật'+'<br>');
+            this.status = true;
         }
 
         turnOff() {
-            alert('đèn tắt');
-            return this.status = false;
+            document.write('đèn tắt'+'<br>');
+            this.status = false;
         }
 
     }
@@ -48,7 +48,7 @@
     for(let i=0;i<10;i++){
         switchButton1.switchOn();
         switchButton1.switchOff();
-        document.write('switch lần '+(i+1));
+        document.write('switch lần '+(i+1)+'<br>');
 
     }
 
