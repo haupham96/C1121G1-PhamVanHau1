@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let luong = prompt('Nhập vào tiền lương : ');
+    while (parseInt(luong)!=luong){
+        luong=prompt('nhập số!');
+    }
+    luong=parseInt(luong);
+    if(luong<7000000){
+        luong=luong-(luong*0.05);
+        alert('lương sau khi trừ 5% thuế : '+luong+' VND');
+    } else if(luong>=7000000&&luong<15000000){
+        luong=luong-(luong*0.1);
+        alert('lương sau khi trừ 10% thuế : '+luong+' VND');
+    } else {
+        luong=luong-(luong*0.2);
+        alert('lương sau khi trừ 20% thuế : '+luong+' VND');
+    }
+</script>
+</body>
+</html>

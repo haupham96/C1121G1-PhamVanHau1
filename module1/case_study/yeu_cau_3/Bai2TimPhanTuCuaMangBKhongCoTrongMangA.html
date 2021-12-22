@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //có trong B nhưng ko có trong A;
+    let arrayA = [7, 2, 5, 3, 5, 3];
+    let arrayB = [7, 2, 5, 4, 6, 4, 6,9,1,10, 5, 3];
+    let result = [];
+    let check;
+    for (let i = 0; i < arrayB.length; i++) {
+        check = true;
+        for (let j = 0; j < arrayA.length; j++) {
+            if (arrayB[i] == arrayA[j]) {
+                check = false;
+                break;
+            }
+        }
+        if (check) {
+            result.push(arrayB[i]);
+        }
+    }
+document.write(result+'<br>');
+    for(let i=0; i<result.length;i++){
+        for(let j=i+1;j<result.length;j++){
+            if(result[i]==result[j]){
+                result.splice(j,1);
+            }
+        }
+    }
+    result.sort(function (a,b) {
+        return a-b;
+
+    });
+    document.write(result);
+
+</script>
+</body>
+</html>

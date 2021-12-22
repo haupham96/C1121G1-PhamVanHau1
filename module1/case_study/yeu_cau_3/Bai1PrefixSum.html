@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sizeA=parseInt(prompt('nhập chiều dài mảng A :'));
+    let arrayA=new Array(sizeA);
+    for(let i=0;i<sizeA;i++){
+        arrayA[i]=parseInt(prompt('nhập phần tử index '+i));
+    }
+    let arrayB=new Array(sizeA);
+    for(let k=0;k<sizeA;k++){
+        arrayB[k]=0;
+    }
+    document.write('array A = '+arrayA+'<br>');
+
+    for(let i=0;i<arrayB.length;i++){
+        for(let j=0;j<=i;j++) {
+            arrayB[i]+=arrayA[j]
+        }
+
+    }
+document.write('prefixSum(arrayA) = '+ arrayB);
+</script>
+</body>
+</html>

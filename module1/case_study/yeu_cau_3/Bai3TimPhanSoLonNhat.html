@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tuSo = [5, 2, 5];
+    let mauSo = [5, 3, 4];
+    let phanSo = [];
+
+    function maxFraction(tuSo, mauSo) {
+        let index="";
+        let max;
+        for (let i = 0; i < tuSo.length; i++) {
+            phanSo.push(tuSo[i] / mauSo[i])
+        }
+        document.write(phanSo);
+        for(let i=0;i<phanSo.length;i++){
+            max=phanSo[0];
+            index=0;
+            if(phanSo[i]>max){
+                max=phanSo[i];
+                index=i;
+            }
+        }
+        document.write('<br>'+'chỉ số của phân số lớn nhất là : '+index);
+    }
+
+    maxFraction(tuSo, mauSo);
+</script>
+</body>
+</html>
