@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str="aabdbbaaaca";
+   str= str.split('');
+str.sort();
+document.write(str);
+document.write('<br>');
+let result=[];
+    for(let i=0;i<str.length;i++){
+        for(let j=i+1;j<str.length;j++){
+            if(str[i]==str[j]){
+                str.splice(j,1)
+                j--;
+            }
+        }
+    }
+    document.write('số kí tự giống nhau = '+str.length);
+    document.write('<br>');
+    document.write('số kí tự giống là '+str);
+
+</script>
+</body>
+</html>

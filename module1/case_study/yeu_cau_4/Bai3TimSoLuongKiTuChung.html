@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string1 = "aabccd";
+    let string2 = "adcaad";
+    function demSoLuongKiTuGiongNhau(string1,string2){
+        string1=string1.split('');
+        document.write(string1+'<br>');
+        string2=string2.split('');
+        document.write(string2+'<br>');
+        let result=[];
+        for(let i=0;i<string1.length;i++){
+            for(let j=0;j<string2.length;j++){
+                if(string1[i]==string2[j]){
+                    result.push(string1[i]);
+                    string1.splice(i,1);
+                    string2.splice(j,1);
+                    i--;
+                    j--;
+                }
+            }
+        }
+        document.write('số lượng kí tự giống nhau = '+result.length+'<br>');
+        document.write('kí tự giống nhau là '+result+'<br>');
+    }
+    demSoLuongKiTuGiongNhau(string1,string2);
+
+
+
+</script>
+</body>
+</html>
