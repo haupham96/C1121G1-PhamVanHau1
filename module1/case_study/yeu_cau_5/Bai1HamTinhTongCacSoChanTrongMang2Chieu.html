@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sizeM=parseInt(prompt('nhập chiều dài m của mảng chính'));
+    let sizeN=parseInt(prompt('nhập chiều dài n của mảng con'));
+    let array = new Array(sizeM);
+    for(let i=0;i<array.length;i++){
+            array[i]=new Array(sizeN);
+            for(let j=0;j<array[i].length;j++){
+                array[i][j]=parseInt(prompt('nhập phần tử index i = '+i+' j = '+j+' của mảng '))
+            }
+        }
+    document.write('các phần tử của mảng :'+array);
+    document.write('<br>');
+
+
+    function tinhTongCacSoChanTrongMang(array){
+        let result=0;
+        let display="";
+        for(let i=0;i<array.length;i++){
+            for(let j=0;j<array[i].length;j++){
+                if(array[i][j]%2==0){
+                    result += array[i][j];
+                    display+= array[i][j]+' , ';
+                }
+            }
+        }
+        document.write('các số chẵn trong mảng : '+display);
+        document.write('<br>');
+        document.write('Tổng các số chẵn trong mảng : '+result);
+    }
+    tinhTongCacSoChanTrongMang(array);
+</script>
+</body>
+</html>

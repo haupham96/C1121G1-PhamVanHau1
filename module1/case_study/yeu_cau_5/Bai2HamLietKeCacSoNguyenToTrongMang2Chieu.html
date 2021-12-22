@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [
+                [1,2,3,4,5,6],
+                [7,8,9,10,11],
+                [12,13,14,15,16,17]
+                ]
+    function timVaLietKeSoNguyenTo(array){
+        let check;
+        let result=[];
+        for(let i=0;i<array.length;i++){
+            for(let j=0;j<array[i].length;j++){
+                let check=true;
+
+                for(let k=2;k<=Math.sqrt(array[i][j]);k++){
+                    if(array[i][j]%k==0){
+                        check = false;
+                        break;
+                    }
+
+                }
+                if(array[i][j]<2){
+                    check=false;
+                }
+                if(check){
+                    result.push(array[i][j]);
+                }
+                }
+            }
+        document.write('có '+result.length+' số nguyên tố bao gồm : '+result);
+        }
+        timVaLietKeSoNguyenTo(array);
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [
+        [3, 2, 3, 4, 5, 6],
+        [7, 8, 9, 10, 11],
+        [12, 13, 14, 19, 16, 17]
+    ]
+
+    function timMaxVaMinArray2Chieu(array) {
+        let max = array[0][0];
+        let min = array[0][0];
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j] > max) {
+                    max = array[i][j];
+                }
+                if (array[i][j] < min) {
+                    min = array[i][j];
+                }
+            }
+        }
+        document.write('Giá trị nhỏ nhất của Mảng 2 chiều = ' + min);
+        document.write('<br>');
+        document.write('Giá trị lớn nhất của Mảng 2 chiều = ' + max);
+
+    }
+
+    timMaxVaMinArray2Chieu(array);
+</script>
+</body>
+</html>
