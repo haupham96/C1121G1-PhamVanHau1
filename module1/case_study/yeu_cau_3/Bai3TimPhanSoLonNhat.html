@@ -11,15 +11,13 @@
     let phanSo = [];
 
     function maxFraction(tuSo, mauSo) {
-        let index="";
-        let max;
         for (let i = 0; i < tuSo.length; i++) {
             phanSo.push(tuSo[i] / mauSo[i])
         }
         document.write(phanSo);
+        let max=phanSo[0];
+        let index=0;
         for(let i=0;i<phanSo.length;i++){
-            max=phanSo[0];
-            index=0;
             if(phanSo[i]>max){
                 max=phanSo[i];
                 index=i;

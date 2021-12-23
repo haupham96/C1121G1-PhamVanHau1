@@ -7,17 +7,26 @@
 <body>
 <script>
     let nhapChuCai=prompt('nhập 1 chữ cái để kiểm tra có phải là nguyên âm');
+    let nguyenAm=["A","a","E","e","U","u","I","i","O","o"];
     while(nhapChuCai.length>1){
             alert('phải nhập chữ cái')
-
         nhapChuCai=prompt('nhập 1 kí tự chữ cái!');
     }
-    if(nhapChuCai=='a' || nhapChuCai=='e' || nhapChuCai=='u' || nhapChuCai=='i' || nhapChuCai=='o' ||
-       nhapChuCai=='A' || nhapChuCai=='E' || nhapChuCai=='U' || nhapChuCai=='I' || nhapChuCai=='O'){
-        alert(nhapChuCai+' là nguyên âm!')
-    } else {
-        alert(nhapChuCai+' không phải nguyên âm!')
+    let check;
+    for(let i=0;i<nguyenAm.length;i++){
+        check=false
+        if(nhapChuCai==nguyenAm[i]){
+            check=true;
+            break;
+        }
     }
+    if(check){
+        alert(nhapChuCai+' là nguyên âm');
+    } else {
+        alert(nhapChuCai+' ko phải nguyên âm')
+    }
+
+
 </script>
 </body>
 </html>

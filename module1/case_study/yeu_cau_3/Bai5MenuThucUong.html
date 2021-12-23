@@ -16,6 +16,7 @@
 -->
 <script>
     let goiMon;
+    let count=7;
     let soLuong;
     let checkTinhTien;
     let tinhTien = 0;
@@ -28,77 +29,79 @@
             '5.Nước lọc : 10K' + '\n' +
             '6.Nước dừa : 20K' + '\n' +
             '7.Tính Tiền Và Thoát');
-        if (goiMon == 1) {
-            soLuong = parseInt(prompt('Nhập số lượng ly Cafe :'));
-            if (soLuong == parseInt(soLuong)) {
-                checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 15) + 'K');
-                if (checkTinhTien == true) {
-                    tinhTien += (soLuong) * 15;
-                } else {
-                    tinhTien += 0;
+        switch (goiMon) {
+            case "1":
+                soLuong = parseInt(prompt('Nhập số lượng ly Cafe :'));
+                if (soLuong == parseInt(soLuong)) {
+                    checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 15) + 'K');
+                    if (checkTinhTien == true) {
+                        tinhTien += (soLuong) * 15;
+                    } else {
+                        tinhTien += 0;
+                    }
                 }
-            }
-        }
-        if (goiMon == 2) {
-            soLuong = parseInt(prompt('Nhập số lượng ly Cam Vắt :'));
-            if (soLuong == parseInt(soLuong)) {
-                checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 30) + 'K');
-                if (checkTinhTien == true) {
-                    tinhTien += (soLuong * 30);
-                } else {
-                    tinhTien += 0;
+                break;
+            case '2':
+                soLuong = parseInt(prompt('Nhập số lượng ly Cam Vắt :'));
+                if (soLuong == parseInt(soLuong)) {
+                    checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 30) + 'K');
+                    if (checkTinhTien == true) {
+                        tinhTien += (soLuong * 30);
+                    } else {
+                        tinhTien += 0;
+                    }
                 }
-            }
-        }
-        if (goiMon == 3) {
-            soLuong = parseInt(prompt('Nhập số lượng ly Ép Cà Rốt :'));
-            if (soLuong == parseInt(soLuong)) {
-                checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 30) + 'K');
-                if (checkTinhTien == true) {
-                    tinhTien += (soLuong * 30);
-                } else {
-                    tinhTien += 0;
+                break;
+            case '3':
+                soLuong = parseInt(prompt('Nhập số lượng ly Ép Cà Rốt :'));
+                if (soLuong == parseInt(soLuong)) {
+                    checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 30) + 'K');
+                    if (checkTinhTien == true) {
+                        tinhTien += (soLuong * 30);
+                    } else {
+                        tinhTien += 0;
+                    }
                 }
-            }
-        }
-        if (goiMon == 4) {
-            soLuong = parseInt(prompt('Nhập số lượng ly Ép cà chua :'));
-            if (soLuong == parseInt(soLuong)) {
-                checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 30) + 'K');
-                if (checkTinhTien == true) {
-                    tinhTien += (soLuong * 30);
-                } else {
-                    tinhTien += 0;
+                break;
+            case '4':
+                soLuong = parseInt(prompt('Nhập số lượng ly Ép cà chua :'));
+                if (soLuong == parseInt(soLuong)) {
+                    checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 30) + 'K');
+                    if (checkTinhTien == true) {
+                        tinhTien += (soLuong * 30);
+                    } else {
+                        tinhTien += 0;
+                    }
                 }
-            }
-        }
-        if (goiMon == 5) {
-            soLuong = parseInt(prompt('Nhập số lượng chai Nước lọc :'));
-            if (soLuong == parseInt(soLuong)) {
-                checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 10) + 'K');
-                if (checkTinhTien == true) {
-                    tinhTien += (soLuong * 10);
-                } else {
-                    tinhTien += 0;
+                break;
+            case '5':
+                soLuong = parseInt(prompt('Nhập số lượng chai Nước lọc :'));
+                if (soLuong == parseInt(soLuong)) {
+                    checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 10) + 'K');
+                    if (checkTinhTien == true) {
+                        tinhTien += (soLuong * 10);
+                    } else {
+                        tinhTien += 0;
+                    }
                 }
-            }
-        }
-        if (goiMon == 6) {
-            soLuong = parseInt(prompt('Nhập số lượng ly Nước dừa :'));
-            if (soLuong == parseInt(soLuong)) {
-                checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 20) + 'K');
-                if (checkTinhTien == true) {
-                    tinhTien += (soLuong * 20);
-                } else {
-                    tinhTien += 0;
+                break;
+            case '6':
+                soLuong = parseInt(prompt('Nhập số lượng ly Nước dừa :'));
+                if (soLuong == parseInt(soLuong)) {
+                    checkTinhTien = confirm('Bạn cần thanh toán : ' + (soLuong * 20) + 'K');
+                    if (checkTinhTien == true) {
+                        tinhTien += (soLuong * 20);
+                    } else {
+                        tinhTien += 0;
+                    }
                 }
-            }
+                break;
+            case '7':
+                alert('Tổng tiền cần trả : ' + tinhTien + ' K');
+                count=10;
+                break;
         }
-        if (goiMon == 7) {
-            alert('Tổng tiền cần trả : ' + tinhTien + ' K');
-            break;
-        }
-    } while (true)
+    } while (count<10);
 
 </script>
 </body>
