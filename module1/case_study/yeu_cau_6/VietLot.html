@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vietlotte - Hãy đứng vững!</title>
+</head>
+<body>
+<h1>Xổ Số ViệtLót - Mang niềm vui đến mọi nhà !</h1>
+<p id="hienthi"></p>
+<!--<input id="ketQua1" type="number" placeholder="kết quả!">-->
+<!--<input id="ketQua2" type="number" placeholder="kết quả!">-->
+<!--<input id="ketQua3" type="number" placeholder="kết quả!">-->
+<!--<input id="ketQua4" type="number" placeholder="kết quả!">-->
+<!--<input id="ketQua5" type="number" placeholder="kết quả!">-->
+<!--<input id="ketQua6" type="number" placeholder="kết quả!">-->
+<!--<label style="color: red"><strong>KẾT QUẢ XỔ SỐ</strong></label>-->
+<!--<br> <br>-->
+<!--<input id="veSo1" type="number" value="" placeholder="Nhập vé của bạn">-->
+<!--<input id="veSo2" type="number" value="" placeholder="Nhập vé của bạn">-->
+<!--<input id="veSo3" type="number" value="" placeholder="Nhập vé của bạn">-->
+<!--<input id="veSo4" type="number" value="" placeholder="Nhập vé của bạn">-->
+<!--<input id="veSo5" type="number" value="" placeholder="Nhập vé của bạn">-->
+<!--<input id="veSo6" type="number" value="" placeholder="Nhập vé của bạn">-->
+<!--<input type="button" value="Xác Nhận" onclick="xacNhan()">-->
+<!--<br><br>-->
+<input type="button" value="Mua Vé" onclick="muaVe()">
+<input type="button" value="Hậu Quả" onclick="ketQua()">
+<p id="display"></p>
+<script>
+    class VietLot {
+        constructor() {
+            this.num1 = 0;
+            this.num2 = 0;
+            this.num3 = 0;
+            this.num4 = 0;
+            this.num5 = 0;
+            this.num6 = 0;
+        }
+
+        getNum1() {
+            return this.num1;
+        }
+
+        getNum2() {
+            return this.num2;
+        }
+
+        getNum3() {
+            return this.num3;
+        }
+
+        getNum4() {
+            return this.num4;
+        }
+
+        getNum5() {
+            return this.num5;
+        }
+
+        getNum6() {
+            return this.num6;
+        }
+
+        setNum(num1, num2, num3, num4, num5, num6) {
+            this.num1 = num1;
+            this.num2 = num2;
+            this.num3 = num3;
+            this.num4 = num4;
+            this.num5 = num5;
+            this.num6 = num6;
+        }
+
+    }
+
+    function ketQua() {
+        let ketQuaVietLot = new VietLot();
+        let num1 = (Math.round(Math.random() * 99));
+        let num2 = (Math.round(Math.random() * 99));
+        let num3 = (Math.round(Math.random() * 99));
+        let num4 = (Math.round(Math.random() * 99));
+        let num5 = (Math.round(Math.random() * 99));
+        let num6 = (Math.round(Math.random() * 99));
+
+        ketQuaVietLot.setNum(num1, num2, num3, num4, num5, num6)
+
+        document.getElementById('ketQua1').value = ketQuaVietLot.getNum1()
+        document.getElementById('ketQua2').value = ketQuaVietLot.getNum2()
+        document.getElementById('ketQua3').value = ketQuaVietLot.getNum3()
+        document.getElementById('ketQua4').value = ketQuaVietLot.getNum4()
+        document.getElementById('ketQua5').value = ketQuaVietLot.getNum5()
+        document.getElementById('ketQua6').value = ketQuaVietLot.getNum6()
+
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].getNum6() == ketQuaVietLot.getNum6() &&
+                data[i].getNum5() == ketQuaVietLot.getNum5() &&
+                data[i].getNum4() == ketQuaVietLot.getNum4() &&
+                data[i].getNum3() == ketQuaVietLot.getNum3() &&
+                data[i].getNum2() == ketQuaVietLot.getNum2() &&
+                data[i].getNum1() == ketQuaVietLot.getNum1()) {
+                alert('chúc mừng bạn đã trúng Giải Nhất ở vé thứ ' + (i + 1) + '\n' +
+                    ' Phần thưởng trị giá : 100 Tỷ đồng');
+                continue;
+            }
+            if (data[i].getNum6() == ketQuaVietLot.getNum6() &&
+                data[i].getNum5() == ketQuaVietLot.getNum5() &&
+                data[i].getNum4() == ketQuaVietLot.getNum4() &&
+                data[i].getNum3() == ketQuaVietLot.getNum3() &&
+                data[i].getNum2() == ketQuaVietLot.getNum2()) {
+                alert('chúc mừng bạn đã trúng giải Nhì ở vé thứ ' + (i + 1) + '\n' +
+                    ' Phần thưởng trị giá : 50 Tỷ đồng');
+                continue;
+            }
+            if (data[i].getNum6() == ketQuaVietLot.getNum6() &&
+                data[i].getNum5() == ketQuaVietLot.getNum5() &&
+                data[i].getNum4() == ketQuaVietLot.getNum4()) {
+                alert('chúc mừng bạn đã trúng giải khuyến khích ở vé thứ ' + (i + 1) + '\n' +
+                    ' Phần thưởng trị giá : 500 Triệu đồng');
+            }
+        }
+    }
+
+    function muaVe() {
+        let veNgauNhien = new VietLot();
+        let muaVe = parseInt(prompt('Chọn 1 Hoặc 2 \n' +
+            '1.Hệ thống tự chọn ngẫu nhiên\n' +
+            '2.Bạn tự chọn số'));
+        let hienThi = '<input id="ketQua1" type="number" placeholder="kết quả!">\n' +
+            '<input id="ketQua2" type="number" placeholder="kết quả!">\n' +
+            '<input id="ketQua3" type="number" placeholder="kết quả!">\n' +
+            '<input id="ketQua4" type="number" placeholder="kết quả!">\n' +
+            '<input id="ketQua5" type="number" placeholder="kết quả!">\n' +
+            '<input id="ketQua6" type="number" placeholder="kết quả!">\n' +
+            '<label style="color: red"><strong>KẾT QUẢ XỔ SỐ</strong></label>\n' +
+            '<br> <br>\n' +
+            '<input id="veSo1" type="number" value="" placeholder="Nhập vé của bạn">\n' +
+            '<input id="veSo2" type="number" value="" placeholder="Nhập vé của bạn">\n' +
+            '<input id="veSo3" type="number" value="" placeholder="Nhập vé của bạn">\n' +
+            '<input id="veSo4" type="number" value="" placeholder="Nhập vé của bạn">\n' +
+            '<input id="veSo5" type="number" value="" placeholder="Nhập vé của bạn">\n' +
+            '<input id="veSo6" type="number" value="" placeholder="Nhập vé của bạn">\n' +
+            '<input type="button" value="Xác Nhận Mua Vé" onclick="xacNhan()">\n' +
+            '<br><br>\n'
+
+        document.getElementById('hienthi').innerHTML = hienThi;
+        if (muaVe == 1) {
+            let num1 = (Math.round(Math.random() * 99));
+            let num2 = (Math.round(Math.random() * 99));
+            let num3 = (Math.round(Math.random() * 99));
+            let num4 = (Math.round(Math.random() * 99));
+            let num5 = (Math.round(Math.random() * 99));
+            let num6 = (Math.round(Math.random() * 99));
+            veNgauNhien.setNum(num1, num2, num3, num4, num5, num6);
+            document.getElementById('veSo1').value = veNgauNhien.getNum1();
+            document.getElementById('veSo2').value = veNgauNhien.getNum2();
+            document.getElementById('veSo3').value = veNgauNhien.getNum3();
+            document.getElementById('veSo4').value = veNgauNhien.getNum4();
+            document.getElementById('veSo5').value = veNgauNhien.getNum5();
+            document.getElementById('veSo6').value = veNgauNhien.getNum6();
+        }
+        if (muaVe == 2) {
+            alert('mời bạn nhập số !');
+            document.getElementById('veSo1').value = "";
+            document.getElementById('veSo2').value = '';
+            document.getElementById('veSo3').value = '';
+            document.getElementById('veSo4').value = '';
+            document.getElementById('veSo5').value = '';
+            document.getElementById('veSo6').value = '';
+        }
+    }
+
+
+    function xacNhan() {
+
+        let xacNhanVe = new VietLot();
+        let num1, num2, num3, num4, num5, num6;
+        num1 = (document.getElementById('veSo1').value);
+        num2 = (document.getElementById('veSo2').value);
+        num3 = (document.getElementById('veSo3').value);
+        num4 = (document.getElementById('veSo4').value);
+        num5 = (document.getElementById('veSo5').value);
+        num6 = (document.getElementById('veSo6').value);
+        xacNhanVe.setNum(num1, num2, num3, num4, num5, num6);
+        data.push(xacNhanVe);
+        displayInput(data);
+
+    }
+
+    let data = [];
+
+    function displayInput(data) {
+        let input = "";
+        for (let i = 0; i < data.length; i++) {
+            if (i < 3) {
+                input += '<input  type="number" value="' + data[i].getNum1() + '">\n' +
+                    '<input  type="number" value="' + data[i].getNum2() + '">\n' +
+                    '<input  type="number" value="' + data[i].getNum3() + '">\n' +
+                    '<input  type="number" value="' + data[i].getNum4() + '">\n' +
+                    '<input  type="number" value="' + data[i].getNum5() + '">\n' +
+                    '<input  type="number" value="' + data[i].getNum6() + '">' +
+                    '<label>Vé thứ ' + (i + 1) + '</label>' +
+                    '<br><br>'
+            }
+            if (i >= 3) {
+                alert('Bình Tĩnh nào! bạn chỉ đc mua tối đa 3 vé!');
+                break;
+            }
+        }
+        document.getElementById('display').innerHTML = input;
+    }
+
+
+</script>
+</body>
+</html>
