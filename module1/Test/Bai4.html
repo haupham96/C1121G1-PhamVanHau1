@@ -5,6 +5,99 @@
     <title>Title</title>
 </head>
 <body>
+<input type="text" placeholder="Mã Tài Khoản" id="maTaiKhoan">
+<input type="text" placeholder="Chủ Tài Khoản" id="chuTaiKhoan">
+<input type="text" placeholder="Tên Ngân hàng" id="tenNganHang">
+<input type="text" placeholder="Tổng số tiền" id="tongSoTien">
+<input type="button" id="them" onclick="themMoi()" value="Thêm mới">
+<p id="hienThi"></p>
+<script>
+    class TaiKhoanNganHang {
+        constructor(maTaiKhoan, chuTaiKhoan, tenNganHang, tongSoTien) {
+            this.maTaiKhoan = maTaiKhoan;
+            this.chuTaiKhoan = chuTaiKhoan;
+            this.tenNganHang = tenNganHang;
+            this.tongSoTien = tongSoTien;
+        }
 
+        setMaTaiKhoan(maTaiKhoan) {
+            this.maTaiKhoan = maTaiKhoan;
+        }
+
+        getMaTaiKhoan() {
+            return this.maTaiKhoan;
+        }
+
+        setChuTaiKhoan(chuTaiKhoan) {
+            this.chuTaiKhoan = chuTaiKhoan;
+        }
+
+        getChuTaiKhoan() {
+            return this.chuTaiKhoan;
+        }
+
+        setTenNganHang(tenNganHang) {
+            this.tenNganHang = tenNganHang;
+        }
+
+        getTenNganHang() {
+            return this.tenNganHang;
+        }
+
+        setTongSoTien(tongSoTien) {
+            this.tongSoTien = tongSoTien;
+        }
+
+        getTongSoTien() {
+            return this.tongSoTien;
+        }
+    }
+
+let danhSach=[];
+    hienThi(danhSach);
+    function hienThi(danhSach) {
+        let bang = '<table border="1" style="border-collapse: collapse">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Mã Tài Khoản</th>\n' +
+            '        <th>Chủ Tài khoản</th>\n' +
+            '        <th>Tên Ngân Hàng</th>\n' +
+            '        <th>Tổng Số Tiền</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSach.length; i++) {
+            bang += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSach[i].getMaTaiKhoan() + '</td>\n' +
+                '        <td>' + danhSach[i].getChuTaiKhoan() + '</td>\n' +
+                '        <td>' + danhSach[i].getTenNganHang() + '</td>\n' +
+                '        <td>' + danhSach[i].getTongSoTien() + '</td>\n' +
+                '    </tr>';
+        }
+        bang += '</table>'
+
+        document.getElementById("hienThi").innerHTML = bang;
+    }
+function themMoi() {
+        let maTaikhoan = document.getElementById("maTaiKhoan").value;
+        let chuTaiKhoan = document.getElementById("chuTaiKhoan").value;
+        let tenNganHang = document.getElementById("tenNganHang").value;
+        let tongTien = document.getElementById("tongSoTien").value;
+        if(maTaikhoan==parseInt(maTaikhoan)&&maTaikhoan.length==5){
+            let khachHangMoi = new TaiKhoanNganHang(maTaikhoan, chuTaiKhoan, tenNganHang,tongTien);
+            danhSach.push(khachHangMoi);
+            document.getElementById("maTaiKhoan").value ="";
+            document.getElementById("chuTaiKhoan").value ="";
+            document.getElementById("tenNganHang").value ="";
+            document.getElementById("tongSoTien").value ="";
+            hienThi(danhSach);
+        } else {
+            alert('mã tài khoản phải là 5 số');
+        }
+
+
+
+}
+
+</script>
 </body>
 </html>

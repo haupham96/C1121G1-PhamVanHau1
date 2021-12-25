@@ -5,6 +5,38 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    let num1=0;
+    let num2=1;
+    let total=0;
+    let fibonacci=[0];
+    for(let i=0;i<100;i++){
+        total=num1+num2;
+        num1=num2;
+        num2=total;
+        fibonacci.push(num1);
+    }
+    // document.write(fibonacci);
+   let array=[1,5,6,13,9,12,8,0,5,1];
+    let arrayFibonacci=[];
+    function timSoFibonacciTrongMang(array) {
+        for(let i=0;i<array.length;i++){
+            for(let j=0;j<fibonacci.length;j++){
+                if(array[i]==fibonacci[j]){
+                    arrayFibonacci.push(array[i]);
+                }
+            }
+        }
+        arrayFibonacci.sort(function (a,b) {
+            return a-b;
+        })
+        return arrayFibonacci;
+    }
+    document.write(timSoFibonacciTrongMang(array));
 
+
+
+
+</script>
 </body>
 </html>

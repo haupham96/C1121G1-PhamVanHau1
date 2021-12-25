@@ -5,6 +5,38 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+   let chieuDaiMang;
+   do{
+       chieuDaiMang = parseInt(prompt('nhập chiều dài mảng'));
+   } while(chieuDaiMang>50||chieuDaiMang<0||parseInt(chieuDaiMang)!=chieuDaiMang);
 
+  let mang = new Array(chieuDaiMang);
+   for(let i=0;i<mang.length;i++){
+       mang[i]=parseInt(prompt('nhập phần tử index'+i));
+   }
+document.write('mảng = '+mang);
+   document.write('<br>')
+   // vị trí chia hết cho 3 ( i%3 ==0);
+   //  giá trị trung bình các ptu chia hét cho 5
+let m
+   let count=0;
+   let result=0;
+    for(let i=0;i<mang.length;i++){
+        if(i%3==0){
+            if(mang[i]%5==0){
+                result+=mang[i];
+                count+=1
+            }
+        }
+    }
+    if(count>=1){
+        document.write('có '+count+' phần tử chia hết cho 5 ở vị trí 3'+'\n'+'giá trị trung bình của các phần tử chia hết cho 5 ở vị trí chia hết cho 3 ='+'\n'
+            +(result)/count);
+    } else {
+        alert('ko có phần tử chia hết cho 5 ở vị trí 3');
+    }
+
+</script>
 </body>
 </html>

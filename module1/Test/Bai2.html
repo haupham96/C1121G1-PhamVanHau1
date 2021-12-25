@@ -5,6 +5,26 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    let nhapChuoi=prompt('Nhập từ để tạo ra từ viết tắt');
+    function chuyenChuoiThanhTuVietTat(string){
+        string=string.trim();
+        string=string.split(' ');
+        let mang =[];
+        if(string.length>=2){
+            for(let i=0;i<string.length;i++){
+                mang[i]=string[i].charAt(0);
+            }
+            mang=mang.join('');
+            mang.toString();
+            mang=mang.toUpperCase()
+            document.write(mang);
+        } else {
+            alert('có 1 từ ko nên viết tắt');
+        }
 
+    }
+    chuyenChuoiThanhTuVietTat(nhapChuoi)
+</script>
 </body>
 </html>
