@@ -1,6 +1,5 @@
 package ss6_inheritance.exercise.design_triangle_class;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class TestTriangle {
