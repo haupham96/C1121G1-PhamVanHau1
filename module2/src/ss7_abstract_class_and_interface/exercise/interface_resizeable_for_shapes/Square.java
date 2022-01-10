@@ -2,7 +2,7 @@ package ss7_abstract_class_and_interface.exercise.interface_resizeable_for_shape
 
 
 
-public class Square extends Shapes implements Resizeable {
+public class Square extends Shapes implements IResizeable {
     private double side;
 
     public Square() {

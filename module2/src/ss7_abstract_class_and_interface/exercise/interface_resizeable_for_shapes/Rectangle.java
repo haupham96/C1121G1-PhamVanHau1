@@ -1,7 +1,7 @@
 package ss7_abstract_class_and_interface.exercise.interface_resizeable_for_shapes;
 
 
-public class Rectangle extends Shapes implements Resizeable {
+public class Rectangle extends Shapes implements IResizeable {
     private double width = 1.0;
     private double length = 2.0;
 

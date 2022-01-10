@@ -1,6 +1,6 @@
 package ss7_abstract_class_and_interface.exercise.interface_colorable_for_shapes;
 
-public class Square extends Shape implements Colorable {
+public class Square extends Shape implements IColorable {
     private double side;
 
     public Square() {

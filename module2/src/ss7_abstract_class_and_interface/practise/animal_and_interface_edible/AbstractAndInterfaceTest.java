@@ -9,7 +9,7 @@ public class AbstractAndInterfaceTest {
             System.out.println(animal.makeSound());
 
             if (animal instanceof Chicken) {
-                Edible edibler = (Chicken) animal;
+                IEdible edibler = (Chicken) animal;
                 System.out.println(edibler.howToEat());
             }
         }
