@@ -14,11 +14,10 @@ public class TestResizeable {
             System.out.println(resize);
         }
 
-        System.out.println("After-resize");
+        double percent=(int)(Math.random()*100);
+        System.out.println("Percentage : " + percent);
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter size to resize in percentage :");
-        double percent=scanner.nextDouble();
+        System.out.println("After-resize");
 
         for(Resizeable resize : resizes){
             resize.resize(percent);
