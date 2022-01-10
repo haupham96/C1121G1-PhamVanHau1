@@ -1,4 +1,4 @@
-package ss7_abstract_class_and_interface.practise.interface_comparable_for_shapes;
+package ss7_abstract_class_and_interface.practise.interface_comparator_for_shapes;
 
 import java.util.Comparator;
 
