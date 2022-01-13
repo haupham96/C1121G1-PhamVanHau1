@@ -10,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Binary number");
         int decimal = Integer.parseInt(scanner.nextLine());
-        
+
         do {
             stack.push(decimal%2);
             decimal = decimal / 2;
