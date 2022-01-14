@@ -1,6 +1,6 @@
 package ss12_java_collection_framework.exercise.arraylist_mvc.product_control;
 
-import ss12_java_collection_framework.exercise.arraylist_mvc.product.ProductService;
+import ss12_java_collection_framework.exercise.arraylist_mvc.service.impl.ProductService;
 
 import java.util.Scanner;
 
@@ -43,7 +43,7 @@ public class Controller {
                 case 4:
                     System.out.println("Display Product List");
                     System.out.println();
-                    ProductService.display();
+                    productService.display();
                     break;
                 case 5:
                     System.out.println("Search By Product-Name");

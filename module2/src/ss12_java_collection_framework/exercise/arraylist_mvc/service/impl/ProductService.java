@@ -1,10 +1,13 @@
-package ss12_java_collection_framework.exercise.arraylist_mvc.product;
+package ss12_java_collection_framework.exercise.arraylist_mvc.service.impl;
+
+import ss12_java_collection_framework.exercise.arraylist_mvc.product.Product;
+import ss12_java_collection_framework.exercise.arraylist_mvc.service.IProductService;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ProductService {
+public class ProductService implements IProductService {
     Scanner scanner = new Scanner(System.in);
     public static ArrayList<Product> listProducts = new ArrayList<>();
 
@@ -20,7 +23,7 @@ public class ProductService {
         listProducts.add(product4);
         listProducts.add(product5);
     }
-
+    @Override
     public void add() {
         boolean check = true;
         System.out.println("Enter Product ID ");
@@ -44,6 +47,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public void editByID() {
         System.out.println("Enter ID to Edit ");
         int id = Integer.parseInt(scanner.nextLine());
@@ -67,12 +71,14 @@ public class ProductService {
     }
 
 
-    public static void display() {
+    @Override
+    public void display() {
         for (Product product : listProducts) {
             System.out.println(product);
         }
     }
 
+    @Override
     public void searchByName() {
         boolean checkSearch = false;
         System.out.println("Enter Product Name ");
@@ -90,6 +96,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public void deleteByID() {
         System.out.println("Enter ID to Edit ");
         int id = Integer.parseInt(scanner.nextLine());
@@ -107,6 +114,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public void sortByPriceIncrease(){
         Collections.sort(listProducts);
         display();
