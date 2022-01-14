@@ -53,6 +53,7 @@ public class Controller {
                 case 6:
                     System.out.println("Sort by Price increasing");
                     System.out.println();
+                    productService.sortByPriceIncrease();
                     break;
                 case 7:
                     System.err.println("GOODBYE !");

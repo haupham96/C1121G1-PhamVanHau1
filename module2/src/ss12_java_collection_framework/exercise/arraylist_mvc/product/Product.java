@@ -1,10 +1,9 @@
 package ss12_java_collection_framework.exercise.arraylist_mvc.product;
 
-public class Product {
+public class Product implements Comparable<Product> {
     private int id;
     private String name;
     private int price;
-
 
 
     public Product() {
@@ -49,5 +48,10 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.price - o.price;
     }
 }

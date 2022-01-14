@@ -1,6 +1,7 @@
 package ss12_java_collection_framework.exercise.arraylist_mvc.product;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ProductService {
@@ -107,7 +108,8 @@ public class ProductService {
     }
 
     public void sortByPriceIncrease(){
-        System.out.println("not yet!");
+        Collections.sort(listProducts);
+        display();
     }
 
 
