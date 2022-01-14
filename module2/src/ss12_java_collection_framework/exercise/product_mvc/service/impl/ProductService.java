@@ -1,7 +1,7 @@
-package ss12_java_collection_framework.exercise.arraylist_mvc.service.impl;
+package ss12_java_collection_framework.exercise.product_mvc.service.impl;
 
-import ss12_java_collection_framework.exercise.arraylist_mvc.product.Product;
-import ss12_java_collection_framework.exercise.arraylist_mvc.service.IProductService;
+import ss12_java_collection_framework.exercise.product_mvc.product.Product;
+import ss12_java_collection_framework.exercise.product_mvc.service.IProductService;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package ss12_java_collection_framework.exercise.arraylist_mvc.service;
+package ss12_java_collection_framework.exercise.product_mvc.service;
 
 public interface IProductService {
     void add();

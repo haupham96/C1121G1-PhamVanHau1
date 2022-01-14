@@ -1,4 +1,4 @@
-package ss12_java_collection_framework.exercise.arraylist_mvc.product;
+package ss12_java_collection_framework.exercise.product_mvc.product;
 
 public class Product implements Comparable<Product> {
     private int id;

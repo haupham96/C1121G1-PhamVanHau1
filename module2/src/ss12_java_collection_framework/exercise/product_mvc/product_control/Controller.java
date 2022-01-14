@@ -1,6 +1,6 @@
-package ss12_java_collection_framework.exercise.arraylist_mvc.product_control;
+package ss12_java_collection_framework.exercise.product_mvc.product_control;
 
-import ss12_java_collection_framework.exercise.arraylist_mvc.service.impl.ProductService;
+import ss12_java_collection_framework.exercise.product_mvc.service.impl.ProductService;
 
 import java.util.Scanner;
 
