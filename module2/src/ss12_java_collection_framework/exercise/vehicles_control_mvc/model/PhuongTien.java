@@ -1,17 +1,18 @@
 package ss12_java_collection_framework.exercise.vehicles_control_mvc.model;
 
 public class PhuongTien {
+
     private String bienKiemSoat;
-    private String hangSanxuat;
+    private String hangSanXuat;
     private int namSanXuat;
     private String chuSoHuu;
 
     public PhuongTien() {
     }
 
-    public PhuongTien(String bienKiemSoat, String hangSanxuat, int namSanXuat, String chuSoHuu) {
+    public PhuongTien(String bienKiemSoat, String hangSanXuat, int namSanXuat, String chuSoHuu) {
         this.bienKiemSoat = bienKiemSoat;
-        this.hangSanxuat = hangSanxuat;
+        this.hangSanXuat = hangSanXuat;
         this.namSanXuat = namSanXuat;
         this.chuSoHuu = chuSoHuu;
     }
@@ -26,12 +27,9 @@ public class PhuongTien {
     }
 
     public String getHangSanxuat() {
-        return hangSanxuat;
+        return this.hangSanXuat;
     }
 
-    public void setHangSanxuat(String hangSanxuat) {
-        this.hangSanxuat = hangSanxuat;
-    }
 
     public int getNamSanXuat() {
         return namSanXuat;
@@ -54,9 +52,9 @@ public class PhuongTien {
     public String toString() {
         return
                 "Biển Kiểm Soát :'" + bienKiemSoat + '\'' +
-                ", Hãng Sản Xuất :'" + hangSanxuat + '\'' +
-                ", Năm Sản Xuất :" + namSanXuat +
-                ", Chủ Sở Hữu :'" + chuSoHuu + '\''
+                        ", Hãng Sản Xuất :'" + this.hangSanXuat + '\'' +
+                        ", Năm Sản Xuất :" + namSanXuat +
+                        ", Chủ Sở Hữu :'" + chuSoHuu + '\''
                 ;
     }
 }

@@ -1,4 +1,4 @@
-package ss12_java_collection_framework.exercise.vehicles_control_mvc.model.service;
+package ss12_java_collection_framework.exercise.vehicles_control_mvc.service;
 
 public interface IChucNang {
 
