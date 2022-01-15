@@ -50,9 +50,20 @@ public class ChucNangXeMay implements IChucNang {
         String bienSo = scanner.nextLine();
         for (int i = 0; i < xeMay.size(); i++) {
             if (bienSo.equals(xeMay.get(i).getBienKiemSoat())) {
-                System.out.println(" Đã xóa thành công " + xeMay.get(i).getBienKiemSoat());
-                xeMay.remove(i);
                 check = true;
+                System.out.println("Bạn chắc chắn muốn xóa "+xeMay.get(i).getBienKiemSoat()+" ? ");
+                System.out.println("Nhập Yes để xóa hoặc No để hủy xóa ");
+                String confirm = scanner.nextLine();
+                if(confirm.equals("Yes")){
+                    System.out.println(" Đã xóa thành công " + xeMay.get(i).getBienKiemSoat());
+                    xeMay.remove(i);
+                } else if(confirm.equals("No")){
+                    System.out.println("Đã hủy xóa");
+                    break;
+                } else {
+                    System.out.println("Error");
+                    break;
+                }
             }
         }
         if (!check) {
