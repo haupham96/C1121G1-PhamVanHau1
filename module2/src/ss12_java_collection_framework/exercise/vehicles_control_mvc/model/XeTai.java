@@ -23,7 +23,7 @@ public class XeTai extends PhuongTien{
     public String toString() {
         return "Xe Tải{" +
                 super.toString()+" , "+
-                "Tải Trọng ='" + taiTrong + '\'' +
+                "Tải Trọng ='" + taiTrong +" Tấn "+ '\'' +
                 '}';
     }
 }
