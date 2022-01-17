@@ -1,7 +1,47 @@
 package ss12_java_collection_framework.exercise.vehicles_control_mvc.model;
 
 public class PhuongTien {
+    public static class HangSanXuat {
+        private String maHang;
+        private String tenHang;
+        private String tenQuocGia;
+        public HangSanXuat(){}
 
+        public HangSanXuat(String maHang, String tenHang, String tenQuocGia) {
+            this.maHang = maHang;
+            this.tenHang = tenHang;
+            this.tenQuocGia = tenQuocGia;
+        }
+
+        public String getMaHang() {
+            return maHang;
+        }
+
+        public void setMaHang(String maHang) {
+            this.maHang = maHang;
+        }
+
+        public String getTenHang() {
+            return tenHang;
+        }
+
+        public void setTenHang(String tenHang) {
+            this.tenHang = tenHang;
+        }
+
+        public String getTenQuocGia() {
+            return tenQuocGia;
+        }
+
+        public void setTenQuocGia(String tenQuocGia) {
+            this.tenQuocGia = tenQuocGia;
+        }
+
+        public String getAll(){
+            return this.maHang +" "+ this.tenHang +" "+ this.tenQuocGia;
+        }
+
+    }
     private String bienKiemSoat;
     private String hangSanXuat;
     private int namSanXuat;

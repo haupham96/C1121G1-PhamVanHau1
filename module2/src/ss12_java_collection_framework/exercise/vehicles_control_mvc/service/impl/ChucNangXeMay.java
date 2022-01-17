@@ -15,8 +15,8 @@ public class ChucNangXeMay implements IChucNang {
     public void them() {
         System.out.println("Mời nhập biển kiểm soát");
         String bienKiemSoat = scanner.nextLine();
-        System.out.println("Mời chọn hãng sản xuất theo Mã ");
         DataHangSanXuat.hienThiHangSanXuat();
+        System.out.println("MỜI NHẬP MÃ HÃNG SẢN XUẤT  ");
         String maHangSanXuat = scanner.nextLine();
         String hangSanXuat = DataHangSanXuat.chonHangSanXuat(maHangSanXuat);
         System.out.println("nhập năm sản xuất");

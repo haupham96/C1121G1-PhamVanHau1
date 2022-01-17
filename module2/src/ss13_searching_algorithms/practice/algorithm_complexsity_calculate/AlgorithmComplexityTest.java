@@ -1,5 +1,7 @@
 package ss13_searching_algorithms.practice.algorithm_complexsity_calculate;
 
+import ss13_searching_algorithms.practice.setting_binary_search.BinarySearch;
+
 import java.util.Scanner;
 
 public class AlgorithmComplexityTest {
@@ -21,6 +23,5 @@ public class AlgorithmComplexityTest {
             }
         }
         System.out.println("most appearing : "+character+" , which is "+max+" times ");
-
     }
 }

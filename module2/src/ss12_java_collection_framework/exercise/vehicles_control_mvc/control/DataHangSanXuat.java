@@ -1,17 +1,19 @@
 package ss12_java_collection_framework.exercise.vehicles_control_mvc.control;
 
+import ss12_java_collection_framework.exercise.vehicles_control_mvc.model.PhuongTien;
+
 import java.util.ArrayList;
 
 public class DataHangSanXuat {
-    static ArrayList<String[]> hangSanXuat = new ArrayList<>();
+    static ArrayList<PhuongTien.HangSanXuat> hangSanXuat = new ArrayList<>();
     static {
-        String[] hangSanXuat1 = {"HSX-001", "Yamaha", "Nhật Bản"};
-        String[] hangSanXuat2 = {"HSX-002", "Honda", "Nhật Bản"};
-        String[] hangSanXuat3 = {"HSX-003", "Dongfeng", "Trung Quốc"};
-        String[] hangSanXuat4 = {"HSX-004", "Huyndai", "Hàn Quốc"};
-        String[] hangSanXuat5 = {"HSX-005", "Ford", "Mỹ"};
-        String[] hangSanXuat6 = {"HSX-006", "Toyota", "Nhật Bản"};
-        String[] hangSanXuat7 = {"HSX-007", "Hino", "Nhật Bản"};
+        PhuongTien.HangSanXuat hangSanXuat1 = new PhuongTien.HangSanXuat("HSX-001","Yamaha","Nhật Bản");
+        PhuongTien.HangSanXuat hangSanXuat2 = new PhuongTien.HangSanXuat("HSX-002","Honda","Nhật Bản");
+        PhuongTien.HangSanXuat hangSanXuat3 = new PhuongTien.HangSanXuat("HSX-003","Dongfeng","Trung Quốc");
+        PhuongTien.HangSanXuat hangSanXuat4 = new PhuongTien.HangSanXuat("HSX-004","Huyndai","Hàn Quốc");
+        PhuongTien.HangSanXuat hangSanXuat5 = new PhuongTien.HangSanXuat("HSX-005","Ford","Mỹ");
+        PhuongTien.HangSanXuat hangSanXuat6 = new PhuongTien.HangSanXuat("HSX-006","Toyota","Nhật Bản");
+        PhuongTien.HangSanXuat hangSanXuat7 = new PhuongTien.HangSanXuat("HSX-007","Hino","Nhật Bản");
 
         hangSanXuat.add(hangSanXuat1);
         hangSanXuat.add(hangSanXuat2);
@@ -20,18 +22,19 @@ public class DataHangSanXuat {
         hangSanXuat.add(hangSanXuat5);
         hangSanXuat.add(hangSanXuat6);
         hangSanXuat.add(hangSanXuat7);
-
     }
+
     public static void hienThiHangSanXuat() {
-        for (String[] element : hangSanXuat) {
-            System.out.println(element[0] + " " + element[1] + " " + element[2]);
+
+        for(int i=0;i< hangSanXuat.size();i++){
+            System.out.println(hangSanXuat.get(i).getAll());
         }
     }
 
     public static String chonHangSanXuat(String maHangSanXuat) {
             for (int i = 0; i < hangSanXuat.size(); i++) {
-                if (maHangSanXuat.equals(hangSanXuat.get(i)[0])) {
-                    return hangSanXuat.get(i)[1];
+                if (maHangSanXuat.equals(hangSanXuat.get(i).getMaHang())) {
+                    return hangSanXuat.get(i).getTenHang();
                 }
             }
             return "Mã hãng không đúng xin kiểm tra lại";
