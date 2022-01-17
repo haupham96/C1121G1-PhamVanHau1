@@ -1,4 +1,4 @@
-package ss13_searching_algorithms.exercise.find_increasing_string_with_max_length;
+package ss13_searching_algorithms.exercise;
 
 import java.util.ArrayList;
 
