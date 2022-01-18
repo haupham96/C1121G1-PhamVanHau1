@@ -1,6 +1,4 @@
-package ss13_searching_algorithms.practice.algorithm_complexsity_calculate;
-
-import ss13_searching_algorithms.practice.setting_binary_search.BinarySearch;
+package ss13_searching_algorithms.practice;
 
 import java.util.Scanner;
 
