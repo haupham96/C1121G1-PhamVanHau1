@@ -11,12 +11,12 @@ public class UsingInsectionSort {
         for (int i = 1; i < list.length; i++) {
             position = i;
             sortValue = list[i];
-
+            // nếu phần tử pos-1 > pos
+            // dịch chuyển mảng về bên trái và chèn phần tử cần sắp xếp vào
             while (position > 0 && sortValue < list[position - 1]) {
                 list[position] = list[position - 1];
                 position--;
             }
-
             list[position]=sortValue;
 
         }
