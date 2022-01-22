@@ -1,4 +1,4 @@
-package ss6_inheritance.codegym_managerment.util;
+package demo.codegym_managerment.util;
 
 import ss6_inheritance.codegym_managerment.model.Student;
 import ss6_inheritance.codegym_managerment.model.Teacher;
