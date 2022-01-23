@@ -31,7 +31,7 @@ public class XoaPhuongTien implements IChucNangPhuongTien {
 
         for(int i=0;i<listXeTai.size();i++){
             if(listXeTai.get(i).contains(bienKiemSoat)){
-                System.out.println("Tìm thấy phương tiện "+bienKiemSoat+" ở list Xe Tải");
+                System.out.println("Tìm thấy phương tiện "+listXeTai.get(i)+" ở list Xe Tải");
                 System.out.println("Nhập YES để xóa "+"\n"+"Nhập NO để hủy xóa");
                 String xacNhan = scanner.nextLine();
                 if(xacNhan.equals("YES")){
@@ -52,7 +52,7 @@ public class XoaPhuongTien implements IChucNangPhuongTien {
 
         for(int i=0;i<listXeOTO.size();i++){
             if(listXeOTO.get(i).contains(bienKiemSoat)){
-                System.out.println("Tìm thấy phương tiện "+bienKiemSoat+" ở list Xe Ô Tô");
+                System.out.println("Tìm thấy phương tiện "+listXeOTO.get(i)+" ở list Xe Ô Tô");
                 System.out.println("Nhập YES để xóa "+"\n"+"Nhập NO để hủy xóa");
                 String xacNhan = scanner.nextLine();
                 if(xacNhan.equals("YES")){
@@ -73,7 +73,7 @@ public class XoaPhuongTien implements IChucNangPhuongTien {
 
         for(int i=0;i<listXeMay.size();i++){
             if(listXeMay.get(i).contains(bienKiemSoat)){
-                System.out.println("Tìm thấy phương tiện "+bienKiemSoat+" ở list Xe Máy");
+                System.out.println("Tìm thấy phương tiện "+listXeMay.get(i)+" ở list Xe Máy");
                 System.out.println("Nhập YES để xóa "+"\n"+"Nhập NO để hủy xóa");
                 String xacNhan = scanner.nextLine();
                 if(xacNhan.equals("YES")){
