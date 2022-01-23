@@ -3,6 +3,7 @@ package code_for_fun.mvc_csv_vehicles_control.controller;
 import code_for_fun.mvc_csv_vehicles_control.service.impl.ChucNangXeMay;
 import code_for_fun.mvc_csv_vehicles_control.service.impl.ChucNangXeOTo;
 import code_for_fun.mvc_csv_vehicles_control.service.impl.ChucNangXeTai;
+import code_for_fun.mvc_csv_vehicles_control.service.impl.XoaPhuongTien;
 
 import java.util.Scanner;
 
@@ -75,6 +76,8 @@ public class MainMenu {
                     break;
                 case 3:
                     System.out.println("XÓA PHƯƠNG TIỆN");
+                    XoaPhuongTien xoaPhuongTien = new XoaPhuongTien();
+                    xoaPhuongTien.xoa();
                     break;
                 case 4:
                     System.err.println("GOODBYE !");

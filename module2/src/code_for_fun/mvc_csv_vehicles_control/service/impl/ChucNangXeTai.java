@@ -60,6 +60,6 @@ public class ChucNangXeTai implements IChucNangPhuongTien {
 
     @Override
     public void xoa() {
-
+        
     }
 }

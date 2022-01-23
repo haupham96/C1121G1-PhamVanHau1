@@ -42,7 +42,6 @@ public class ChucNangXeMay implements IChucNangPhuongTien {
 
         XeMay xeMay = new XeMay(bienKiemSoat,hangSX,namSX,chuSoHuu,congSuat);
         listXeMay.add(xeMay);
-
         List<String> stringListXeMay = readAndWriteCSV.changeIntoStringList(listXeMay);
 
         readAndWriteCSV.writeCSV(XEMAY_PATH,stringListXeMay,true);
