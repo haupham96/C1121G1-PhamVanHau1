@@ -1,4 +1,4 @@
-package ss17_io_binary_file_and_serialization.exercise.read_and_write_student_list_to_binary_file;
+package ss17_io_binary_file_and_serialization.practice.read_and_write_student_list_to_binary_file.a;
 
 import java.io.Serializable;
 

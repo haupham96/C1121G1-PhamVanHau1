@@ -1,4 +1,4 @@
-package ss17_io_binary_file_and_serialization.exercise.copy_large_files;
+package ss17_io_binary_file_and_serialization.practice.copy_large_files;
 
 import java.io.*;
 import java.nio.file.Files;
