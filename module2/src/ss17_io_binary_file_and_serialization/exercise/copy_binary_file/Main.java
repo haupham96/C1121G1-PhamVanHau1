@@ -1,6 +1,7 @@
 package ss17_io_binary_file_and_serialization.exercise.copy_binary_file;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.CopyOption;
 import java.nio.file.Files;
@@ -20,8 +21,10 @@ public class Main {
         try {
             if (!(source.exists())) {
                 System.out.println("File source does not exist");
+                throw new FileNotFoundException();
             } else if (!(target.exists())) {
                 System.out.println("File target does not exist");
+                throw new FileNotFoundException();
             } else {
                 copyBinaryFile(source, target);
                 System.out.println("Copy Successfully!");

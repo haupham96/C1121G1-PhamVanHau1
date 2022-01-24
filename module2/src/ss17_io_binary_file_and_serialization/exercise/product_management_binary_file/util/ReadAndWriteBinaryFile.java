@@ -48,6 +48,8 @@ public class ReadAndWriteBinaryFile {
 
                 objectOutputStream.close();
                 fileOutputStream.close();
+            } else {
+                throw new FileNotFoundException("File does not Exist");
             }
 
         } catch (FileNotFoundException e) {
