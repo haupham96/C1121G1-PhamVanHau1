@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClassNameValidate {
-    private final String CLASS_NAME_REGEX = "^[C|A|P][0-9]{4}([G|H|I|K|L|M])$";
+    private final String CLASS_NAME_REGEX = "^([C|A|P])[0-9]{4}([G|H|I|K|L|M])$";
 
     public ClassNameValidate(){};
 
