@@ -1,8 +1,10 @@
 package furama_resort.controller;
 
 import furama_resort.model.Customer;
+import furama_resort.service.impl.BookingServiceImpl;
 import furama_resort.service.impl.CustomerServiceImpl;
 import furama_resort.service.impl.EmployeeServiceImpl;
+import furama_resort.service.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -10,6 +12,8 @@ public class FuramaController {
     Scanner scanner = new Scanner(System.in);
     EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
+    FacilityServiceImpl facilityService = new FacilityServiceImpl();
+    BookingServiceImpl bookingService = new BookingServiceImpl();
 
     public void displayMainMenu() {
         int choice;
@@ -115,12 +119,50 @@ public class FuramaController {
                         switch (facilityChoice) {
                             case 1:
                                 System.out.println("1. Display list facility");
+                                System.out.println();
+                                facilityService.display();
                                 break;
                             case 2:
                                 System.out.println("2. Add new facility");
+                                System.out.println();
+                                int serviceChoice;
+                                do {
+                                    System.out.println();
+                                    System.out.println("1. Add new Villa");
+                                    System.out.println("2. Add new House");
+                                    System.out.println("3. Add new Room");
+                                    System.out.println("4. Back to menu");
+                                    serviceChoice = Integer.parseInt(scanner.nextLine());
+                                    switch (serviceChoice) {
+                                        case 1:
+                                            System.out.println("ADD NEW VILLA");
+                                            System.out.println();
+                                            facilityService.addVilla();
+                                            break;
+                                        case 2:
+                                            System.out.println("ADD NEW HOUSE");
+                                            System.out.println();
+                                            facilityService.addHouse();
+                                            break;
+                                        case 3:
+                                            System.out.println("ADD NEW ROOM");
+                                            System.out.println();
+                                            facilityService.addRoom();
+                                            break;
+                                        case 4:
+                                            System.out.println();
+                                            break;
+                                        default:
+                                            System.out.println("invalid choice !");
+                                            System.out.println();
+                                            break;
+                                    }
+                                } while (serviceChoice != 4);
                                 break;
                             case 3:
                                 System.out.println("3. Display list facility maintenance");
+                                System.out.println();
+                                facilityService.displayMaintenance();
                                 break;
                             case 4:
                                 System.out.println("4. Return main menu");
@@ -147,9 +189,12 @@ public class FuramaController {
                         switch (bookingChoice) {
                             case 1:
                                 System.out.println("1. Add new booking");
+                                System.out.println();
+                                bookingService.add();
                                 break;
                             case 2:
                                 System.out.println("2. Display list booking");
+                                bookingService.display();
                                 break;
                             case 3:
                                 System.out.println("3. Create new contracts");

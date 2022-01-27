@@ -1,5 +1,7 @@
 package furama_resort.model;
 
+import java.util.Objects;
+
 public abstract class Facility {
     private String nameOfService;
     private double area;
@@ -67,6 +69,19 @@ public abstract class Facility {
                 ", numberOfPerson : " + numberOfPerson +
                 ", typeOfRentByTime : " + typeOfRentByTime;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Facility facility = (Facility) o;
+        return Double.compare(facility.area, area) == 0 && priceOfService == facility.priceOfService && numberOfPerson == facility.numberOfPerson && Objects.equals(nameOfService, facility.nameOfService) && Objects.equals(typeOfRentByTime, facility.typeOfRentByTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return 11;
     }
 
     public String getInformation(){

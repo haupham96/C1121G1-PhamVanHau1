@@ -1,12 +1,14 @@
 package furama_resort.model;
 
-public class Booking {
+import java.util.Objects;
+
+public class Booking implements Comparable<Booking> {
     private String bookingCode;
-    private String dayStart ;
+    private String dayStart;
     private String dayEnd;
     private String customerCode;
     private String nameOfService;
-    private String typeOfService ;
+    private String typeOfService;
 
     public Booking() {
     }
@@ -78,5 +80,27 @@ public class Booking {
                 ", nameOfService='" + nameOfService + '\'' +
                 ", typeOfService='" + typeOfService + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        if (this.dayStart.equals(o.dayStart)) {
+            return this.dayEnd.compareTo(o.dayEnd);
+        } else {
+            return this.dayStart.compareTo(o.dayStart);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(bookingCode, booking.bookingCode) && Objects.equals(dayStart, booking.dayStart) && Objects.equals(dayEnd, booking.dayEnd) && Objects.equals(customerCode, booking.customerCode) && Objects.equals(nameOfService, booking.nameOfService) && Objects.equals(typeOfService, booking.typeOfService);
+    }
+
+    @Override
+    public int hashCode() {
+        return 2222;
     }
 }
