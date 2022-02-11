@@ -3,7 +3,6 @@ package furama_resort.service.impl;
 import furama_resort.model.Employee;
 import furama_resort.service.EmployeeService;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,22 +22,31 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void add() {
         System.out.println("Input Name Of Employee");
         String name = scanner.nextLine();
+
         System.out.println("Input Date Of Birth");
         String dayOfBirth = scanner.nextLine();
+
         System.out.println("Input Gender");
         String gender = scanner.nextLine();
+
         System.out.println("Input ID Numbers");
         String ID = scanner.nextLine();
+
         System.out.println("Input phone numbers");
         String phoneNumber = scanner.nextLine();
+
         System.out.println("Input Email ");
         String email = scanner.nextLine();
+
         System.out.println("Input employee Code");
         String employeeCode = scanner.nextLine();
+
         System.out.println("Input Academic Level");
         String academicLevel = scanner.nextLine();
+
         System.out.println("Input employee position");
         String position = scanner.nextLine();
+
         System.out.println("Input employee Salary");
         int salary = Integer.parseInt(scanner.nextLine());
 

@@ -23,20 +23,28 @@ public class CustomerServiceImpl implements CustomerService {
     public void add() {
         System.out.println("Input Name Of Customer");
         String name = scanner.nextLine();
+
         System.out.println("Input Customer Date Of Birth");
         String dayOfBirth = scanner.nextLine();
+
         System.out.println("Input Customer Gender");
         String gender = scanner.nextLine();
+
         System.out.println("Input Customer ID Numbers");
         String ID = scanner.nextLine();
+
         System.out.println("Input Customer phone numbers");
         String phoneNumber = scanner.nextLine();
+
         System.out.println("Input Customer Email ");
         String email = scanner.nextLine();
+
         System.out.println("Input Customer Code");
         String customerCode = scanner.nextLine();
+
         System.out.println("Input Customer class");
         String customerClass = scanner.nextLine();
+
         System.out.println("Input Customer address");
         String address = scanner.nextLine();
 

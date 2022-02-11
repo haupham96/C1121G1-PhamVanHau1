@@ -72,14 +72,19 @@ public class FacilityServiceImpl implements FacilityService {
     public void addRoom() {
         System.out.println("Input Number of Room ");
         String nameOfService = scanner.nextLine();
+
         System.out.println("Input Area of Room");
         double area = Double.parseDouble(scanner.nextLine());
+
         System.out.println("Input price of Room ");
         int price = Integer.parseInt(scanner.nextLine());
+
         System.out.println("Input numbers of person ");
         int numberOfPerson = Integer.parseInt(scanner.nextLine());
+
         System.out.println("input time for rent ");
         String typeOfRentByTime = scanner.nextLine();
+
         System.out.println("name of Free service ? ");
         String freeService = scanner.nextLine();
 

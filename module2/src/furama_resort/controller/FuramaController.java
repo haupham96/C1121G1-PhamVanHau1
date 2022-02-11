@@ -1,7 +1,8 @@
 package furama_resort.controller;
 
-import furama_resort.model.Customer;
+
 import furama_resort.service.impl.*;
+import furama_resort.util.exception.controller_exception.ControllerException;
 
 import java.util.Scanner;
 
@@ -13,9 +14,10 @@ public class FuramaController {
     BookingServiceImpl bookingService = new BookingServiceImpl();
     PromotionServiceImpl promotionService = new PromotionServiceImpl();
 
-    public void displayMainMenu() {
-        int choice;
+    public void displayMainMenu() throws ControllerException {
+        int choice = 0;
         do {
+
             System.out.println();
             System.out.println("FURAMA RESORT SERVICE");
             System.out.println();
@@ -27,11 +29,18 @@ public class FuramaController {
             System.out.println("6. Exit");
             System.out.println();
 
-            choice = Integer.parseInt(scanner.nextLine());
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                if (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6) {
+                    throw new ControllerException("invalid choice : " + choice);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             switch (choice) {
                 case 1:
-                    int employeeChoice;
+                    int employeeChoice = 0;
                     do {
                         System.out.println();
                         System.out.println("EMPLOYEE MANAGEMENT");
@@ -40,7 +49,15 @@ public class FuramaController {
                         System.out.println("2. Add new employee");
                         System.out.println("3. Edit employee");
                         System.out.println("4. Return main menu");
-                        employeeChoice = Integer.parseInt(scanner.nextLine());
+
+                        try {
+                            employeeChoice = Integer.parseInt(scanner.nextLine());
+                            if ( employeeChoice != 1 && employeeChoice != 2 && employeeChoice != 3 && employeeChoice != 4 ) {
+                                throw new ControllerException("invalid choice : " + employeeChoice);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                         switch (employeeChoice) {
                             case 1:
@@ -61,14 +78,12 @@ public class FuramaController {
                             case 4:
                                 System.out.println("4. Return main menu");
                                 break;
-                            default:
-                                System.out.println("invalid choice");
-                                break;
+
                         }
                     } while (employeeChoice != 4);
                     break;
                 case 2:
-                    int customerChoice;
+                    int customerChoice = 0;
                     do {
                         System.out.println("CUSTOMER MANAGEMENT");
                         System.out.println();
@@ -76,7 +91,15 @@ public class FuramaController {
                         System.out.println("2. Add new customer");
                         System.out.println("3. Edit customer");
                         System.out.println("4. Return main menu");
-                        customerChoice = Integer.parseInt(scanner.nextLine());
+                        
+                        try {
+                            customerChoice = Integer.parseInt(scanner.nextLine());
+                            if ( customerChoice != 1 && customerChoice != 2 && customerChoice != 3 && customerChoice != 4 ) {
+                                throw new ControllerException("invalid choice : " + customerChoice);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                         switch (customerChoice) {
                             case 1:
@@ -97,14 +120,12 @@ public class FuramaController {
                             case 4:
                                 System.out.println("4. Return main menu");
                                 break;
-                            default:
-                                System.out.println("invalid choice");
-                                break;
+
                         }
                     } while (customerChoice != 4);
                     break;
                 case 3:
-                    int facilityChoice;
+                    int facilityChoice = 0;
                     do {
                         System.out.println("FACILITY MANAGEMENT");
                         System.out.println();
@@ -112,7 +133,15 @@ public class FuramaController {
                         System.out.println("2. Add new facility");
                         System.out.println("3. Display list facility maintenance");
                         System.out.println("4. Return main menu");
-                        facilityChoice = Integer.parseInt(scanner.nextLine());
+                        
+                        try {
+                            facilityChoice = Integer.parseInt(scanner.nextLine());
+                            if ( facilityChoice != 1 && facilityChoice != 2 && facilityChoice != 3 && facilityChoice != 4 ) {
+                                throw new ControllerException("invalid choice : " + facilityChoice);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                         switch (facilityChoice) {
                             case 1:
@@ -123,14 +152,22 @@ public class FuramaController {
                             case 2:
                                 System.out.println("2. Add new facility");
                                 System.out.println();
-                                int serviceChoice;
+                                int serviceChoice = 0;
                                 do {
                                     System.out.println();
                                     System.out.println("1. Add new Villa");
                                     System.out.println("2. Add new House");
                                     System.out.println("3. Add new Room");
                                     System.out.println("4. Back to menu");
-                                    serviceChoice = Integer.parseInt(scanner.nextLine());
+
+                                    try {
+                                        serviceChoice = Integer.parseInt(scanner.nextLine());
+                                        if ( serviceChoice != 1 && serviceChoice != 2 && serviceChoice != 3 && serviceChoice != 4 ) {
+                                            throw new ControllerException("invalid choice : " + serviceChoice);
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
                                     switch (serviceChoice) {
                                         case 1:
                                             System.out.println("ADD NEW VILLA");
@@ -150,10 +187,7 @@ public class FuramaController {
                                         case 4:
                                             System.out.println();
                                             break;
-                                        default:
-                                            System.out.println("invalid choice !");
-                                            System.out.println();
-                                            break;
+
                                     }
                                 } while (serviceChoice != 4);
                                 break;
@@ -165,14 +199,12 @@ public class FuramaController {
                             case 4:
                                 System.out.println("4. Return main menu");
                                 break;
-                            default:
-                                System.out.println("invalid choice");
-                                break;
+
                         }
                     } while (facilityChoice != 4);
                     break;
                 case 4:
-                    int bookingChoice;
+                    int bookingChoice=0;
                     do {
                         System.out.println("BOOKING MANAGEMENT");
                         System.out.println();
@@ -182,7 +214,16 @@ public class FuramaController {
                         System.out.println("4. Display list contracts");
                         System.out.println("5. Edit contracts");
                         System.out.println("6. Return main menu");
-                        bookingChoice = Integer.parseInt(scanner.nextLine());
+
+                        try {
+                            bookingChoice = Integer.parseInt(scanner.nextLine());
+                            if ( bookingChoice != 1 && bookingChoice != 2 && bookingChoice != 3 && bookingChoice != 4 && bookingChoice != 5 && bookingChoice != 6 ) {
+                                throw new ControllerException("invalid choice : " + bookingChoice);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
 
                         switch (bookingChoice) {
                             case 1:
@@ -209,21 +250,27 @@ public class FuramaController {
                             case 6:
                                 System.out.println("6. Return main menu");
                                 break;
-                            default:
-                                System.out.println("invalid choice");
-                                break;
+
                         }
                     } while (bookingChoice != 6);
                     break;
                 case 5:
-                    int promotionChoice;
+                    int promotionChoice=0;
                     do {
                         System.out.println("PROMOTION MANAGEMENT");
                         System.out.println();
                         System.out.println("1. Display list customers use service");
                         System.out.println("2. Display list customers get voucher");
                         System.out.println("3. Return main menu");
-                        promotionChoice = Integer.parseInt(scanner.nextLine());
+
+                        try {
+                            promotionChoice = Integer.parseInt(scanner.nextLine());
+                            if ( promotionChoice != 1 && promotionChoice != 2 && promotionChoice != 3 ) {
+                                throw new ControllerException("invalid choice : " + promotionChoice);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                         switch (promotionChoice) {
                             case 1:
@@ -237,18 +284,13 @@ public class FuramaController {
                             case 3:
                                 System.out.println("3. Return main menu");
                                 break;
-                            default:
-                                System.out.println("invalid choice");
-                                break;
+
                         }
                     } while (promotionChoice != 3);
                     break;
                 case 6:
                     System.out.println("GOODBYE !");
                     System.exit(0);
-                default:
-                    System.out.println("invalid choice");
-                    break;
             }
 
         } while (true);
