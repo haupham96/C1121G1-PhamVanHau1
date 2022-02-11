@@ -1,10 +1,7 @@
 package furama_resort.controller;
 
 import furama_resort.model.Customer;
-import furama_resort.service.impl.BookingServiceImpl;
-import furama_resort.service.impl.CustomerServiceImpl;
-import furama_resort.service.impl.EmployeeServiceImpl;
-import furama_resort.service.impl.FacilityServiceImpl;
+import furama_resort.service.impl.*;
 
 import java.util.Scanner;
 
@@ -14,6 +11,7 @@ public class FuramaController {
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     BookingServiceImpl bookingService = new BookingServiceImpl();
+    PromotionServiceImpl promotionService = new PromotionServiceImpl();
 
     public void displayMainMenu() {
         int choice;
@@ -198,12 +196,15 @@ public class FuramaController {
                                 break;
                             case 3:
                                 System.out.println("3. Create new contracts");
+                                bookingService.createContract();
                                 break;
                             case 4:
                                 System.out.println("4. Display list contracts");
+                                bookingService.displayContract();
                                 break;
                             case 5:
                                 System.out.println("5. Edit contracts");
+                                bookingService.editContract();
                                 break;
                             case 6:
                                 System.out.println("6. Return main menu");
@@ -227,9 +228,11 @@ public class FuramaController {
                         switch (promotionChoice) {
                             case 1:
                                 System.out.println("1. Display list customers use service");
+                                promotionService.displayCustomerUseService();
                                 break;
                             case 2:
                                 System.out.println("2. Display list customers get voucher");
+                                promotionService.displayCustomerGetVoucher();
                                 break;
                             case 3:
                                 System.out.println("3. Return main menu");

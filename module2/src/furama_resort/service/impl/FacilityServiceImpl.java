@@ -15,8 +15,8 @@ public class FacilityServiceImpl implements FacilityService {
     static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
 
     static {
-        Villa villa = new Villa("Villa", 20.0d, 5000000, 4, "3 Day", "Vip", 2, null, 30);
-        House house = new House("House", 10.0d, 3000000, 2, "3 Day", "Vip", 4, null);
+        Villa villa = new Villa("Villa", 20.0d, 5000000, 4, "3 Day", "Vip", 2,  30);
+        House house = new House("House", 10.0d, 3000000, 2, "3 Day", "Vip",4);
         Room room = new Room("Room", 7.5d, 1500000, 2, "2 Day", "Free Breakfast");
         facilityList.put(villa, 0);
         facilityList.put(house, 0);
@@ -43,7 +43,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Swimming pool area ?");
         double swimmingPoolArea = Double.parseDouble(scanner.nextLine());
 
-        Villa villa = new Villa(nameOfService, area, price, numberOfPerson, typeOfRentByTime, standard, floor, null, swimmingPoolArea);
+        Villa villa = new Villa(nameOfService, area, price, numberOfPerson, typeOfRentByTime, standard, floor, swimmingPoolArea);
         facilityList.put(villa, 0);
     }
 
@@ -64,7 +64,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("floor ?");
         int floor = Integer.parseInt(scanner.nextLine());
 
-        House house = new House(nameOfService, area, price, numberOfPerson, typeOfRentByTime, standard, floor, null);
+        House house = new House(nameOfService, area, price, numberOfPerson, typeOfRentByTime, standard, floor);
         facilityList.put(house, 0);
     }
 

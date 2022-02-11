@@ -3,16 +3,14 @@ package furama_resort.model;
 public class House extends Facility {
     private String standard;
     private int floor;
-    private Contract contract = null;
 
     public House() {
     }
 
-    public House(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime, String roomStandard, int floor, Contract contract) {
+    public House(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime, String roomStandard, int floor) {
         super(nameOfService, area, priceOfService, numberOfPerson, typeOfRentByTime);
         this.standard = roomStandard;
         this.floor = floor;
-        this.contract = contract;
     }
 
     public String getStandard() {
@@ -31,13 +29,6 @@ public class House extends Facility {
         this.floor = floor;
     }
 
-    public Contract getContract() {
-        return contract;
-    }
-
-    public void setContract(Contract contract) {
-        this.contract = contract;
-    }
 
     @Override
     public String toString() {
