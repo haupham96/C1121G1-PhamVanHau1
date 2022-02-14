@@ -68,5 +68,9 @@ public class Contract {
                 ", customerCode='" + customerCode + '\'' +
                 '}';
     }
+
+    public String getString(){
+        return this.numberOfContract+","+this.bookingCode+","+this.depositMoney+","+this.totalMoney+","+this.customerCode;
+    }
 }
 

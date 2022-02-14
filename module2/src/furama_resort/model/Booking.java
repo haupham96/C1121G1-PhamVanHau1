@@ -82,6 +82,10 @@ public class Booking implements Comparable<Booking> {
                 '}';
     }
 
+    public String getString(){
+        return this.bookingCode+","+this.dayStart+","+this.dayEnd+","+this.customerCode+","+this.nameOfService+","+this.typeOfService;
+    }
+
     @Override
     public int compareTo(Booking o) {
         if (this.dayStart.equals(o.dayStart)) {

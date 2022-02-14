@@ -3,6 +3,7 @@ package furama_resort.controller;
 
 import furama_resort.service.impl.*;
 import furama_resort.util.exception.controller_exception.ControllerException;
+import furama_resort.util.exception.user_input_exception.UserInputException;
 
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class FuramaController {
     BookingServiceImpl bookingService = new BookingServiceImpl();
     PromotionServiceImpl promotionService = new PromotionServiceImpl();
 
-    public void displayMainMenu() throws ControllerException {
+    public void displayMainMenu() throws ControllerException, UserInputException {
         int choice = 0;
         do {
 
@@ -182,7 +183,12 @@ public class FuramaController {
                                         case 3:
                                             System.out.println("ADD NEW ROOM");
                                             System.out.println();
-                                            facilityService.addRoom();
+                                            try{
+                                                facilityService.addRoom();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+
                                             break;
                                         case 4:
                                             System.out.println();

@@ -5,6 +5,7 @@ import furama_resort.model.Contract;
 import furama_resort.model.Facility;
 import furama_resort.service.BookingService;
 import furama_resort.service.ContractService;
+import furama_resort.util.exception.user_input_exception.UserInputException;
 
 import java.util.*;
 
@@ -74,32 +75,37 @@ public class BookingServiceImpl implements BookingService, ContractService {
     }
 
     @Override
-    public void createContract() {
+    public void createContract() throws UserInputException{
         bookingQueue.addAll(bookingList);
 
         if (bookingQueue.size() == 0) {
             System.out.println("Booking Queue is Empty");
         } else {
             Booking booking = bookingQueue.remove();
-            System.out.println("Enter Contract Number");
-            int contractNumber = Integer.parseInt(scanner.nextLine());
 
             String bookingCode = booking.getBookingCode();
-
-            System.out.println("Enter Deposit Money");
-            int depositMoney = Integer.parseInt(scanner.nextLine());
-
-            System.out.println("Enter Total Money");
-            int totalMoney = Integer.parseInt(scanner.nextLine());
-
             String customerCode = booking.getCustomerCode();
 
-            Contract contract = new Contract(contractNumber, bookingCode, depositMoney, totalMoney, customerCode);
-            contractList.add(contract);
+            do {
+                try {
+                    System.out.println("Enter Contract Number");
+                    int contractNumber = Integer.parseInt(scanner.nextLine());
 
+                    System.out.println("Enter Deposit Money");
+                    int depositMoney = Integer.parseInt(scanner.nextLine());
+
+                    System.out.println("Enter Total Money");
+                    int totalMoney = Integer.parseInt(scanner.nextLine());
+
+                    Contract contract = new Contract(contractNumber, bookingCode, depositMoney, totalMoney, customerCode);
+                    contractList.add(contract);
+                    break;
+                } catch (Exception e) {
+                    UserInputException userInputException = new UserInputException("invalid input");
+                    userInputException.printStackTrace();
+                }
+            } while (true);
         }
-
-
     }
 
     @Override
@@ -115,14 +121,31 @@ public class BookingServiceImpl implements BookingService, ContractService {
     }
 
     @Override
-    public void editContract() {
-        System.out.println("Choose contract to edit");
-        System.out.println();
-        for (int i = 0; i < contractList.size(); i++) {
-            System.out.println((i + 1) + " . " + contractList.get(i).toString());
-        }
-        int chooseEditContract = Integer.parseInt(scanner.nextLine());
-        chooseEditContract = chooseEditContract - 1;
+    public void editContract() throws UserInputException {
+
+
+        int chooseEditContract;
+        do {
+            try {
+                System.out.println("Choose contract to edit");
+                for (int i = 0; i < contractList.size(); i++) {
+                    System.out.println((i + 1) + " . " + contractList.get(i).toString());
+                }
+                chooseEditContract = Integer.parseInt(scanner.nextLine());
+                if(chooseEditContract>contractList.size()){
+                    throw new UserInputException("invalid choice");
+                }
+                chooseEditContract = chooseEditContract - 1;
+                break;
+            }catch(IndexOutOfBoundsException e){
+                e.printStackTrace();
+            }
+            catch (Exception e) {
+                UserInputException userInputException = new UserInputException("invalid choice");
+                userInputException.printStackTrace();
+            }
+
+        } while (true);
 
         Contract contract = contractList.get(chooseEditContract);
 
@@ -130,13 +153,22 @@ public class BookingServiceImpl implements BookingService, ContractService {
         String bookingCode = scanner.nextLine();
         contract.setBookingCode(bookingCode);
 
-        System.out.println("Enter deposit money to Edit");
-        int depositMoney = Integer.parseInt(scanner.nextLine());
-        contract.setDepositMoney(depositMoney);
+        do {
+            try {
+                System.out.println("Enter deposit money to Edit");
+                int depositMoney = Integer.parseInt(scanner.nextLine());
+                contract.setDepositMoney(depositMoney);
 
-        System.out.println("Enter total money to Edit");
-        int totalMoney = Integer.parseInt(scanner.nextLine());
-        contract.setTotalMoney(totalMoney);
+                System.out.println("Enter total money to Edit");
+                int totalMoney = Integer.parseInt(scanner.nextLine());
+                contract.setTotalMoney(totalMoney);
+                break;
+
+            } catch (Exception e) {
+                UserInputException userInputException = new UserInputException("invalid input");
+                userInputException.printStackTrace();
+            }
+        } while (true);
 
         System.out.println("Enter Customer Code to Edit");
         String customerCode = scanner.nextLine();
