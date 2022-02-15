@@ -91,7 +91,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<String> list = readAndWriteCSVFurama.readFileCSV(CSVPath.EMPLOYEE);
 
         String[] array;
-
+        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        employeeService.display();
+        System.out.println();
         System.out.println("Enter employee Code to Edit");
         String code = scanner.nextLine();
         for (int i = 0; i < list.size(); i++) {
