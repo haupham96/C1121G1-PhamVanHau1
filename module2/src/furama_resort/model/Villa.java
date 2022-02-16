@@ -46,7 +46,7 @@ public class Villa extends Facility {
     @Override
     public void usingTimes(String nameOfService) {
         Map<Facility, Integer> villa = facilityService.readVilla();
-        Set<Facility> villaSet = new HashSet<>();
+        Set<Facility> villaSet;
         villaSet = villa.keySet();
         List<Facility> villaList = new ArrayList<>();
         villaList.addAll(villaSet);

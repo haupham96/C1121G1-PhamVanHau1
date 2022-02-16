@@ -11,8 +11,8 @@ public class House extends Facility {
     public House() {
     }
 
-    public House(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime, String roomStandard, int floor,int maintenance) {
-        super(nameOfService, area, priceOfService, numberOfPerson, typeOfRentByTime,maintenance);
+    public House(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime, String roomStandard, int floor, int maintenance) {
+        super(nameOfService, area, priceOfService, numberOfPerson, typeOfRentByTime, maintenance);
         this.standard = roomStandard;
         this.floor = floor;
     }
@@ -34,9 +34,9 @@ public class House extends Facility {
     }
 
     @Override
-    public void usingTimes(String nameOfService){
+    public void usingTimes(String nameOfService) {
         Map<Facility, Integer> house = facilityService.readHouse();
-        Set<Facility> houseSet = new HashSet<>();
+        Set<Facility> houseSet;
         houseSet = house.keySet();
         List<Facility> houseList = new ArrayList<>();
         houseList.addAll(houseSet);
@@ -50,7 +50,7 @@ public class House extends Facility {
             }
             temp.add(list.getInformation());
         }
-        if(check){
+        if (check) {
             readAndWriteCSV.writeFileCSV(CSVPath.HOUSE, temp, false);
         }
 
@@ -66,6 +66,6 @@ public class House extends Facility {
 
     @Override
     public String getInformation() {
-        return super.getInformation() + "," + this.standard + "," + this.floor+ "," +this.getMaintenance();
+        return super.getInformation() + "," + this.standard + "," + this.floor + "," + this.getMaintenance();
     }
 }

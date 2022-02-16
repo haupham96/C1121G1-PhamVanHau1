@@ -13,16 +13,16 @@ public class BookingServiceImpl implements BookingService, ContractService {
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
     Scanner scanner = new Scanner(System.in);
-    static Queue<Booking> bookingQueue = new LinkedList<>();
-    static List<Contract> contractList = new ArrayList<>();
 
     @Override
     public void add() {
         TreeSet<Booking> bookingList = new TreeSet<>();
+        TreeSet<Booking> bookingList2 = new TreeSet<>();
 
         Map<Facility, Integer> facilityMap = facilityService.readHouseRoomVillaCSV();
 
         List<String> list = readAndWriteCSV.readFileCSV(CSVPath.BOOKING);
+        List<String> list2 = readAndWriteCSV.readFileCSV(CSVPath.BOOKING2);
 
         List<String> customerString = readAndWriteCSV.readFileCSV(CSVPath.CUSTOMER);
         List<Customer> customerList = new ArrayList<>();
@@ -70,14 +70,18 @@ public class BookingServiceImpl implements BookingService, ContractService {
 
         Booking booking = new Booking(bookingCode, dayStart, dayEnd, customerCode, nameOfService, typeOfService);
         bookingList.add(booking);
+        bookingList2.add(booking);
 
         List<Booking> bookings = new ArrayList<>();
+        List<Booking> bookings2 = new ArrayList<>();
         bookings.addAll(bookingList);
+        bookings2.addAll(bookingList2);
 
         list.addAll(readAndWriteCSV.changeToStringList(bookings));
-
+        list2.addAll(readAndWriteCSV.changeToStringList(bookings2));
 
         readAndWriteCSV.writeFileCSV(CSVPath.BOOKING, list, false);
+        readAndWriteCSV.writeFileCSV(CSVPath.BOOKING2, list2, false);
 
     }
 
@@ -101,61 +105,92 @@ public class BookingServiceImpl implements BookingService, ContractService {
 
     @Override
     public void createContract() {
-        TreeSet<Booking> bookingList = new TreeSet<>();
-        bookingQueue.addAll(bookingList);
-
-        if (bookingQueue.size() == 0) {
-            System.out.println("Booking Queue is Empty");
-        } else {
-            Booking booking = bookingQueue.remove();
-
-            String bookingCode = booking.getBookingCode();
-            String customerCode = booking.getCustomerCode();
-
-            do {
-                try {
-                    System.out.println("Enter Contract Number");
-                    int contractNumber = Integer.parseInt(scanner.nextLine());
-
-                    System.out.println("Enter Deposit Money");
-                    int depositMoney = Integer.parseInt(scanner.nextLine());
-
-                    System.out.println("Enter Total Money");
-                    int totalMoney = Integer.parseInt(scanner.nextLine());
-
-                    Contract contract = new Contract(contractNumber, bookingCode, depositMoney, totalMoney, customerCode);
-                    contractList.add(contract);
-                    break;
-                } catch (Exception e) {
-                    UserInputException userInputException = new UserInputException("invalid input");
-                    userInputException.printStackTrace();
-                }
-            } while (true);
+        String[] arr;
+        Deque<Booking> bookingQueue = new LinkedList<>();
+        List<Contract> contractList = new ArrayList<>();
+        List<String> contractString = readAndWriteCSV.readFileCSV(CSVPath.CONTRACT);
+        for (int i = 0; i < contractString.size(); i++) {
+            arr = contractString.get(i).split(",");
+            Contract contract = new Contract(Integer.parseInt(arr[0]), arr[1], Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4]);
+            contractList.add(contract);
         }
+        List<String> stringList = readAndWriteCSV.readFileCSV(CSVPath.BOOKING2);
+
+        for (int i = 0; i < stringList.size(); i++) {
+            arr = stringList.get(i).split(",");
+            Booking booking = new Booking(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]);
+            bookingQueue.add(booking);
+        }
+
+        Booking booking = bookingQueue.removeFirst();
+
+        String bookingCode = booking.getBookingCode();
+        String customerCode = booking.getCustomerCode();
+
+        do {
+            try {
+                System.out.println("Enter Contract Number");
+                int contractNumber = Integer.parseInt(scanner.nextLine());
+
+                System.out.println("Enter Deposit Money");
+                int depositMoney = Integer.parseInt(scanner.nextLine());
+
+                System.out.println("Enter Total Money");
+                int totalMoney = Integer.parseInt(scanner.nextLine());
+
+                Contract contract = new Contract(contractNumber, bookingCode, depositMoney, totalMoney, customerCode);
+                contractList.add(contract);
+                List<String> list = readAndWriteCSV.changeToStringList(contractList);
+                readAndWriteCSV.writeFileCSV(CSVPath.CONTRACT, list, false);
+                list.clear();
+
+                List<Booking> bookingList = new ArrayList<>();
+                bookingList.addAll(bookingQueue);
+                list = readAndWriteCSV.changeToStringList(bookingList);
+                readAndWriteCSV.writeFileCSV(CSVPath.BOOKING2, list, false);
+                break;
+            } catch (Exception e) {
+                UserInputException userInputException = new UserInputException("invalid input");
+                userInputException.printStackTrace();
+            }
+        } while (true);
+
     }
 
     @Override
     public void displayContract() {
-        if (contractList.size() == 0) {
-            System.out.println("Contract list Empty");
-        } else {
-            for (Contract contract : contractList) {
-                System.out.println(contract);
-            }
+        String[] arr;
+        List<Contract> contractList = new ArrayList<>();
+        List<String> list = readAndWriteCSV.readFileCSV(CSVPath.CONTRACT);
+
+        for (int i = 0; i < list.size(); i++) {
+            arr = list.get(i).split(",");
+            Contract contract = new Contract(Integer.parseInt(arr[0]), arr[1], Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4]);
+            contractList.add(contract);
         }
 
+        for (Contract contract : contractList) {
+            System.out.println(contract);
+        }
     }
 
     @Override
     public void editContract() {
+        String[] arr;
+        List<Contract> contractList = new ArrayList<>();
+        List<String> list = readAndWriteCSV.readFileCSV(CSVPath.CONTRACT);
 
-
+        for (int i = 0; i < list.size(); i++) {
+            arr = list.get(i).split(",");
+            Contract contract = new Contract(Integer.parseInt(arr[0]), arr[1], Integer.parseInt(arr[2]), Integer.parseInt(arr[3]), arr[4]);
+            contractList.add(contract);
+        }
         int chooseEditContract;
         do {
             try {
                 System.out.println("Choose contract to edit");
                 for (int i = 0; i < contractList.size(); i++) {
-                    System.out.println((i + 1) + " . " + contractList.get(i).toString());
+                    System.out.println((i + 1) + " . " + contractList.get(i));
                 }
                 chooseEditContract = Integer.parseInt(scanner.nextLine());
                 if (chooseEditContract > contractList.size()) {
@@ -201,6 +236,8 @@ public class BookingServiceImpl implements BookingService, ContractService {
 
         System.out.println();
         System.out.println("Edit Complete !");
+        List<String> stringList = readAndWriteCSV.changeToStringList(contractList);
+        readAndWriteCSV.writeFileCSV(CSVPath.CONTRACT,stringList,false);
 
     }
 }

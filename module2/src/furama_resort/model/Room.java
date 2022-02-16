@@ -26,7 +26,7 @@ public class Room extends Facility {
     @Override
     public void usingTimes(String nameOfService) {
         Map<Facility, Integer> room = facilityService.readRoom();
-        Set<Facility> roomSet = new HashSet<>();
+        Set<Facility> roomSet ;
         roomSet = room.keySet();
         List<Facility> roomList = new ArrayList<>();
         roomList.addAll(roomSet);

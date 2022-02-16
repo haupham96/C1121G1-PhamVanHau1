@@ -17,12 +17,10 @@ public abstract class Facility {
     private String typeOfRentByTime;
     private int maintenance = 0;
 
-
-
     public Facility() {
     }
 
-    public Facility(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime,int maintenance) {
+    public Facility(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime, int maintenance) {
         this.nameOfService = nameOfService;
         this.area = area;
         this.priceOfService = priceOfService;
