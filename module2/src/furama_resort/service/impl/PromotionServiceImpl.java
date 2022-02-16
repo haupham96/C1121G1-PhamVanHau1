@@ -5,16 +5,19 @@ import furama_resort.service.PromotionService;
 
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.TreeSet;
 
 public class PromotionServiceImpl implements PromotionService {
     Scanner scanner = new Scanner(System.in);
+    TreeSet<Booking> bookingList1 = new TreeSet<>();
 
     @Override
     public void displayCustomerUseService() {
+
         System.out.println("Enter Year");
         String inputYear = scanner.nextLine();
 
-        for (Booking list : BookingServiceImpl.bookingList) {
+        for (Booking list : bookingList1) {
             String[] day = list.getDayStart().split("/");
             String year = day[2];
             if (year.equals(inputYear)) {
@@ -33,7 +36,7 @@ public class PromotionServiceImpl implements PromotionService {
         int voucher50 = 1;
 
         Stack<Booking> bookingStack = new Stack<>();
-        bookingStack.addAll(BookingServiceImpl.bookingList);
+        bookingStack.addAll(bookingList1);
 
         System.out.println("Enter Month");
         String inputMonth = scanner.nextLine();

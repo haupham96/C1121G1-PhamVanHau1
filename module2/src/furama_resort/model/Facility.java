@@ -1,23 +1,42 @@
 package furama_resort.model;
 
-import java.util.Objects;
+import furama_resort.service.impl.FacilityServiceImpl;
+import furama_resort.util.read_and_write_csv.CSVPath;
+import furama_resort.util.read_and_write_csv.ReadAndWriteCSV;
+
+import java.util.*;
 
 public abstract class Facility {
+    FacilityServiceImpl facilityService = new FacilityServiceImpl();
+    ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
+
     private String nameOfService;
     private double area;
     private int priceOfService;
     private int numberOfPerson;
     private String typeOfRentByTime;
+    private int maintenance = 0;
+
+
 
     public Facility() {
     }
 
-    public Facility(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime) {
+    public Facility(String nameOfService, double area, int priceOfService, int numberOfPerson, String typeOfRentByTime,int maintenance) {
         this.nameOfService = nameOfService;
         this.area = area;
         this.priceOfService = priceOfService;
         this.numberOfPerson = numberOfPerson;
         this.typeOfRentByTime = typeOfRentByTime;
+        this.maintenance = maintenance;
+    }
+
+    public int getMaintenance() {
+        return maintenance;
+    }
+
+    public void setMaintenance(int maintenance) {
+        this.maintenance = maintenance;
     }
 
     public String getNameOfService() {
@@ -60,14 +79,17 @@ public abstract class Facility {
         this.typeOfRentByTime = typeOfRentByTime;
     }
 
+    public abstract void usingTimes(String nameOfService);
+
+
     @Override
     public String toString() {
         return
                 "nameOfService : " + nameOfService +
-                ", area : " + area +
-                ", priceOfService : " + priceOfService +
-                ", numberOfPerson : " + numberOfPerson +
-                ", typeOfRentByTime : " + typeOfRentByTime;
+                        ", area : " + area +
+                        ", priceOfService : " + priceOfService +
+                        ", numberOfPerson : " + numberOfPerson +
+                        ", typeOfRentByTime : " + typeOfRentByTime;
 
     }
 
@@ -84,7 +106,7 @@ public abstract class Facility {
         return 11;
     }
 
-    public String getInformation(){
-        return this.nameOfService+","+this.area+","+this.priceOfService+","+this.numberOfPerson+","+this.typeOfRentByTime;
+    public String getInformation() {
+        return this.nameOfService + "," + this.area + "," + this.priceOfService + "," + this.numberOfPerson + "," + this.typeOfRentByTime;
     }
 }

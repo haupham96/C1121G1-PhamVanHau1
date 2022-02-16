@@ -34,11 +34,11 @@ public class ReadAndWriteCSV {
         return list;
     }
 
-    public void writeFileCSV(String path, List<String> list) {
+    public void writeFileCSV(String path, List<String> list,boolean append) {
 
         try {
             File file = new File(path);
-            FileWriter fileWriter = new FileWriter(file);
+            FileWriter fileWriter = new FileWriter(file,append);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             for (String s : list) {

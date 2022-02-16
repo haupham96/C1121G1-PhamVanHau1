@@ -15,16 +15,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     Scanner scanner = new Scanner(System.in);
     static List<Employee> employeeList = new ArrayList<>();
 
-    static {
-        Employee employee1 = new Employee("Andy", "12/12/1994", "Male", "111111111", "090111111111", "andy@gmail.com", "E001", "Graduated", "Receptionist", 9000000);
-        Employee employee2 = new Employee("Lisa", "11/01/1994", "Female", "222222222", "0902222222", "Lisa@gmail.com", "E002", "University", "Waitress", 4000000);
-        employeeList.add(employee1);
-        employeeList.add(employee2);
-    }
-
     @Override
     public void add() {
-
 
         System.out.println("Input Name Of Employee");
         String name = scanner.nextLine();
@@ -70,7 +62,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         } while (true);
 
         List<String> list = readAndWriteCSVFurama.changeToStringList(employeeList);
-        readAndWriteCSVFurama.writeFileCSV(CSVPath.EMPLOYEE, list);
+        readAndWriteCSVFurama.writeFileCSV(CSVPath.EMPLOYEE, list,true);
     }
 
     @Override
@@ -94,6 +86,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
         employeeService.display();
         System.out.println();
+
         System.out.println("Enter employee Code to Edit");
         String code = scanner.nextLine();
         for (int i = 0; i < list.size(); i++) {
@@ -187,6 +180,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 break;
             }
         }
-        readAndWriteCSVFurama.writeFileCSV(CSVPath.EMPLOYEE, list);
+        readAndWriteCSVFurama.writeFileCSV(CSVPath.EMPLOYEE, list,false);
     }
 }

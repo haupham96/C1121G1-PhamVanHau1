@@ -1,5 +1,9 @@
 package furama_resort.model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class Booking implements Comparable<Booking> {
@@ -82,16 +86,52 @@ public class Booking implements Comparable<Booking> {
                 '}';
     }
 
-    public String getString(){
-        return this.bookingCode+","+this.dayStart+","+this.dayEnd+","+this.customerCode+","+this.nameOfService+","+this.typeOfService;
+    public String getString() {
+        return this.bookingCode + "," + this.dayStart + "," + this.dayEnd + "," + this.customerCode + "," + this.nameOfService + "," + this.typeOfService;
     }
 
     @Override
     public int compareTo(Booking o) {
+        String[] thisDateStart = this.dayStart.split("/");
+        int thisDayStart = Integer.parseInt(thisDateStart[0]);
+        int thisMonthStart = Integer.parseInt(thisDateStart[1]);
+        int thisYearStart = Integer.parseInt(thisDateStart[2]);
+
+        String[] oDateStart = o.dayStart.split("/");
+        int oDayStart = Integer.parseInt(oDateStart[0]);
+        int oMonthStart = Integer.parseInt(oDateStart[1]);
+        int oYearStart = Integer.parseInt(oDateStart[2]);
+
+        String[] thisDateEnd = this.dayEnd.split("/");
+        int thisDayEnd = Integer.parseInt(thisDateEnd[0]);
+        int thisMonthEnd = Integer.parseInt(thisDateEnd[1]);
+        int thisYearEnd = Integer.parseInt(thisDateEnd[2]);
+
+        String[] oDateEnd = o.dayEnd.split("/");
+        int oDayEnd = Integer.parseInt(oDateEnd[0]);
+        int oMonthEnd = Integer.parseInt(oDateEnd[1]);
+        int oYearEnd = Integer.parseInt(oDateEnd[2]);
+
         if (this.dayStart.equals(o.dayStart)) {
-            return this.dayEnd.compareTo(o.dayEnd);
+            if (thisYearEnd == oYearEnd) {
+                if (thisMonthEnd == oMonthEnd) {
+                    return thisDayEnd - oDayEnd;
+                } else {
+                    return thisMonthEnd - oMonthEnd;
+                }
+            } else {
+                return thisYearEnd - oYearEnd;
+            }
         } else {
-            return this.dayStart.compareTo(o.dayStart);
+            if (thisYearStart == oYearStart) {
+                if (thisMonthStart == oMonthStart) {
+                    return thisDayStart - oDayStart;
+                } else {
+                    return thisMonthStart - oMonthStart;
+                }
+            } else {
+                return thisYearStart - oYearStart;
+            }
         }
     }
 
@@ -107,4 +147,5 @@ public class Booking implements Comparable<Booking> {
     public int hashCode() {
         return 2222;
     }
+
 }
