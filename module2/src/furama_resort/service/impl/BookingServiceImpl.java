@@ -16,6 +16,7 @@ public class BookingServiceImpl implements BookingService, ContractService {
 
     @Override
     public void add() {
+
         TreeSet<Booking> bookingList = new TreeSet<>();
         TreeSet<Booking> bookingList2 = new TreeSet<>();
 

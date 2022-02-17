@@ -5,6 +5,7 @@ import furama_resort.service.EmployeeService;
 import furama_resort.util.exception.user_input_exception.UserInputException;
 import furama_resort.util.read_and_write_csv.CSVPath;
 import furama_resort.util.read_and_write_csv.ReadAndWriteCSV;
+import furama_resort.util.read_and_write_csv.Regex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         String name = scanner.nextLine();
 
         System.out.println("Input Date Of Birth");
-        String dayOfBirth = scanner.nextLine();
+        String dayOfBirth = Regex.regexAge(scanner.nextLine(),Regex.DATE);
 
         System.out.println("Input Gender");
         String gender = scanner.nextLine();

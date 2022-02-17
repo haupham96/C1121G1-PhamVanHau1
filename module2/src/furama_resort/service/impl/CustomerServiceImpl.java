@@ -5,6 +5,7 @@ import furama_resort.service.CustomerService;
 import furama_resort.util.exception.user_input_exception.UserInputException;
 import furama_resort.util.read_and_write_csv.CSVPath;
 import furama_resort.util.read_and_write_csv.ReadAndWriteCSV;
+import furama_resort.util.read_and_write_csv.Regex;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
         String name = scanner.nextLine();
 
         System.out.println("Input Customer Date Of Birth");
-        String dayOfBirth = scanner.nextLine();
+        String dayOfBirth = Regex.regexAge(scanner.nextLine(),Regex.DATE);
 
         System.out.println("Input Customer Gender");
         String gender = scanner.nextLine();
@@ -48,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerList.add(customer);
 
         List<String> list = readAndWriteCSV.changeToStringList(customerList);
-        readAndWriteCSV.writeFileCSV(CSVPath.CUSTOMER, list,true);
+        readAndWriteCSV.writeFileCSV(CSVPath.CUSTOMER, list, true);
 
         System.out.println("Successfully Adding new Customer ");
 
@@ -91,11 +92,11 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("7.Edit Customer class");
                 System.out.println("8.Edit address");
 
-                int choose=0;
+                int choose = 0;
                 try {
                     choose = Integer.parseInt(scanner.nextLine());
-                    if(choose<=0 || choose >8){
-                        throw new UserInputException("out of choice "+choose);
+                    if (choose <= 0 || choose > 8) {
+                        throw new UserInputException("out of choice " + choose);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -104,7 +105,7 @@ public class CustomerServiceImpl implements CustomerService {
                 switch (choose) {
                     case 1:
                         System.out.println("Edit Name Of Customer");
-                        String name = scanner.nextLine();
+                        String name = Regex.regexData(scanner.nextLine(), Regex.TYPE_OF_RENT_BY_TIME, "Invalid Input , Please try Again \n ( EXAMPLE : Aaaaa )");
                         customer.setName(name);
                         break;
                     case 2:
@@ -150,6 +151,6 @@ public class CustomerServiceImpl implements CustomerService {
                 break;
             }
         }
-        readAndWriteCSV.writeFileCSV(CSVPath.CUSTOMER, list,false);
+        readAndWriteCSV.writeFileCSV(CSVPath.CUSTOMER, list, false);
     }
 }
