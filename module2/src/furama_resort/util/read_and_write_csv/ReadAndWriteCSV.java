@@ -111,13 +111,12 @@ public class ReadAndWriteCSV {
     public static void main(String[] args) {
         ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
         List<String> string = readAndWriteCSV.readFileCSV(CSVPath.CUSTOMER);
-        List<Customer> customer = readAndWriteCSV.changeStringListToGenericList(string,new Customer());
-        for(Customer list:customer){
+        List<Customer> customer = readAndWriteCSV.changeStringListToGenericList(string, new Customer());
+        for (Customer list : customer) {
             System.out.println(list);
         }
 
     }
-
 
 
 }
