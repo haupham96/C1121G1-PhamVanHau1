@@ -70,7 +70,7 @@ public class ReadAndWriteCSV {
         return stringList;
     }
 
-    public <T> List<T> changeToGenericList(List<String> list, T t) {
+    public <T> List<T> changeStringListToGenericList(List<String> list, T t) {
         List<T> listT = new ArrayList<>();
         String[] arr;
         for (int i = 0; i < list.size(); i++) {
@@ -106,6 +106,16 @@ public class ReadAndWriteCSV {
             }
         }
         return listT;
+    }
+
+    public static void main(String[] args) {
+        ReadAndWriteCSV readAndWriteCSV = new ReadAndWriteCSV();
+        List<String> string = readAndWriteCSV.readFileCSV(CSVPath.CUSTOMER);
+        List<Customer> customer = readAndWriteCSV.changeStringListToGenericList(string,new Customer());
+        for(Customer list:customer){
+            System.out.println(list);
+        }
+
     }
 
 

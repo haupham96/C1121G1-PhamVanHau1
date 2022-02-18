@@ -5,7 +5,7 @@ import furama_resort.service.CustomerService;
 import furama_resort.util.exception.user_input_exception.UserInputException;
 import furama_resort.util.read_and_write_csv.CSVPath;
 import furama_resort.util.read_and_write_csv.ReadAndWriteCSV;
-import furama_resort.util.read_and_write_csv.Regex;
+import furama_resort.util.regex.Regex;
 
 import java.util.LinkedList;
 import java.util.List;
