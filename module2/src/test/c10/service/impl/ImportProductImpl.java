@@ -47,7 +47,7 @@ public class ImportProductImpl implements IProductService {
         System.out.println("Thuế nhập khẩu");
         String thue = Regex.regexData(scanner.nextLine(), Regex.SO_DUONG, "Error Input");
 
-        ImportProduct imProduct = new ImportProduct(ID, maSP, tenSP, Integer.parseInt(giaBan), Integer.parseInt(soLuong), nhaSanXuat, Integer.parseInt(giaXuatkhau), tenTinhThanh, Double.parseDouble(thue));
+        ImportProduct imProduct = new ImportProduct(Integer.parseInt(ID), maSP, tenSP, Integer.parseInt(giaBan), Integer.parseInt(soLuong), nhaSanXuat, Integer.parseInt(giaXuatkhau), tenTinhThanh, Double.parseDouble(thue));
         list.add(imProduct.getInformation());
 
         readAndWriteCSV.writeFileCSV(CSVPath.IM_PRODUCT, list, false);

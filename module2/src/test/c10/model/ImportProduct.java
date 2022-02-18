@@ -8,7 +8,7 @@ public class ImportProduct extends Product{
     public ImportProduct() {
     }
 
-    public ImportProduct(String productID, String productCode, String productName, int price, int amount, String producer, int importPrice, String importProvince, double importTax) {
+    public ImportProduct(int productID, String productCode, String productName, int price, int amount, String producer, int importPrice, String importProvince, double importTax) {
         super(productID, productCode, productName, price, amount, producer);
         this.importPrice = importPrice;
         this.importProvince = importProvince;

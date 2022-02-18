@@ -69,23 +69,39 @@ public class ReadAndWriteCSV {
         String[] arr;
         for (int i = 0; i < list.size(); i++) {
             arr = list.get(i).split(",");
-            ExportProduct exportProduct = new ExportProduct(arr[0], arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), arr[5], Integer.parseInt(arr[6]), arr[7]);
+            ExportProduct exportProduct = new ExportProduct(Integer.parseInt(arr[0]), arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), arr[5], Integer.parseInt(arr[6]), arr[7]);
             exProductList.add(exportProduct);
         }
 
         return exProductList;
     }
 
-    public List<Product> readListImport(){
+    public List<Product> readListImport() {
         List<String> list = readFileCSV(CSVPath.IM_PRODUCT);
         List<Product> imProductList = new ArrayList<>();
         String[] arr;
         for (int i = 0; i < list.size(); i++) {
             arr = list.get(i).split(",");
-            ImportProduct importProduct = new ImportProduct(arr[0],arr[1],arr[2],Integer.parseInt(arr[3]),Integer.parseInt(arr[4]),arr[5],Integer.parseInt(arr[6]),arr[7],Double.parseDouble(arr[8]) );
+            ImportProduct importProduct = new ImportProduct(Integer.parseInt(arr[0]), arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), arr[5], Integer.parseInt(arr[6]), arr[7], Double.parseDouble(arr[8]));
             imProductList.add(importProduct);
         }
         return imProductList;
+    }
+
+    public void setID() {
+        int id;
+        boolean check = false;
+        List<Product> productList = readListExport();
+
+        for (int i = 0; i < productList.size(); i++) {
+            id = i + 1;
+            productList.get(i).setProductID(id);
+            check = true;
+        }
+        if (check) {
+            List<String> list = changeToStringList(productList);
+            writeFileCSV(CSVPath.EX_PRODUCT, list, false);
+        }
     }
 
 

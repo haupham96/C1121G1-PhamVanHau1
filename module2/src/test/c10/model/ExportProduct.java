@@ -7,7 +7,7 @@ public class ExportProduct extends Product {
     public ExportProduct() {
     }
 
-    public ExportProduct(String productID, String productCode, String productName, int price, int amount, String producer, int exportPrice, String countryImport) {
+    public ExportProduct(int productID, String productCode, String productName, int price, int amount, String producer, int exportPrice, String countryImport) {
         super(productID, productCode, productName, price, amount, producer);
         this.exportPrice = exportPrice;
         this.countryImport = countryImport;

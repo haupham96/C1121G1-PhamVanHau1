@@ -55,6 +55,7 @@ public class Controller {
                         System.out.println("XÓA");
                         System.out.println("1. Xóa sản phẩm xuất khẩu");
                         System.out.println("2. Xóa sản phẩm nhập khẩu");
+                        System.out.println("3. Thoát");
                         System.out.println();
                         chonXoa = Integer.parseInt(scanner.nextLine());
                         switch (chonXoa) {

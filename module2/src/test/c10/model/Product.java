@@ -1,7 +1,7 @@
 package test.c10.model;
 
 public abstract class Product {
-    private String productID;
+    private int productID;
     private String productCode;
     private String productName;
     private int price;
@@ -11,7 +11,7 @@ public abstract class Product {
     public Product() {
     }
 
-    public Product(String productID, String productCode, String productName, int price, int amount, String producer) {
+    public Product(int productID, String productCode, String productName, int price, int amount, String producer) {
         this.productID = productID;
         this.productCode = productCode;
         this.productName = productName;
@@ -20,11 +20,11 @@ public abstract class Product {
         this.producer = producer;
     }
 
-    public String getProductID() {
+    public int getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(int productID) {
         this.productID = productID;
     }
 

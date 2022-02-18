@@ -21,8 +21,8 @@ public class ExportProductImpl implements IProductService {
     public void them() {
         List<String> list = readAndWriteCSV.readFileCSV(CSVPath.EX_PRODUCT);
 
-        System.out.println("nhập ID sản phẩm");
-        String ID = Regex.regexData(scanner.nextLine(), Regex.SO_DUONG, "Error Input");
+//        System.out.println("nhập ID sản phẩm");
+//        String ID = Regex.regexData(scanner.nextLine(), Regex.SO_DUONG, "Error Input");
 
         System.out.println("nhập mã sản phẩm");
         String maSP = Regex.regexData(scanner.nextLine(), Regex.STRING, "Error Input");
@@ -45,10 +45,12 @@ public class ExportProductImpl implements IProductService {
         System.out.println("Tên quốc gia nhập khẩu");
         String tenQuocGiaNhap = Regex.regexData(scanner.nextLine(), Regex.STRING, "Error Input");
 
-        ExportProduct exProduct = new ExportProduct(ID, maSP, tenSP, Integer.parseInt(giaBan), Integer.parseInt(soLuong), nhaSanXuat, Integer.parseInt(giaXuatkhau), tenQuocGiaNhap);
+        ExportProduct exProduct = new ExportProduct(0, maSP, tenSP, Integer.parseInt(giaBan), Integer.parseInt(soLuong), nhaSanXuat, Integer.parseInt(giaXuatkhau), tenQuocGiaNhap);
         list.add(exProduct.getInformation());
 
         readAndWriteCSV.writeFileCSV(CSVPath.EX_PRODUCT, list, false);
+
+        readAndWriteCSV.setID();
     }
 
     @Override
@@ -89,6 +91,7 @@ public class ExportProductImpl implements IProductService {
             List<String> string = readAndWriteCSV.changeToStringList(list);
             readAndWriteCSV.writeFileCSV(CSVPath.EX_PRODUCT, string, false);
         }
+        readAndWriteCSV.setID();
     }
 
     @Override
