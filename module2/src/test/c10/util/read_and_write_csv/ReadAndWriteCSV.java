@@ -19,11 +19,9 @@ public class ReadAndWriteCSV {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line = "";
-
             while ((line = bufferedReader.readLine()) != null) {
                 list.add(line);
             }
-
             bufferedReader.close();
 
         } catch (FileNotFoundException e) {
