@@ -33,10 +33,8 @@ public class ThemTaiKhoanThanhToanImpl implements IThemTaiKhoanService {
         String soTienTrongTK = Regex.regexData(scanner.nextLine(), Regex.SO_DUONG, "Số tiền phải là số dương");
 
         TaiKhoanThanhToan thanhToan = new TaiKhoanThanhToan(0, maTK, tenChuTK, ngayTaoTK, soThe, soTienTrongTK);
+        thanhToan.setID(readWriteFile.getLastID()+1);
         list.add(thanhToan.getString());
-        List<TaiKhoanNganHang> nganHangList = readWriteFile.doiSangListTaiKhoanVaSetID(list);
-        list = readWriteFile.changeToStringList(nganHangList);
-
         readWriteFile.writeFileCSV(CSVPath.BANK, list, false);
     }
 }

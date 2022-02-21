@@ -1,15 +1,16 @@
-package test.c08.util.read_and_write_csv;
+package c1121g1_pham_van_hau.util.doc_ghi_file;
 
-import test.c08.model.TaiKhoanNganHang;
-import test.c08.model.TaiKhoanThanhToan;
-import test.c08.model.TaiKhoanTietKiem;
+import c1121g1_pham_van_hau.model.BenhAn;
+import c1121g1_pham_van_hau.model.BenhAnThuong;
+import c1121g1_pham_van_hau.model.BenhAnVip;
+import test.c08.util.read_and_write_csv.CSVPath;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadWriteFile {
-    public List<String> readFileCSV(String path) {
+public class DocGhiFile {
+    public List<String> docFileCSV(String path) {
         List<String> list = new ArrayList<>();
 
         try {
@@ -31,7 +32,7 @@ public class ReadWriteFile {
         return list;
     }
 
-    public void writeFileCSV(String path, List<String> list, boolean append) {
+    public void ghiFileCSV(String path, List<String> list, boolean append) {
 
         try {
             File file = new File(path);
@@ -50,42 +51,40 @@ public class ReadWriteFile {
         }
     }
 
-    public List<String> changeToStringList(List<TaiKhoanNganHang> list) {
+    public List<String> chuyenSangListString(List<BenhAn> list) {
 
         List<String> stringList = new ArrayList<>();
 
         for (int i = 0; i < list.size(); i++) {
-            stringList.add(list.get(i).getString());
+            stringList.add(list.get(i).layThongTin());
         }
         return stringList;
     }
 
-    public List<TaiKhoanNganHang> doiSangListTaiKhoanVaSetID(List<String> list) {
-        List<TaiKhoanNganHang> listTaiKhoan = new ArrayList<>();
+    public List<BenhAn> chuyenSangListBenhAn(List<String> list) {
+        List<BenhAn> listBenhAn = new ArrayList<>();
         String[] arr;
         for (int i = 0; i < list.size(); i++) {
             arr = list.get(i).split(",");
-            if (arr.length == 6) {
+            if (arr.length == 8) {
                 arr = list.get(i).split(",");
-                TaiKhoanThanhToan thanhToan = new TaiKhoanThanhToan(Integer.parseInt(arr[0]), arr[1], arr[2], arr[3], arr[4], arr[5]);
-                listTaiKhoan.add(thanhToan);
+                BenhAnThuong benhAnThuong = new BenhAnThuong(Integer.parseInt(arr[0]), arr[1], arr[2], arr[3], arr[4], arr[5], arr[6],arr[7]);
+                listBenhAn.add(benhAnThuong);
             } else {
                 arr = list.get(i).split(",");
-                TaiKhoanTietKiem tietKiem = new TaiKhoanTietKiem(Integer.parseInt(arr[0]), arr[1], arr[2], arr[3], arr[4], arr[5], Double.parseDouble(arr[6]), Integer.parseInt(arr[7]));
-                listTaiKhoan.add(tietKiem);
+                BenhAnVip benhAnVip = new BenhAnVip(Integer.parseInt(arr[0]), arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7],arr[8]);
+                listBenhAn.add(benhAnVip);
             }
         }
-        return listTaiKhoan;
+        return listBenhAn;
     }
 
-    public int getLastID() {
-        List<TaiKhoanNganHang> nganHangList = this.doiSangListTaiKhoanVaSetID(this.readFileCSV(CSVPath.BANK));
-        int lastID = 0;
-        for (TaiKhoanNganHang ls : nganHangList) {
-            lastID = ls.getID();
+    public int layIDCuoiCung() {
+        List<BenhAn> listName = this.chuyenSangListBenhAn(this.docFileCSV(PathCSV.BENH_AN));
+        int IDCuoi = 0;
+        for (BenhAn ls : listName) {
+            IDCuoi = ls.getSoThuTu();
         }
-        return lastID;
+        return IDCuoi;
     }
 }
-
-
