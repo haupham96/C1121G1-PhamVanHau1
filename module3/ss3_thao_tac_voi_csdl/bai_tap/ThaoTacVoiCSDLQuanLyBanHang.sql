@@ -16,7 +16,7 @@ values
 ('Quat',1),
 ('Bep Dien',2);
 
-alter table product change `product_price` `product_p1rice` int;
+alter table product change `product_price` `product_price` int;
 
 select * from order_detail;
 insert into order_detail(order_id,product_id,order_quanlity)
