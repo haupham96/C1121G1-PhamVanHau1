@@ -1,9 +1,8 @@
-package c1121g1_pham_van_hau.controller;
+package test.c1121g1_pham_van_hau.controller;
 
-import c1121g1_pham_van_hau.model.BenhAn;
-import c1121g1_pham_van_hau.service.impl.BenhAnServiceImpl;
-import c1121g1_pham_van_hau.service.impl.ThemBenhAnThuongImpl;
-import c1121g1_pham_van_hau.service.impl.ThemBenhAnVipImpl;
+import test.c1121g1_pham_van_hau.service.impl.BenhAnServiceImpl;
+import test.c1121g1_pham_van_hau.service.impl.ThemBenhAnThuongImpl;
+import test.c1121g1_pham_van_hau.service.impl.ThemBenhAnVipImpl;
 
 import java.util.Scanner;
 

@@ -1,9 +1,8 @@
-package c1121g1_pham_van_hau.util.doc_ghi_file;
+package test.c1121g1_pham_van_hau.util.doc_ghi_file;
 
-import c1121g1_pham_van_hau.model.BenhAn;
-import c1121g1_pham_van_hau.model.BenhAnThuong;
-import c1121g1_pham_van_hau.model.BenhAnVip;
-import test.c08.util.read_and_write_csv.CSVPath;
+import test.c1121g1_pham_van_hau.model.BenhAn;
+import test.c1121g1_pham_van_hau.model.BenhAnThuong;
+import test.c1121g1_pham_van_hau.model.BenhAnVip;
 
 import java.io.*;
 import java.util.ArrayList;

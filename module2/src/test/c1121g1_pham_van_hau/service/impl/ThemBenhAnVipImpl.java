@@ -1,10 +1,10 @@
-package c1121g1_pham_van_hau.service.impl;
+package test.c1121g1_pham_van_hau.service.impl;
 
-import c1121g1_pham_van_hau.model.BenhAnVip;
-import c1121g1_pham_van_hau.service.IThemBenhAnService;
-import c1121g1_pham_van_hau.util.doc_ghi_file.DocGhiFile;
-import c1121g1_pham_van_hau.util.doc_ghi_file.PathCSV;
-import c1121g1_pham_van_hau.util.regex.Regex;
+import test.c1121g1_pham_van_hau.model.BenhAnVip;
+import test.c1121g1_pham_van_hau.service.IThemBenhAnService;
+import test.c1121g1_pham_van_hau.util.doc_ghi_file.DocGhiFile;
+import test.c1121g1_pham_van_hau.util.doc_ghi_file.PathCSV;
+import test.c1121g1_pham_van_hau.util.regex.Regex;
 
 import java.util.List;
 import java.util.Scanner;

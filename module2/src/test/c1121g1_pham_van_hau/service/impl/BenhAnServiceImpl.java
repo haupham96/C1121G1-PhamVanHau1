@@ -1,13 +1,11 @@
-package c1121g1_pham_van_hau.service.impl;
+package test.c1121g1_pham_van_hau.service.impl;
 
-import c1121g1_pham_van_hau.model.BenhAn;
-import c1121g1_pham_van_hau.service.IBenhAnService;
-import c1121g1_pham_van_hau.util.doc_ghi_file.DocGhiFile;
-import c1121g1_pham_van_hau.util.doc_ghi_file.PathCSV;
-import c1121g1_pham_van_hau.util.exception.NotFoundMedicalRecordException;
-import test.c08.util.read_and_write_csv.CSVPath;
+import test.c1121g1_pham_van_hau.model.BenhAn;
+import test.c1121g1_pham_van_hau.service.IBenhAnService;
+import test.c1121g1_pham_van_hau.util.doc_ghi_file.DocGhiFile;
+import test.c1121g1_pham_van_hau.util.doc_ghi_file.PathCSV;
+import test.c1121g1_pham_van_hau.util.exception.NotFoundMedicalRecordException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 

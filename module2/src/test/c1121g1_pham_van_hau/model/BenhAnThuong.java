@@ -1,4 +1,4 @@
-package c1121g1_pham_van_hau.model;
+package test.c1121g1_pham_van_hau.model;
 
 public class BenhAnThuong extends BenhAn {
     private String phiNamVien;
