@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
+    <style>
+        header {
+            height: 70px;
+            border: 1px solid gray;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #left {
+            width: 30%;
+            height: 600px;
+            float: left;
+            border: 1px solid gray;
+            padding: 20px 20px;
+        }
+
+        #mid {
+            width: 40%;
+            height: 100%;
+            float: left;
+        }
+
+        #right {
+            width: 30%;
+            height: 600px;
+            float: left;
+        }
+
+        .head-mid {
+            align-content: center;
+        }
+
+        .col-1 {
+            width: 8.33%
+        }
+
+        .col-2 {
+            width: 16.66%
+        }
+
+        .col-3 {
+            width: 25%;
+            height: 50px;
+            margin: 20px auto;
+        }
+
+        .col-4 {
+            width: 33.3%
+        }
+
+        .col-5 {
+            width: 41.66%
+        }
+
+        .col-6 {
+            width: 50%
+        }
+
+        .col-7 {
+            width: 58.33%
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        [class*=col-] {
+            float: left;
+            padding: 5px;
+        }
+
+        .icon {
+            font-size: 30px;
+        }
+
+        #left a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .left-top {
+            border-bottom: 1px solid gray;
+        }
+
+        #left div a:hover {
+            background: dodgerblue;
+        }
+
+        #right {
+            padding-left: 10px;
+        }
+
+        #right a {
+            display: block;
+        }
+
+        #right a:hover {
+            background: #CDCDCD;
+        }
+
+        .danh-sach-ban-be {
+            border-bottom: 1px solid gray;
+        }
+
+        #mid {
+            margin-top: 10px;
+        }
+        .tin {
+            margin-left: 20px;
+            padding: 10px;
+            width: 100%;
+            height: 180px;
+        }
+
+        .post-status {
+            width: 100%;
+            height: 180px;
+            
+        }
+
+        .contend {
+
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="col-3">
+        <a href="#" style="width: 10px;height: 10px"><i class="ri-facebook-circle-fill icon"></i></a>
+        <input placeholder="Tìm kiếm" id="tim-kiem">
+    </div>
+    <div class="col-3" style="margin-left: 350px">
+        <a href="#"><i class="ri-home-4-line icon"></i></a>
+        <a href="#"><i class="ri-store-2-line icon"></i></a>
+        <a href="#"><i class="ri-gamepad-line icon"></i></a>
+    </div>
+    <div class="col-3" align="right">
+        <a href="#"><i class="ri-account-circle-fill icon"></i></a>
+        <a href="#"><i class="ri-menu-line icon"></i></a>
+        <a href="#"><i class="ri-messenger-line icon"></i></a>
+        <a href="#"><i class="ri-notification-3-line icon"></i></a>
+    </div>
+</header>
+<div id="left">
+    <div class="left-top">
+        <a href="#"><i class="ri-account-circle-fill icon"></i></i> Profile</a>
+        <a href="#"><i class="ri-group-fill icon"></i> Bạn bè </a>
+        <a href="#"><i class="ri-group-2-line icon"></i>Nhóm</a>
+        <a href="#"><i class="ri-store-2-fill icon"></i>Market</a>
+        <a href="#"><i class="ri-arrow-left-circle-line icon"></i>Kỷ Niệm</a>
+        <a href="#"><i class="ri-save-3-fill icon"></i>Lưu trữ</a>
+        <a href="#"><i class="ri-more-2-fill icon"></i>Xem Thêm</a>
+        <br>
+    </div>
+    <div class="left-bottom">
+        <br>
+        <p style="color: grey">Lối tắt nhóm</p>
+        <a href="#"><i class="ri-account-circle-fill icon"></i></i> Profile</a>
+        <a href="#"><i class="ri-group-fill icon"></i> Bạn bè </a>
+        <a href="#"><i class="ri-group-2-line icon"></i>Nhóm</a>
+        <a href="#"><i class="ri-store-2-fill icon"></i>Market</a>
+        <a href="#"><i class="ri-arrow-left-circle-line icon"></i>Kỷ Niệm</a>
+        <a href="#"><i class="ri-save-3-fill icon"></i>Lưu trữ</a>
+        <a href="#"><i class="ri-more-2-fill icon"></i>Xem Thêm</a>
+        <br>
+    </div>
+</div>
+<div id="mid">
+    <div class="tin">
+        <a href="#"> <img src="media/feeds.jpg" height="100%" width="18%"/> </a>
+        <a href="#"> <img src="media/feed2.jpg" height="100%" width="18%"/> </a>
+        <a href="#"> <img src="media/feed3.jpg" height="100%" width="18%"/> </a>
+        <a href="#"> <img src="media/feed4.jpg" height="100%" width="18%"/></a>
+        <a href="#"> <img src="media/feed5.jpg" height="100%" width="18%"/></a>
+    </div>
+    <div class="post-status"></div>
+    <div class="contend"></div>
+</div>
+<div id="right">
+    <div>
+        <div class="danh-sach-ban-be">
+            <p> Danh sách bạn bè </p>
+        </div>
+        <div>
+            <br>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+            <a href="#"><i class="ri-account-circle-fill icon"></i></i> Name Name </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
