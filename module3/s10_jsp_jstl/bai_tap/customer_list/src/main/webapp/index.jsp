@@ -26,38 +26,14 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${matrix}" var="arr">
+    <c:forEach items="${list}" var="arr">
     <tr>
-        <th scope="row">${arr[]}</th>
-        <td>1983-08-20</td>
-        <td>Hà Nội</td>
-        <td><img src="${arr.}" alt="pic1" height="30px" width="30px"></td>
+        <td>${arr.name}</td>
+        <td>${arr.date}</td>
+        <td>${arr.address}</td>
+        <td><img src="${arr.img}" alt="pic" height="30px" width="30px"></td>
     </tr>
     </c:forEach>
-    <tr>
-        <th scope="row">Nguyễn Văn Nam</th>
-        <td>1983-08-21</td>
-        <td>Bắc Giang</td>
-        <td><img src="picture/2.png" alt="pic2" height="30px" width="30px"></td>
-    </tr>
-    <tr>
-        <th scope="row">Nguyễn Thái Hoà</th>
-        <td>1983-08-22</td>
-        <td>Nam Định</td>
-        <td><img src="picture/3.png" height="30px" width="30px"></td>
-    </tr>
-    <tr>
-        <th scope="row">Trần Đăng Khoa</th>
-        <td>1983-08-17</td>
-        <td>Hà Tây</td>
-        <td><img src="picture/4.png" alt="pic4" height="30px" width="30px"></td>
-    </tr>
-    <tr>
-        <th scope="row">Nguyễn Đình Thi</th>
-        <td>1983-08-19</td>
-        <td>Hà Nội</td>
-        <td><img src="picture/5.png" alt="pic5" height="30px" width="30px"></td>
-    </tr>
     </tbody>
 </table>
 </body>
