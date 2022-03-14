@@ -1,14 +1,13 @@
-package service;
+package repository;
 
 import model.Product;
 
 import java.util.List;
 
-public interface ProductService {
+public interface IProductRepository {
     List<Product> listProducts();
 
     void createProduct(Product product);
-
 
     Product findById(Integer id);
 

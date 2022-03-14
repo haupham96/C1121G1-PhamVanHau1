@@ -1,15 +1,13 @@
-package service.service_impl;
+package repository.impl;
 
 import model.Product;
 import repository.IProductRepository;
-import repository.impl.ProductRepository;
-import service.ProductService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductServiceImpl implements ProductService {
-    private IProductRepository repository = new ProductRepository();
+public class ProductRepository implements IProductRepository {
+
     private static List<Product> products = new ArrayList<>();
 
     static {
@@ -20,37 +18,58 @@ public class ProductServiceImpl implements ProductService {
         products.add(new Product(5, "iPhone5", "5000", "water resists", "Apple5"));
         products.add(new Product(6, "iPhone6", "6000", "turn on the beats", "Apple6"));
     }
-
     @Override
     public List<Product> listProducts() {
-        return repository.listProducts();
+        return products;
     }
 
     @Override
     public void createProduct(Product product) {
-       repository.createProduct(product);
+        products.add(product);
     }
 
 
     @Override
     public Product findById(Integer id) {
-        return repository.findById(id);
+        Product product = null;
+        for (Product list : products) {
+            if (list.getId() == id) {
+                product = list;
+            }
+        }
+        return product;
     }
 
     @Override
     public void delete(Integer id) {
-       repository.delete(id);
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId() == id) {
+                products.remove(i);
+            }
+        }
     }
 
     @Override
     public List<Product> search(String name) {
-        return repository.search(name);
+        List<Product> productList = new ArrayList<>();
+        for (Product list : products) {
+            if (list.getName().contains(name)) {
+                productList.add(list);
+            }
+        }
+        return productList;
     }
 
     @Override
     public void edit(Integer id, String name, String price, String des, String manufacturer) {
-        repository.edit(id, name, price, des, manufacturer);
+        for (Product ls : products) {
+            if (ls.getId() == id) {
+                ls.setName(name);
+                ls.setPrice(price);
+                ls.setDescription(des);
+                ls.setManufacturer(manufacturer);
+                break;
+            }
+        }
     }
-
-
 }
