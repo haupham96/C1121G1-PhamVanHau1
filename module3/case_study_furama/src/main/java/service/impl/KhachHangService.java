@@ -113,4 +113,14 @@ public class KhachHangService implements IKhachHangService {
         }
         return map;
     }
+
+    @Override
+    public void deleteCustomerById(Integer id) {
+        khachHangRepository.deleteCustomerById(id);
+    }
+
+    @Override
+    public List<KhachHangDTO> searchByName(String searchName) {
+        return khachHangRepository.searchByName(searchName);
+    }
 }

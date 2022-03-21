@@ -1,31 +1,54 @@
 package model;
 
 public class NhanVien {
-   private Integer maNhanVien ;
-   private String hoTen;
-   private String ngaySinh ;
-   private String soCMND ;
-   private String soDienThoai;
-   private String email ;
-   private Integer trinhDo ;
-   private Integer viTri ;
-   private Integer boPhan ;
-   private Integer luong ;
+    private Integer maNhanVien;
+    private String hoTen;
+    private String ngaySinh;
+    private String soCMND;
+    private String luong;
+    private String soDienThoai;
+    private String email;
+    private String diaChi;
+    private Integer trinhDo;
+    private Integer viTri;
+    private Integer boPhan;
 
     public NhanVien() {
     }
 
-    public NhanVien(Integer maNhanVien, String hoTen, String ngaySinh, String soCMND, String soDienThoai, String email, Integer trinhDo, Integer viTri, Integer boPhan, Integer luong) {
+    public NhanVien(String hoTen, String ngaySinh, String soCMND, String luong, String soDienThoai, String email, String diaChi, Integer trinhDo, Integer viTri, Integer boPhan) {
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+        this.soCMND = soCMND;
+        this.luong = luong;
+        this.soDienThoai = soDienThoai;
+        this.email = email;
+        this.diaChi = diaChi;
+        this.trinhDo = trinhDo;
+        this.viTri = viTri;
+        this.boPhan = boPhan;
+    }
+
+    public NhanVien(Integer maNhanVien, String hoTen, String ngaySinh, String soCMND, String luong, String soDienThoai, String email, String diaChi, Integer trinhDo, Integer viTri, Integer boPhan) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
         this.ngaySinh = ngaySinh;
         this.soCMND = soCMND;
+        this.luong = luong;
         this.soDienThoai = soDienThoai;
         this.email = email;
+        this.diaChi = diaChi;
         this.trinhDo = trinhDo;
         this.viTri = viTri;
         this.boPhan = boPhan;
-        this.luong = luong;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
     }
 
     public Integer getMaNhanVien() {
@@ -92,11 +115,11 @@ public class NhanVien {
         this.viTri = viTri;
     }
 
-    public Integer getLuong() {
+    public String getLuong() {
         return luong;
     }
 
-    public void setLuong(Integer luong) {
+    public void setLuong(String luong) {
         this.luong = luong;
     }
 

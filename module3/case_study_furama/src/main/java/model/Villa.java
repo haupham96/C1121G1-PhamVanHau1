@@ -1,28 +1,25 @@
 package model;
 
-public class Villa extends DichVu {
-    private String tieuChuanPhong;
-    private String moTaTienNghiKhac ;
-    private Double dienTichHoBoi ;
-    private Integer soTang ;
+public class Villa extends DichVu{
+    private String moTaTienNghiKhac;
+    private String dienTichHoBoi;
+    private String soTang ;
 
     public Villa() {
     }
 
-    public Villa(Integer maDichVu, String tenDichVu, Double dienTich, Integer chiPhiThue, Integer soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, Double dienTichHoBoi, Integer soTang) {
-        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
-        this.tieuChuanPhong = tieuChuanPhong;
+    public Villa(String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dienTichHoBoi, String soTang) {
+        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.dienTichHoBoi = dienTichHoBoi;
         this.soTang = soTang;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
-    }
-
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public Villa(Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dienTichHoBoi, String soTang) {
+        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
+        this.moTaTienNghiKhac = moTaTienNghiKhac;
+        this.dienTichHoBoi = dienTichHoBoi;
+        this.soTang = soTang;
     }
 
     public String getMoTaTienNghiKhac() {
@@ -33,19 +30,19 @@ public class Villa extends DichVu {
         this.moTaTienNghiKhac = moTaTienNghiKhac;
     }
 
-    public Double getDienTichHoBoi() {
+    public String getDienTichHoBoi() {
         return dienTichHoBoi;
     }
 
-    public void setDienTichHoBoi(Double dienTichHoBoi) {
+    public void setDienTichHoBoi(String dienTichHoBoi) {
         this.dienTichHoBoi = dienTichHoBoi;
     }
 
-    public Integer getSoTang() {
+    public String getSoTang() {
         return soTang;
     }
 
-    public void setSoTang(Integer soTang) {
+    public void setSoTang(String soTang) {
         this.soTang = soTang;
     }
 }

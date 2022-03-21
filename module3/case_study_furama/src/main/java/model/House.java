@@ -1,26 +1,22 @@
 package model;
 
 public class House extends DichVu{
-    private String tieuChuanPhong ;
-    private String moTaTienNghiKhac ;
-    private Integer soTang ;
+    private String moTaTienNghiKhac;
+    private String soTang ;
 
     public House() {
     }
 
-    public House(Integer maDichVu, String tenDichVu, Double dienTich, Integer chiPhiThue, Integer soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, Integer soTang) {
-        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
-        this.tieuChuanPhong = tieuChuanPhong;
+    public House(String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String soTang) {
+        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.soTang = soTang;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
-    }
-
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public House(Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String soTang) {
+        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
+        this.moTaTienNghiKhac = moTaTienNghiKhac;
+        this.soTang = soTang;
     }
 
     public String getMoTaTienNghiKhac() {
@@ -31,11 +27,11 @@ public class House extends DichVu{
         this.moTaTienNghiKhac = moTaTienNghiKhac;
     }
 
-    public Integer getSoTang() {
+    public String getSoTang() {
         return soTang;
     }
 
-    public void setSoTang(Integer soTang) {
+    public void setSoTang(String soTang) {
         this.soTang = soTang;
     }
 }

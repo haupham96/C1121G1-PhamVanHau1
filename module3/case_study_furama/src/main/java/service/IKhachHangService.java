@@ -19,4 +19,8 @@ public interface IKhachHangService {
     KhachHang findCustomerById(Integer id);
 
     Map<String, String> editCustomer(KhachHang khachHang);
+
+    void deleteCustomerById(Integer id);
+
+    List<KhachHangDTO> searchByName(String searchName);
 }

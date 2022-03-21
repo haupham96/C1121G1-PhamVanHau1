@@ -3,16 +3,27 @@ package model;
 public abstract class DichVu {
     private Integer maDichVu ;
     private String tenDichVu ;
-    private Double dienTich ;
-    private Integer chiPhiThue ;
-    private Integer soNguoiToiDa ;
+    private String dienTich ;
+    private String chiPhiThue ;
+    private String soNguoiToiDa ;
     private Integer kieuThue ;
     private Integer loaiDichVu ;
+    private String tieuChuanPhong ;
 
     public DichVu() {
     }
 
-    public DichVu(Integer maDichVu, String tenDichVu, Double dienTich, Integer chiPhiThue, Integer soNguoiToiDa, Integer kieuThue, Integer loaiDichVu) {
+    public DichVu(String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong) {
+        this.tenDichVu = tenDichVu;
+        this.dienTich = dienTich;
+        this.chiPhiThue = chiPhiThue;
+        this.soNguoiToiDa = soNguoiToiDa;
+        this.kieuThue = kieuThue;
+        this.loaiDichVu = loaiDichVu;
+        this.tieuChuanPhong = tieuChuanPhong;
+    }
+
+    public DichVu(Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong) {
         this.maDichVu = maDichVu;
         this.tenDichVu = tenDichVu;
         this.dienTich = dienTich;
@@ -20,6 +31,15 @@ public abstract class DichVu {
         this.soNguoiToiDa = soNguoiToiDa;
         this.kieuThue = kieuThue;
         this.loaiDichVu = loaiDichVu;
+        this.tieuChuanPhong = tieuChuanPhong;
+    }
+
+    public String getTieuChuanPhong() {
+        return tieuChuanPhong;
+    }
+
+    public void setTieuChuanPhong(String tieuChuanPhong) {
+        this.tieuChuanPhong = tieuChuanPhong;
     }
 
     public Integer getMaDichVu() {
@@ -38,27 +58,27 @@ public abstract class DichVu {
         this.tenDichVu = tenDichVu;
     }
 
-    public Double getDienTich() {
+    public String getDienTich() {
         return dienTich;
     }
 
-    public void setDienTich(Double dienTich) {
+    public void setDienTich(String dienTich) {
         this.dienTich = dienTich;
     }
 
-    public Integer getChiPhiThue() {
+    public String getChiPhiThue() {
         return chiPhiThue;
     }
 
-    public void setChiPhiThue(Integer chiPhiThue) {
+    public void setChiPhiThue(String chiPhiThue) {
         this.chiPhiThue = chiPhiThue;
     }
 
-    public Integer getSoNguoiToiDa() {
+    public String getSoNguoiToiDa() {
         return soNguoiToiDa;
     }
 
-    public void setSoNguoiToiDa(Integer soNguoiToiDa) {
+    public void setSoNguoiToiDa(String soNguoiToiDa) {
         this.soNguoiToiDa = soNguoiToiDa;
     }
 

@@ -10,7 +10,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,8 +32,24 @@ public class CustomerServlet extends HttpServlet {
             case "edit":
                 showEditForm(request,response);
                 break;
+            case "delete":
+                showDeleteModal(request,response);
+                break;
             default:
                 listCustomers(request,response);
+        }
+    }
+
+    private void showDeleteModal(HttpServletRequest request, HttpServletResponse response) {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        KhachHang khachHang = khachHangService.findCustomerById(id);
+        request.setAttribute("khachHang",khachHang);
+        try {
+            request.getRequestDispatcher("/customer/delete-customer.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -67,7 +82,7 @@ public class CustomerServlet extends HttpServlet {
 
     private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
         List<KhachHangDTO> khachHangList = khachHangService.getAllCustomerWithCustomerClass();
-        request.setAttribute("khacHangList",khachHangList);
+        request.setAttribute("khachHangList",khachHangList);
         try {
             request.getRequestDispatcher("/customer/list-customer.jsp").forward(request,response);
         } catch (ServletException e) {
@@ -93,9 +108,44 @@ public class CustomerServlet extends HttpServlet {
             case "edit":
                 editCustomer(request,response);
                 break;
+            case "delete":
+                deleteCustomer(request,response);
+                break;
+            case "search":
+                searchByName(request,response);
             default:
                 listCustomers(request,response);
         }
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) {
+        String searchName = request.getParameter("searchName");
+        List<KhachHangDTO> khachHangDTOList = khachHangService.searchByName(searchName);
+        if(khachHangDTOList.isEmpty()) {
+            try {
+                request.getRequestDispatcher("/customer/not-found.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            request.setAttribute("khachHangList",khachHangDTOList);
+            try {
+                request.getRequestDispatcher("/customer/search-customer.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        khachHangService.deleteCustomerById(id);
+        listCustomers(request,response);
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response) {

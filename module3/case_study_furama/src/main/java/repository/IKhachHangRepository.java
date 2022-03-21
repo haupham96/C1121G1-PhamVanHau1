@@ -18,4 +18,8 @@ public interface IKhachHangRepository {
     KhachHang findCustomerById(Integer id);
 
     void editCustomer(KhachHang khachHang);
+
+    void deleteCustomerById(Integer id);
+
+    List<KhachHangDTO> searchByName(String searchName);
 }

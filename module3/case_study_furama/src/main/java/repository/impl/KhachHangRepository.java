@@ -24,20 +24,22 @@ public class KhachHangRepository implements IKhachHangRepository {
     private static final String SELECT_ALL_LOAI_KHACH = "SELECT * FROM loai_khach;";
     private static final String INSERT_CUSTOMER = "insert into khach_hang (ma_loai_khach,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi)\n" +
             "values(?,?,?,?,?,?,?,?);";
-    private static final String FIND_CUSTOMER_BY_ID = "SELECT * FROM khach_hang where ma_khach_hang = ? ;" ;
+    private static final String FIND_CUSTOMER_BY_ID = "SELECT * FROM khach_hang where ma_khach_hang = ? ;";
     private static final String EDIT_CUSTOMER_BY_ID = "update khach_hang " +
             "set ma_loai_khach = ? , ho_ten = ? , ngay_sinh = ? , gioi_tinh = ? , so_cmnd = ? , so_dien_thoai = ? , email = ? , dia_chi = ? " +
-            "where ma_khach_hang = ? ; " ;
+            "where ma_khach_hang = ? ; ";
+
+    private static final String DELETE_CUSTOMER_BY_ID = "set foreign_key_checks = 0 ; delete from khach_hang\n" +
+            "where khach_hang.ma_khach_hang = ? ; set foreign_key_checks = 1 ; ";
 
     @Override
     public List<KhachHang> getAllCustomer() {
         List<KhachHang> khachHangList = new ArrayList<>();
 
-        try( Connection connection = connectionDataBase.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMERS);)
-        {
+        try (Connection connection = connectionDataBase.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMERS);) {
             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 KhachHang khachHang = new KhachHang();
                 khachHang.setMaKhachHang(rs.getInt(1));
                 khachHang.setLoaiKhach(rs.getInt(2));
@@ -59,11 +61,10 @@ public class KhachHangRepository implements IKhachHangRepository {
     @Override
     public List<LoaiKhach> getAllLoaiKhach() {
         List<LoaiKhach> loaiKhachList = new ArrayList<>();
-        try(Connection connection = connectionDataBase.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_LOAI_KHACH);)
-        {
+        try (Connection connection = connectionDataBase.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_LOAI_KHACH);) {
             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 LoaiKhach loaiKhach = new LoaiKhach();
                 loaiKhach.setMaLoaiKhach(rs.getInt(1));
                 loaiKhach.setTenLoaiKhach(rs.getString(2));
@@ -80,12 +81,11 @@ public class KhachHangRepository implements IKhachHangRepository {
     public List<KhachHangDTO> getAllCustomerWithCustomerClass() {
         List<KhachHangDTO> khachHangDTOList = new ArrayList<>();
 
-        try(Connection connection = connectionDataBase.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMERS_WITH_CUSTOMER_CLASS);
-        )
-        {
+        try (Connection connection = connectionDataBase.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMERS_WITH_CUSTOMER_CLASS);
+        ) {
             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 KhachHangDTO khachHangDTO = new KhachHangDTO();
                 khachHangDTO.setMaKhachHang(rs.getInt(1));
                 khachHangDTO.setLoaiKhach(rs.getString(2));
@@ -107,12 +107,12 @@ public class KhachHangRepository implements IKhachHangRepository {
     @Override
     public void addNewCustomer(KhachHang khachHang) {
 
-        try( Connection connection = connectionDataBase.getConnection();
+        try (Connection connection = connectionDataBase.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CUSTOMER);) {
-            preparedStatement.setInt(1,khachHang.getLoaiKhach());
-            preparedStatement.setString(2,khachHang.getHoTen());
-            preparedStatement.setString(3,khachHang.getNgaySinh());
-            preparedStatement.setInt(4,khachHang.getGioiTinh());
+            preparedStatement.setInt(1, khachHang.getLoaiKhach());
+            preparedStatement.setString(2, khachHang.getHoTen());
+            preparedStatement.setString(3, khachHang.getNgaySinh());
+            preparedStatement.setInt(4, khachHang.getGioiTinh());
             preparedStatement.setString(5, khachHang.getSoCMND());
             preparedStatement.setString(6, khachHang.getSoDienThoai());
             preparedStatement.setString(7, khachHang.getEmail());
@@ -130,19 +130,19 @@ public class KhachHangRepository implements IKhachHangRepository {
         KhachHang khachHang = new KhachHang();
         try (Connection connection = connectionDataBase.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_CUSTOMER_BY_ID);) {
-            preparedStatement.setInt(1,id);
-          ResultSet rs =   preparedStatement.executeQuery();
-          while (rs.next()){
-              khachHang.setMaKhachHang(rs.getInt(1));
-              khachHang.setLoaiKhach(rs.getInt(2));
-              khachHang.setHoTen(rs.getString(3));
-              khachHang.setNgaySinh(rs.getString(4));
-              khachHang.setGioiTinh(rs.getInt(5));
-              khachHang.setSoCMND(rs.getString(6));
-              khachHang.setSoDienThoai(rs.getString(7));
-              khachHang.setEmail(rs.getString(8));
-              khachHang.setDiaChi(rs.getString(9));
-          }
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                khachHang.setMaKhachHang(rs.getInt(1));
+                khachHang.setLoaiKhach(rs.getInt(2));
+                khachHang.setHoTen(rs.getString(3));
+                khachHang.setNgaySinh(rs.getString(4));
+                khachHang.setGioiTinh(rs.getInt(5));
+                khachHang.setSoCMND(rs.getString(6));
+                khachHang.setSoDienThoai(rs.getString(7));
+                khachHang.setEmail(rs.getString(8));
+                khachHang.setDiaChi(rs.getString(9));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -153,12 +153,11 @@ public class KhachHangRepository implements IKhachHangRepository {
     public void editCustomer(KhachHang khachHang) {
 
         try (Connection connection = connectionDataBase.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(EDIT_CUSTOMER_BY_ID);)
-        {
-            preparedStatement.setInt(1,khachHang.getLoaiKhach());
+             PreparedStatement preparedStatement = connection.prepareStatement(EDIT_CUSTOMER_BY_ID);) {
+            preparedStatement.setInt(1, khachHang.getLoaiKhach());
             preparedStatement.setString(2, khachHang.getHoTen());
             preparedStatement.setString(3, khachHang.getNgaySinh());
-            preparedStatement.setInt(4,khachHang.getGioiTinh());
+            preparedStatement.setInt(4, khachHang.getGioiTinh());
             preparedStatement.setString(5, khachHang.getSoCMND());
             preparedStatement.setString(6, khachHang.getSoDienThoai());
             preparedStatement.setString(7, khachHang.getEmail());
@@ -170,5 +169,29 @@ public class KhachHangRepository implements IKhachHangRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void deleteCustomerById(Integer id) {
+
+        try (Connection connection = connectionDataBase.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CUSTOMER_BY_ID);) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<KhachHangDTO> searchByName(String searchName) {
+        List<KhachHangDTO> khachHangDTOList = getAllCustomerWithCustomerClass();
+        List<KhachHangDTO> listSearch = new ArrayList<>();
+        for(KhachHangDTO ls:khachHangDTOList){
+            if(ls.getHoTen().contains(searchName)){
+                listSearch.add(ls);
+            }
+        }
+        return listSearch;
     }
 }

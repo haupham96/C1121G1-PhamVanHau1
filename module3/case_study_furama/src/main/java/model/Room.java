@@ -1,22 +1,37 @@
 package model;
 
-public class Room extends DichVu {
-    private Integer dichVuDiKem;
+public class Room extends DichVu{
+    private String moTaTienNghiKhac ;
+    private String dichVuMienPhiDiKem ;
 
     public Room() {
     }
 
-    public Room(Integer maDichVu, String tenDichVu, Double dienTich, Integer chiPhiThue, Integer soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, Integer dichVuDiKem) {
-        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
-        this.dichVuDiKem = dichVuDiKem;
+    public Room(String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
+        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
+        this.moTaTienNghiKhac = moTaTienNghiKhac;
+        this.dichVuMienPhiDiKem = dichVuMienPhiDiKem;
     }
 
-    public Integer getDichVuDiKem() {
-        return dichVuDiKem;
+    public Room(Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
+        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
+        this.moTaTienNghiKhac = moTaTienNghiKhac;
+        this.dichVuMienPhiDiKem = dichVuMienPhiDiKem;
     }
 
-    public void setDichVuDiKem(Integer dichVuDiKem) {
-        this.dichVuDiKem = dichVuDiKem;
+    public String getMoTaTienNghiKhac() {
+        return moTaTienNghiKhac;
+    }
+
+    public void setMoTaTienNghiKhac(String moTaTienNghiKhac) {
+        this.moTaTienNghiKhac = moTaTienNghiKhac;
+    }
+
+    public String getDichVuMienPhiDiKem() {
+        return dichVuMienPhiDiKem;
+    }
+
+    public void setDichVuMienPhiDiKem(String dichVuMienPhiDiKem) {
+        this.dichVuMienPhiDiKem = dichVuMienPhiDiKem;
     }
 }
-

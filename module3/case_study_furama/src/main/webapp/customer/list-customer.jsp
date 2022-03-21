@@ -17,6 +17,8 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<br>
+<a class="btn btn-warning" href="/index.jsp">Về trang chủ</a>
 <center>
     <h1>Customer Application</h1>
 
@@ -29,7 +31,7 @@
         <form action="/customers" method="post">
             <input type="hidden" name="action" value="search">
             <input type="text" name="searchName">
-            <input type="submit" value="Search By ">
+            <input type="submit" value="Search By Name">
         </form>
     </tr>
 
@@ -51,7 +53,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="khachHang" items="${khacHangList}">
+    <c:forEach var="khachHang" items="${khachHangList}">
         <tr>
             <td><c:out value="${khachHang.hoTen}"/></td>
             <td><c:out value="${khachHang.loaiKhach}"/></td>

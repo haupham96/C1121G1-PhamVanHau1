@@ -29,13 +29,13 @@
             <a class="text-decoration-none" href="index.jsp">Home</a>
         </div>
         <div class="col-2 mt-3">
-            <a class="text-decoration-none" href="#">Employee</a>
+            <a class="text-decoration-none" href="/employee">Employee</a>
         </div>
         <div class="col-2 mt-3">
             <a class="text-decoration-none" href="/customers">Customer</a>
         </div>
         <div class="col-2 mt-3">
-            <a class="text-decoration-none" href="#">Service</a>
+            <a class="text-decoration-none" href="/dichVu">Service</a>
         </div>
         <div class="col-2 mt-3">
             <a class="text-decoration-none" href="#">Contact</a>
