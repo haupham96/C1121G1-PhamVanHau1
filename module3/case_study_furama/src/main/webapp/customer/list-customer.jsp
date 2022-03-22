@@ -64,7 +64,6 @@
             <c:if test="${khachHang.gioiTinh == 1}">
                 <td><c:out value="Nam"/></td>
             </c:if>
-
             <td><c:out value="${khachHang.soCMND}"/></td>
             <td><c:out value="${khachHang.soDienThoai}"/></td>
             <td><c:out value="${khachHang.email}"/></td>

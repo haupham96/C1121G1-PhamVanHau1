@@ -138,4 +138,9 @@ public class EmployeeService implements IEmployeeService {
     public NhanVien findEmployeeById(Integer maNhanVien) {
         return employeeRepository.findEmployeeById(maNhanVien);
     }
+
+    @Override
+    public boolean deleteEmployeeById(Integer id) {
+        return employeeRepository.deleteEmployeeById(id);
+    }
 }

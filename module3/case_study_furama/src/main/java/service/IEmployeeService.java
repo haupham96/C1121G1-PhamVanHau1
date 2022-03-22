@@ -25,4 +25,6 @@ public interface IEmployeeService {
     Map<String, String> editEmployee(NhanVien nhanVien);
 
     NhanVien findEmployeeById(Integer maNhanVien);
+
+    boolean deleteEmployeeById(Integer id);
 }

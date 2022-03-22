@@ -1,17 +1,29 @@
 package model;
 
 public class DichVuDiKem {
-    private String tenDichVuDiKem ;
+    private Integer maDichVuDiKem;
+    private String tenDichVuDiKem;
+    private String gia ;
     private String donVi ;
-    private Integer giaTien ;
+    private String trangThai ;
 
     public DichVuDiKem() {
     }
 
-    public DichVuDiKem(String tenDichVuDiKem, String donVi, Integer giaTien) {
+    public DichVuDiKem(Integer maDichVuDiKem, String tenDichVuDiKem, String gia, String donVi, String trangThai) {
+        this.maDichVuDiKem = maDichVuDiKem;
         this.tenDichVuDiKem = tenDichVuDiKem;
+        this.gia = gia;
         this.donVi = donVi;
-        this.giaTien = giaTien;
+        this.trangThai = trangThai;
+    }
+
+    public Integer getMaDichVuDiKem() {
+        return maDichVuDiKem;
+    }
+
+    public void setMaDichVuDiKem(Integer maDichVuDiKem) {
+        this.maDichVuDiKem = maDichVuDiKem;
     }
 
     public String getTenDichVuDiKem() {
@@ -22,6 +34,14 @@ public class DichVuDiKem {
         this.tenDichVuDiKem = tenDichVuDiKem;
     }
 
+    public String getGia() {
+        return gia;
+    }
+
+    public void setGia(String gia) {
+        this.gia = gia;
+    }
+
     public String getDonVi() {
         return donVi;
     }
@@ -30,11 +50,11 @@ public class DichVuDiKem {
         this.donVi = donVi;
     }
 
-    public Integer getGiaTien() {
-        return giaTien;
+    public String getTrangThai() {
+        return trangThai;
     }
 
-    public void setGiaTien(Integer giaTien) {
-        this.giaTien = giaTien;
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
 }

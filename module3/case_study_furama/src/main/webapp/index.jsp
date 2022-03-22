@@ -38,7 +38,7 @@
             <a class="text-decoration-none" href="/dichVu">Service</a>
         </div>
         <div class="col-2 mt-3">
-            <a class="text-decoration-none" href="#">Contact</a>
+            <a class="text-decoration-none" href="/contract">Contact</a>
         </div>
         <div class="col-2">
             <form class="position-relative" action="/furama?action=search" method="post">

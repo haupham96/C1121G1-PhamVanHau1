@@ -29,6 +29,8 @@ public class EmployeeRepository implements IEmployeeRepository {
     private static final String EDIT_NHAN_VIEN = " update nhan_vien set ho_ten = ? , ngay_sinh = ? , so_cmnd = ? , luong = ? , so_dien_thoai = ? , email = ? , dia_chi = ? , ma_vi_tri = ? , ma_trinh_do = ? , ma_bo_phan = ?\n" +
             "where ma_nhan_vien = ? ;";
     private static final String FIND_NHAN_VIEN_BY_ID = "SELECT * FROM furama.nhan_vien where ma_nhan_vien = ? ;";
+    private static final String DELETE_NHAN_VIEN_BY_ID = "delete from nhan_vien where nhan_vien.ma_nhan_vien = ? ; ";
+
     private static final String A = "";
 
     @Override
@@ -178,7 +180,7 @@ public class EmployeeRepository implements IEmployeeRepository {
         NhanVien nhanVien = new NhanVien();
         try (Connection connection = connectionDataBase.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(FIND_NHAN_VIEN_BY_ID);) {
-            preparedStatement.setInt(1,maNhanVien);
+            preparedStatement.setInt(1, maNhanVien);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 nhanVien.setMaNhanVien(rs.getInt(1));
@@ -197,5 +199,18 @@ public class EmployeeRepository implements IEmployeeRepository {
             e.printStackTrace();
         }
         return nhanVien;
+    }
+
+    @Override
+    public boolean deleteEmployeeById(Integer id) {
+        boolean check = true;
+        try (Connection connection = connectionDataBase.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_NHAN_VIEN_BY_ID);) {
+            preparedStatement.setInt(1, id);
+            check = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check;
     }
 }

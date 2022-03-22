@@ -24,4 +24,6 @@ public interface IEmployeeRepository {
     void editEmployee(NhanVien nhanVien);
 
     NhanVien findEmployeeById(Integer maNhanVien);
+
+    boolean deleteEmployeeById(Integer id);
 }

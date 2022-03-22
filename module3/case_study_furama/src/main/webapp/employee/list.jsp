@@ -5,7 +5,7 @@
   Time: 2:25 CH
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -15,6 +15,28 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/employee?action=delete" method="post">
+                <input type="hidden" name="idModal" id="idModal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác Nhận Xoá Nhân Viên ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size: 30px;color: #0a58ca" name="name" id ="name"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Xác Nhận</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <br>
 <a class="btn btn-warning" href="/index.jsp">Về trang chủ</a>
 <center>
@@ -66,13 +88,17 @@
             <td><c:out value="${nhanVien.getTrinhDo()}"/></td>
             <td><c:out value="${nhanVien.getBoPhan()}"/></td>
             <td>
-                <a href="/employee?action=edit&id=${nhanVien.getMaNhanVien()}">Edit</a>
-                <a href="/employee?action=delete&id=${nhanVien.getMaNhanVien()}">Delete</a>
+                <a class="btn btn-primary" href="/employee?action=edit&id=${nhanVien.getMaNhanVien()}">Edit</a>
+                <button onclick="deleteNhanVien('${nhanVien.getMaNhanVien()}','${nhanVien.getHoTen()}')" type="button" class="btn btn-primary"
+                        data-toggle="modal" data-target="#exampleModal">
+                    Delete
+                </button>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -84,14 +110,20 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script>
-    $.extend( true, $.fn.dataTable.defaults, {
+    $.extend(true, $.fn.dataTable.defaults, {
         "searching": false,
         "ordering": false
-    } );
-    $(document).ready(function() {
+    });
+    $(document).ready(function () {
         $('#example').DataTable({
             "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
         });
-    } );
+    });
+</script>
+<script>
+    function deleteNhanVien(maNhanVien,tenNhanVien) {
+        document.getElementById("idModal").value = maNhanVien ;
+        document.getElementById("name").innerText = tenNhanVien ;
+    }
 </script>
 </html>
