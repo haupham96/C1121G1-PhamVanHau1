@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 </head>
 <body>
+<a href="/create-form.jsp" class="btn btn-primary">Form</a>
 <div class="container">
     <div class="row">
         <div class="col-6 float-start">

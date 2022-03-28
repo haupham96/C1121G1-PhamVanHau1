@@ -79,6 +79,7 @@ public class DichVuServlet extends HttpServlet {
     }
 
     private void createDichVu(HttpServletRequest request, HttpServletResponse response) {
+        String dichVuCode = request.getParameter("dichVuCode");
         String tenDichVu = request.getParameter("tenDichVu");
         String dienTich = (request.getParameter("dienTich"));
         String chiPhiThue = (request.getParameter("chiPhiThue"));
@@ -90,7 +91,7 @@ public class DichVuServlet extends HttpServlet {
         String dienTichHoBoi = (request.getParameter("dienTichHoBoi"));
         String soTang = (request.getParameter("soTang"));
         if (loaiDichVu == 1) {
-            DichVu villa = new Villa(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong, moTaTienNghiKhac, dienTichHoBoi, soTang);
+            DichVu villa = new Villa(dichVuCode, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong, moTaTienNghiKhac, dienTichHoBoi, soTang);
             Map<String, String> map = dichVuSerVice.addNewDichVu(loaiDichVu, villa);
             if (map.isEmpty()) {
                 request.setAttribute("message", "Thêm mới thành công");
@@ -119,7 +120,7 @@ public class DichVuServlet extends HttpServlet {
 
         }
         if (loaiDichVu == 2) {
-            DichVu house = new House(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong, moTaTienNghiKhac, soTang);
+            DichVu house = new House(dichVuCode, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong, moTaTienNghiKhac, soTang);
             Map<String, String> map = dichVuSerVice.addNewDichVu(loaiDichVu, house);
             if (map.isEmpty()) {
                 request.setAttribute("message", "Thêm mới thành công");
@@ -147,7 +148,7 @@ public class DichVuServlet extends HttpServlet {
             }
         }
         if (loaiDichVu == 3) {
-            DichVu room = new Room(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong, moTaTienNghiKhac, "");
+            DichVu room = new Room(dichVuCode, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong, moTaTienNghiKhac, "");
             Map<String, String> map = dichVuSerVice.addNewDichVu(loaiDichVu, room);
             if (map.isEmpty()) {
                 request.setAttribute("message", "Thêm mới thành công");

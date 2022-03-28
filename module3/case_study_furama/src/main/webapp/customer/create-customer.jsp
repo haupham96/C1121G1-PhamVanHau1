@@ -5,7 +5,7 @@
   Time: 10:17 SA
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -18,69 +18,74 @@
     <br>
     <h3><a style="text-decoration: none;color: blue" href="index.jsp">Trở về Trang Chủ</a></h3>
     <br>
-<form action="/customers?action=create" method="post">
-    <table border="1" cellpadding="10px" >
-        <thead>
-        <h4 class="text-primary">Tạo mới khách hàng :</h4>
-        </thead>
-        <tbody>
-        <tr>
-            <th>Họ Tên :</th>
-        <td><input type="text" name="hoTen"></td>
-            <td><p style="color: red">${errors.get("hoTen")}</p></td>
-        </tr>
-        <tr>
-            <th>Ngày Sinh :</th>
-        <td><input type="text" name="ngaySinh"></td>
-            <td> <p style="color: red">${errors.get("ngaySinh")}</p></td>
-        </tr>
-        <tr>
-            <th>Giới tính :</th>
-        <td>
-            <select name="gioiTinh" >
-                <option value="0">Nữ</option>
-                <option selected value="1">Nam</option>
-            </select>
-        </td>
-        </tr>
-        <tr>
-            <th>Số CMND :</th>
-            <td><input type="text" name="soCMND"></td>
-            <td><p style="color: red">${errors.get("soCMND")}</p></td>
-        </tr>
-        <tr>
-            <th>Số Điện Thoại:</th>
-            <td><input type="text" name="soDienThoai"></td>
-            <td>  <p style="color: red">${errors.get("soDienThoai")}</p></td>
-        </tr>
-        <tr>
-            <th>Email:</th>
-            <td><input type="text" name="email"></td>
-            <td><p style="color: red">${errors.get("email")}</p></td>
-        </tr>
-        <tr>
-            <th>Địa Chỉ:</th>
-            <td><input type="text" name="diaChi"></td>
-            <br>
-            <td> <p style="color: red">${errors.get("diaChi")}</p></td>
-        </tr>
-        <tr>
-            <th>Loại Khách</th>
-            <td>
-                <select name="loaiKhach">
-                    <c:forEach var="loaiKhach" items="${loaiKhachList}">
-                        <option value="${loaiKhach.getMaLoaiKhach()}">${loaiKhach.getTenLoaiKhach()}</option>
-                    </c:forEach>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <th>Xác Nhận</th>
-            <td><input type="submit" value="Tạo Mới"></td>
-        </tr>
-        </tbody>
-    </table>
-</form>
+    <form action="/customers?action=create" method="post">
+        <table border="1" cellpadding="10px">
+            <thead>
+            <h4 class="text-primary">Tạo mới khách hàng :</h4>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Họ Tên :</th>
+                <td><input type="text" name="hoTen"></td>
+                <td><p style="color: red">${errors.get("hoTen")}</p></td>
+            </tr>
+            <tr>
+                <th>Mã Khách Hàng :</th>
+                <td><input type="text" name="khachHangCode"></td>
+                <td><p style="color: red">${errors.get("khachHangCode")}</p></td>
+            </tr>
+            <tr>
+                <th>Ngày Sinh :</th>
+                <td><input type="text" name="ngaySinh"></td>
+                <td><p style="color: red">${errors.get("ngaySinh")}</p></td>
+            </tr>
+            <tr>
+                <th>Giới tính :</th>
+                <td>
+                    <select name="gioiTinh">
+                        <option value="0">Nữ</option>
+                        <option selected value="1">Nam</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Số CMND :</th>
+                <td><input type="text" name="soCMND"></td>
+                <td><p style="color: red">${errors.get("soCMND")}</p></td>
+            </tr>
+            <tr>
+                <th>Số Điện Thoại:</th>
+                <td><input type="text" name="soDienThoai"></td>
+                <td><p style="color: red">${errors.get("soDienThoai")}</p></td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td><input type="text" name="email"></td>
+                <td><p style="color: red">${errors.get("email")}</p></td>
+            </tr>
+            <tr>
+                <th>Địa Chỉ:</th>
+                <td><input type="text" name="diaChi"></td>
+                <br>
+                <td><p style="color: red">${errors.get("diaChi")}</p></td>
+            </tr>
+            <tr>
+                <th>Loại Khách</th>
+                <td>
+                    <select name="loaiKhach">
+                        <c:forEach var="loaiKhach" items="${loaiKhachList}">
+                            <option value="${loaiKhach.getMaLoaiKhach()}">${loaiKhach.getTenLoaiKhach()}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Xác Nhận</th>
+                <td><input type="submit" value="Tạo Mới"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
     <c:if test="${message!= null}">
         <h3 style="color: red">Thêm mới thành công</h3>
     </c:if>

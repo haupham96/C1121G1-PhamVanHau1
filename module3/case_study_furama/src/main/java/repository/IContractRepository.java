@@ -29,4 +29,8 @@ public interface IContractRepository {
     ContractDetail getContractDetail(Integer id);
 
     void updateContractDetail(ContractDetail contractDetailUpdate);
+
+    void deleteContractById(Integer id);
+
+    List<TinhTienKhachHang> thanhToanKhachHang();
 }

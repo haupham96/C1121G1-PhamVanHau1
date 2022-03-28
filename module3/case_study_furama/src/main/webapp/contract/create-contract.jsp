@@ -26,12 +26,12 @@
             <tbody>
             <tr>
                 <th>Ngày Bắt Đầu</th>
-                <td><input type="text" name="ngayLamHopDong"></td>
+                <td><input type="date" name="ngayLamHopDong"></td>
                 <td><p style="color: red">${errors.get("ngayLamHopDong")}</p></td>
             </tr>
             <tr>
                 <th>Ngày Kết Thúc</th>
-                <td><input type="text" name="ngayKetThuc"></td>
+                <td><input type="date" name="ngayKetThuc"></td>
                 <td><p style="color: red">${errors.get("ngayKetThuc")}</p></td>
             </tr>
             <tr>

@@ -29,4 +29,8 @@ public interface IContractService {
     ContractDetail getContractDetail(Integer id);
 
     Map<String, String> updateContractDetail(ContractDetail contractDetailUpdate);
+
+    void deleteContractById(Integer id);
+
+    List<TinhTienKhachHang> thanhToanKhachHang();
 }

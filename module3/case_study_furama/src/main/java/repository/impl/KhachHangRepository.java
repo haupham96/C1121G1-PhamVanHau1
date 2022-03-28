@@ -16,21 +16,19 @@ import java.util.List;
 public class KhachHangRepository implements IKhachHangRepository {
     ConnectionDataBase connectionDataBase = new ConnectionDataBase();
     private static final String SELECT_ALL_CUSTOMERS = "SELECT * FROM khach_hang;";
-    private static final String SELECT_ALL_CUSTOMERS_WITH_CUSTOMER_CLASS = "select khach_hang.ma_khach_hang , loai_khach.ten_loai_khach , khach_hang.ho_ten , khach_hang.ngay_sinh ,khach_hang.gioi_tinh , khach_hang.so_cmnd , khach_hang.so_dien_thoai , khach_hang.email , khach_hang.dia_chi\n" +
-            "            from khach_hang  join loai_khach\n" +
-            "            on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach\n" +
-            "            group by khach_hang.ma_khach_hang \n" +
-            "            order by khach_hang.ma_khach_hang;";
+    private static final String SELECT_ALL_CUSTOMERS_WITH_CUSTOMER_CLASS = "select khach_hang.ma_khach_hang , loai_khach.ten_loai_khach , khach_hang.ho_ten , khach_hang.ngay_sinh ,khach_hang.gioi_tinh , khach_hang.so_cmnd , khach_hang.so_dien_thoai , khach_hang.email , khach_hang.dia_chi , khach_hang.khach_hang_code\n" +
+            "from khach_hang  join loai_khach\n" +
+            "on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach\n" +
+            "group by khach_hang.ma_khach_hang \n" +
+            "order by khach_hang.ma_khach_hang;";
     private static final String SELECT_ALL_LOAI_KHACH = "SELECT * FROM loai_khach;";
-    private static final String INSERT_CUSTOMER = "insert into khach_hang (ma_loai_khach,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi)\n" +
-            "values(?,?,?,?,?,?,?,?);";
+    private static final String INSERT_CUSTOMER = "insert into khach_hang (ma_loai_khach,ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,khach_hang_code) values(?,?,?,?,?,?,?,?,?);";
     private static final String FIND_CUSTOMER_BY_ID = "SELECT * FROM khach_hang where ma_khach_hang = ? ;";
-    private static final String EDIT_CUSTOMER_BY_ID = "update khach_hang " +
-            "set ma_loai_khach = ? , ho_ten = ? , ngay_sinh = ? , gioi_tinh = ? , so_cmnd = ? , so_dien_thoai = ? , email = ? , dia_chi = ? " +
-            "where ma_khach_hang = ? ; ";
-
-    private static final String DELETE_CUSTOMER_BY_ID = "set foreign_key_checks = 0 ; delete from khach_hang\n" +
-            "where khach_hang.ma_khach_hang = ? ; set foreign_key_checks = 1 ; ";
+    private static final String EDIT_CUSTOMER_BY_ID = "update khach_hang\n" +
+            "set ma_loai_khach = ? , ho_ten = ? , ngay_sinh = ? , gioi_tinh = ? , so_cmnd = ? , so_dien_thoai = ? , email = ? , dia_chi = ? \n" +
+            "where ma_khach_hang = ? ;\n";
+    private static final String DELETE_CUSTOMER_BY_ID = "delete from khach_hang\n" +
+            "where khach_hang.ma_khach_hang = ? ;  ";
 
     @Override
     public List<KhachHang> getAllCustomer() {
@@ -50,6 +48,7 @@ public class KhachHangRepository implements IKhachHangRepository {
                 khachHang.setSoDienThoai(rs.getString(7));
                 khachHang.setEmail(rs.getString(8));
                 khachHang.setDiaChi(rs.getString(9));
+                khachHang.setKhachHangCode(rs.getString(10));
                 khachHangList.add(khachHang);
             }
         } catch (SQLException e) {
@@ -96,6 +95,7 @@ public class KhachHangRepository implements IKhachHangRepository {
                 khachHangDTO.setSoDienThoai(rs.getString(7));
                 khachHangDTO.setEmail(rs.getString(8));
                 khachHangDTO.setDiaChi(rs.getString(9));
+                khachHangDTO.setKhachHangCode(rs.getString(10));
                 khachHangDTOList.add(khachHangDTO);
             }
         } catch (SQLException e) {
@@ -117,6 +117,7 @@ public class KhachHangRepository implements IKhachHangRepository {
             preparedStatement.setString(6, khachHang.getSoDienThoai());
             preparedStatement.setString(7, khachHang.getEmail());
             preparedStatement.setString(8, khachHang.getDiaChi());
+            preparedStatement.setString(9, khachHang.getKhachHangCode());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -142,6 +143,7 @@ public class KhachHangRepository implements IKhachHangRepository {
                 khachHang.setSoDienThoai(rs.getString(7));
                 khachHang.setEmail(rs.getString(8));
                 khachHang.setDiaChi(rs.getString(9));
+                khachHang.setKhachHangCode(rs.getString(10));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -187,11 +189,23 @@ public class KhachHangRepository implements IKhachHangRepository {
     public List<KhachHangDTO> searchByName(String searchName) {
         List<KhachHangDTO> khachHangDTOList = getAllCustomerWithCustomerClass();
         List<KhachHangDTO> listSearch = new ArrayList<>();
-        for(KhachHangDTO ls:khachHangDTOList){
-            if(ls.getHoTen().contains(searchName)){
+        for (KhachHangDTO ls : khachHangDTOList) {
+            if (ls.getHoTen().contains(searchName)) {
                 listSearch.add(ls);
             }
         }
         return listSearch;
+    }
+
+    public boolean checkCustomerCodeExist(String code) {
+        boolean check = false;
+        List<KhachHang> list = getAllCustomer();
+        for (KhachHang ls : list) {
+            if (ls.getKhachHangCode().equals(code)) {
+                check = true;
+                break;
+            }
+        }
+        return check;
     }
 }

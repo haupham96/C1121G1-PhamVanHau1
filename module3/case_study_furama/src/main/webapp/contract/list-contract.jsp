@@ -15,29 +15,28 @@
 </head>
 <body>
 <div class="container">
-<br>
-<a class="btn btn-warning" href="/index.jsp">Về trang chủ</a>
-<br>
-<a class="btn btn-danger" href="/contract?action=detail">Hợp Đồng Chi Tiết</a>
-<br>
-<a class="btn btn-primary" href="/contract?action=create">Thêm Hợp Đồng</a>
-<br>
-<br>
-<h3 class="text-primary">Danh Sách Hợp Đồng</h3>
-<table class="table">
-    <thead class="table-dark">
-    <tr>
-        <th>Mã hợp đồng</th>
-        <th>Ngày Làm Hợp Đồng</th>
-        <th>Ngày Kết Thúc</th>
-        <th>Tiền Đặt Cọc</th>
-        <th>Tên Nhân Viên</th>
-        <th>Tên Khách Hàng</th>
-        <th>Loại Dịch Vụ</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="hopDong" items="${list}">
+    <br>
+    <a class="btn btn-warning" href="/index.jsp">Về trang chủ</a>
+    <a class="btn btn-danger" href="/contract?action=detail">Hợp Đồng Chi Tiết</a>
+    <a class="btn btn-primary" href="/contract?action=create">Thêm Hợp Đồng</a>
+    <a class="btn btn-secondary" href="/contract?action=dichvu-khachhang">Danh Sách khách hàng sử dụng dịch vụ đi kèm</a>
+    <a class="btn btn-success" href="/contract?action=tinhtien">Tổng Chi Phí Của Khách Hàng</a>
+    <br>
+    <h3 class="text-primary">Danh Sách Hợp Đồng</h3>
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>Mã hợp đồng</th>
+            <th>Ngày Làm Hợp Đồng</th>
+            <th>Ngày Kết Thúc</th>
+            <th>Tiền Đặt Cọc</th>
+            <th>Tên Nhân Viên</th>
+            <th>Tên Khách Hàng</th>
+            <th>Loại Dịch Vụ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="hopDong" items="${list}">
         <tr>
             <td>${hopDong.getMaHopDong()}</td>
             <td>${hopDong.getNgayLamHopDong()}</td>
@@ -46,9 +45,9 @@
             <td>${hopDong.getMaNhanVien()}</td>
             <td>${hopDong.getMaKhachHang()}</td>
             <td>${hopDong.getMaDichVu()}</td>
-    </c:forEach>
-    </tbody>
-</table>
+            </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

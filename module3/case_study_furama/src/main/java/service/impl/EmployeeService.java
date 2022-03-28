@@ -108,17 +108,17 @@ public class EmployeeService implements IEmployeeService {
             check=false;
             map.put("ngaySinh","không đúng định dạng (vd : 2001-12-31)");
         }
-        if(!nhanVien.getSoCMND().matches(Regex.NUMBER)){
+        if(!nhanVien.getSoCMND().matches(Regex.SO_CMND)){
             check=false;
-            map.put("soCMND","Phải là số tự nhiên");
+            map.put("soCMND","sai định dạng CMND (VD : 025871516 ");
         }
         if(!nhanVien.getLuong().matches(Regex.SO_DUONG)){
             check=false;
             map.put("luong","phải là số nguyên dương");
         }
-        if(!nhanVien.getSoDienThoai().matches(Regex.NUMBER)){
+        if(!nhanVien.getSoDienThoai().matches(Regex.SO_DIEN_THOAI)){
             check=false;
-            map.put("soDienThoai","phải là số tự nhiên");
+            map.put("soDienThoai","sai định dạng ( vd : 090 XXXXXXX , 091 XXXXXXX , (84)+90 XXXXXXX , (84)+91 XXXXXXX ) ");
         }
         if(!nhanVien.getEmail().matches(Regex.EMAIL)){
             check=false;

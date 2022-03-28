@@ -61,7 +61,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="/contract?action=xoa-khachhang-dich-vu-di-kem" method="post">
-                <input type="hidden" name="idModal" id="idModal">
+                <input type="hidden" name="idHopDongChiTiet" id="idHopDongChiTiet">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Xác Nhận Xoá Dịch Vụ Này ?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -69,12 +69,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <span>Tên Khách Hàng : </span>
-                    <p style="font-size: 30px;color: #0a58ca" name="tenKhachHang" id="tenKhachHang"></p>
-                    <span>Tên Dịch Vụ : </span>
-                    <p style="font-size: 30px;color: #0a58ca" name="tenDichVu" id="tenDichVu"></p>
-                    <span>Số Lượng : </span>
-                    <p style="font-size: 30px;color: #0a58ca" name="soLuong" id="soLuong"></p>
+                    <table class="table table-dark">
+                        <thead class="table-dark">
+                        <tr>
+                            <td>Tên Khách Hàng</td>
+                            <td>Tên Dịch Vụ</td>
+                            <td>Số Lượng</td>
+                        </tr>
+                        </thead>
+                        <tbody class="table-light table-hover">
+                        <tr>
+                            <td style="font-size: 18px;color: black" name="tenKhachHang" id="tenKhachHang"></td>
+                            <td style="font-size: 18px;color: black" name="tenDichVu" id="tenDichVu"></td>
+                            <td style="font-size: 18px;color:black" name="soLuong" id="soLuong"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
@@ -87,7 +97,7 @@
 </body>
 <script>
     function deleteHopDongChiTiet(maHopDongChiTiet, tenKhachHang, tenDichVu, soLuong) {
-        document.getElementById("idModal").innerText = maHopDongChiTiet;
+        document.getElementById("idHopDongChiTiet").value = maHopDongChiTiet;
         document.getElementById("tenKhachHang").innerText = tenKhachHang;
         document.getElementById("tenDichVu").innerText = tenDichVu;
         document.getElementById("soLuong").innerText = soLuong;

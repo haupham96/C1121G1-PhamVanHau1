@@ -1,20 +1,20 @@
 package model;
 
-public class Room extends DichVu{
-    private String moTaTienNghiKhac ;
-    private String dichVuMienPhiDiKem ;
+public class Room extends DichVu {
+    private String moTaTienNghiKhac;
+    private String dichVuMienPhiDiKem;
 
     public Room() {
     }
 
-    public Room(String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
-        super(tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
+    public Room(String dichVuCode, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
+        super(dichVuCode, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.dichVuMienPhiDiKem = dichVuMienPhiDiKem;
     }
 
-    public Room(Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
-        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
+    public Room(String dichVuCode, Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
+        super(dichVuCode, maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu, tieuChuanPhong);
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.dichVuMienPhiDiKem = dichVuMienPhiDiKem;
     }

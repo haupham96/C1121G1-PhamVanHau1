@@ -9,7 +9,6 @@ public interface ProductService {
 
     void createProduct(Product product);
 
-
     Product findById(Integer id);
 
     void delete(Integer id);

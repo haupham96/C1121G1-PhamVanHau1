@@ -41,6 +41,14 @@ public class KhachHangService implements IKhachHangService {
             map.put("email","sai định dạng email (vd : ab_A.c123@gmail.com)");
             check = false ;
         }
+        if(khachHangRepository.checkCustomerCodeExist(khachHang.getKhachHangCode())){
+            map.put("khachHangCode","đã tồn tại mã khách hàng này");
+            check = false ;
+        }
+        if(!khachHang.getKhachHangCode().matches(Regex.MA_KHACH_HANG)){
+            map.put("khachHangCode","sai định dạng  (vd : KH-0001)");
+            check = false ;
+        }
         if(!khachHang.getHoTen().matches(Regex.NAME_VIETNAM)){
             map.put("hoTen","Sai định dạng họ tên (vd : Phạm Văn Hậu)");
             check = false ;
@@ -57,12 +65,12 @@ public class KhachHangService implements IKhachHangService {
                 check = false ;
             }
         }
-        if(!(khachHang.getSoCMND().matches(Regex.NUMBER))){
+        if(!(khachHang.getSoCMND().matches(Regex.SO_CMND))){
             map.put("soCMND","sai định dạng CMND (VD : 025871516 ");
             check = false ;
         }
-        if(!khachHang.getSoDienThoai().matches(Regex.NUMBER)){
-            map.put("soDienThoai","  vui lòng nhập số ");
+        if(!khachHang.getSoDienThoai().matches(Regex.SO_DIEN_THOAI)){
+            map.put("soDienThoai","sai định dạng ( vd : 090 XXXXXXX , 091 XXXXXXX , (84)+90 XXXXXXX , (84)+91 XXXXXXX ) ");
             check = false ;
         }
         if(check){
@@ -84,6 +92,7 @@ public class KhachHangService implements IKhachHangService {
             map.put("email","sai định dạng email (vd : ab_A.c123@gmail.com)");
             check = false ;
         }
+
         if(!khachHang.getHoTen().matches(Regex.NAME_VIETNAM)){
             map.put("hoTen","Sai định dạng họ tên (vd : Phạm Văn Hậu)");
             check = false ;

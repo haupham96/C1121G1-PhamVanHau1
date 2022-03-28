@@ -1,16 +1,16 @@
 package data_transfer_object;
 
-public class VillaDTO extends DichVuDTO{
+public class VillaDTO extends DichVuDTO {
     private String tieuChuanPhong;
     private String moTaTienNghiKhac;
-    private Double dienTichHoBoi ;
-    private Integer soTang ;
+    private Double dienTichHoBoi;
+    private Integer soTang;
 
     public VillaDTO() {
     }
 
-    public VillaDTO(Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, Double dienTichHoBoi, Integer soTang) {
-        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
+    public VillaDTO(String dichVuCode, Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, Double dienTichHoBoi, Integer soTang) {
+        super(dichVuCode, maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.dienTichHoBoi = dienTichHoBoi;

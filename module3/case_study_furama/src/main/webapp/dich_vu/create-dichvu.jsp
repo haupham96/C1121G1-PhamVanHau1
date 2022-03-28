@@ -30,6 +30,11 @@ To change this template use File | Settings | File Templates.
                 <td><small class="text-danger">${map.get("tenDichVu")}</small></td>
             </tr>
             <tr>
+                <th>Mã Dịch Vụ</th>
+                <td><input type="text" name="dichVuCode"></td>
+                <td><small class="text-danger">${map.get("dichVuCode")}</small></td>
+            </tr>
+            <tr>
                 <th>Diện Tích</th>
                 <td><input type="text" name="dienTich"></td>
                 <td><small class="text-danger">${map.get("dienTich")}</small></td>

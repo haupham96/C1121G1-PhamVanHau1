@@ -36,6 +36,15 @@ public class ContractRepository implements IContractRepository {
     private final String FIND_HOP_DONG_CHI_TIET = "SELECT * FROM furama.hop_dong_chi_tiet where ma_hop_dong_chi_tiet = ? ;";
     private final String UPDATE_HOP_DONG_CHI_TIET ="update hop_dong_chi_tiet \n" +
             "set ma_dich_vu_di_kem = ? , so_luong = ? where ma_hop_dong_chi_tiet = ? ;";
+    private final String DELETE_HOP_DONG_CHI_TIET = "delete from hop_dong_chi_tiet where ma_hop_dong_chi_tiet = ? ;";
+
+    private final String TINH_TONG_TIEN_KHACH_SU_DUNG_DICH_VU = "select khach_hang.ho_ten , dich_vu.ten_dich_vu , dich_vu.chi_phi_thue , hop_dong.tien_dat_coc , sum(dich_vu_di_kem.gia * hop_dong_chi_tiet.so_luong) as tien_dich_vu_di_kem, \n" +
+            "(dich_vu.chi_phi_thue - hop_dong.tien_dat_coc + sum(dich_vu_di_kem.gia * hop_dong_chi_tiet.so_luong) ) as total\n" +
+            "from khach_hang join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang\n" +
+            "join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu\n" +
+            "join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong\n" +
+            "join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem\n" +
+            "group by khach_hang.ma_khach_hang;" ;
 
     ConnectionDataBase connectionDataBase = new ConnectionDataBase();
 
@@ -249,5 +258,39 @@ public class ContractRepository implements IContractRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void deleteContractById(Integer id) {
+        try (Connection connection = connectionDataBase.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_HOP_DONG_CHI_TIET);) {
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<TinhTienKhachHang> thanhToanKhachHang() {
+        List<TinhTienKhachHang> list = new ArrayList<>();
+
+        try (Connection connection = connectionDataBase.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(TINH_TONG_TIEN_KHACH_SU_DUNG_DICH_VU);) {
+           ResultSet rs = preparedStatement.executeQuery();
+           while (rs.next()){
+               TinhTienKhachHang tinhTienKhachHang = new TinhTienKhachHang();
+               tinhTienKhachHang.setHoTenKhachHang(rs.getString(1));
+               tinhTienKhachHang.setTenDichVu(rs.getString(2));
+               tinhTienKhachHang.setChiPhiThue(rs.getString(3));
+               tinhTienKhachHang.setTienDatCoc(rs.getString(4));
+               tinhTienKhachHang.setTienDichVuDiKem(rs.getString(5));
+               tinhTienKhachHang.setTongTien(rs.getString(6));
+               list.add(tinhTienKhachHang);
+           }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

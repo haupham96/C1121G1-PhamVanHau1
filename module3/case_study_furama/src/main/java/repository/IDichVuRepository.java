@@ -16,4 +16,5 @@ public interface IDichVuRepository {
     List<LoaiDichVu> getAllLoaiDichVu();
 
     void addNewDichVu(Integer loaiDichVu, DichVu dichVu);
+    boolean checkDichVuCodeExist(String code);
 }

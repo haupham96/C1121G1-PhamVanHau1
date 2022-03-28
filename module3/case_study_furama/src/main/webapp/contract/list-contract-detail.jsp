@@ -22,8 +22,6 @@
     <br>
     <a class="btn btn-primary" href="/contract?action=create-detail">Thêm Hợp Đồng Chi Tiết</a>
     <br>
-    <a class="btn btn-dark" href="/contract?action=dichvu-khachhang">Danh Sách khách hàng sử dụng dịch vụ đi kèm</a>
-    <br>
     <h3 class="text-primary">Danh Sách Hợp Đồng Chi Tiết</h3>
     <table class="table">
         <thead class="table-dark">

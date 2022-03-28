@@ -32,6 +32,7 @@
         <c:forEach var="khachHang" items="${khachHangList}">
     <tr>
         <td><c:out value="${khachHang.hoTen}"/></td>
+        <td><c:out value="${khachHang.khachHangCode}"/></td>
         <td><c:out value="${khachHang.loaiKhach}"/></td>
         <td><c:out value="${khachHang.ngaySinh}"/></td>
         <c:if test="${khachHang.gioiTinh == 0}">

@@ -30,6 +30,11 @@
                 <td><p style="color: red">${errors.get("hoTen")}</p></td>
             </tr>
             <tr>
+                <th>Mã Khách Hàng :</th>
+                <td><input disabled="disabled" type="text" name="khachHangCode" value="${khachHang.getKhachHangCode()}"></td>
+                <td><p style="color: red">${errors.get("khachHangCode")}</p></td>
+            </tr>
+            <tr>
                 <th>Ngày Sinh :</th>
                 <td><input type="text" name="ngaySinh" value="${khachHang.getNgaySinh()}"></td>
                 <td> <p style="color: red">${errors.get("ngaySinh")}</p></td>

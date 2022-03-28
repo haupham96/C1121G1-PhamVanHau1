@@ -1,6 +1,7 @@
 package model;
 
 public abstract class DichVu {
+    private String dichVuCode ;
     private Integer maDichVu ;
     private String tenDichVu ;
     private String dienTich ;
@@ -13,7 +14,9 @@ public abstract class DichVu {
     public DichVu() {
     }
 
-    public DichVu(String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong) {
+    public DichVu(String dichVuCode, Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong) {
+        this.dichVuCode = dichVuCode;
+        this.maDichVu = maDichVu;
         this.tenDichVu = tenDichVu;
         this.dienTich = dienTich;
         this.chiPhiThue = chiPhiThue;
@@ -23,8 +26,8 @@ public abstract class DichVu {
         this.tieuChuanPhong = tieuChuanPhong;
     }
 
-    public DichVu(Integer maDichVu, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong) {
-        this.maDichVu = maDichVu;
+    public DichVu(String dichVuCode, String tenDichVu, String dienTich, String chiPhiThue, String soNguoiToiDa, Integer kieuThue, Integer loaiDichVu, String tieuChuanPhong) {
+        this.dichVuCode = dichVuCode;
         this.tenDichVu = tenDichVu;
         this.dienTich = dienTich;
         this.chiPhiThue = chiPhiThue;
@@ -32,6 +35,14 @@ public abstract class DichVu {
         this.kieuThue = kieuThue;
         this.loaiDichVu = loaiDichVu;
         this.tieuChuanPhong = tieuChuanPhong;
+    }
+
+    public String getDichVuCode() {
+        return dichVuCode;
+    }
+
+    public void setDichVuCode(String dichVuCode) {
+        this.dichVuCode = dichVuCode;
     }
 
     public String getTieuChuanPhong() {

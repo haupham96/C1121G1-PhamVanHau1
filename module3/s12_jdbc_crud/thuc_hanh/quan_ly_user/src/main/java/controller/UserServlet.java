@@ -40,30 +40,7 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {
-        String country = request.getParameter("searchName");
-        List<User> users = userService.searchByCountry(country);
 
-        if(users.isEmpty()){
-            try {
-                request.setAttribute("message","Not Found");
-                request.getRequestDispatcher("not-found.jsp").forward(request,response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                request.setAttribute("users",users);
-                request.getRequestDispatcher("search.jsp").forward(request,response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) {
@@ -84,7 +61,7 @@ public class UserServlet extends HttpServlet {
         userService.deleteUserById(id);
 
         List<User> listUser = userService.selectAllUser();
-        request.setAttribute("listUser", listUser);
+        request.setAttribute("listUsers", listUser);
         try {
             request.getRequestDispatcher("list.jsp").forward(request,response);
         } catch (ServletException e) {
@@ -140,6 +117,30 @@ public class UserServlet extends HttpServlet {
                 listUser(request, response);
                 break;
 
+        }
+    }
+    private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {
+        String country = request.getParameter("searchName");
+        List<User> users = userService.searchByCountry(country);
+
+        if(users.isEmpty()){
+            try {
+                request.setAttribute("message","Not Found");
+                request.getRequestDispatcher("not-found.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                request.setAttribute("users",users);
+                request.getRequestDispatcher("search.jsp").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

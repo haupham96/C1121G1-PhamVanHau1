@@ -35,33 +35,39 @@ public class DichVuService implements IDichVuSerVice {
     public Map<String, String> addNewDichVu(Integer loaiDichVu, DichVu dichVu) {
         Map<String, String> map = new HashMap<>();
         boolean check = true;
-        if(dichVu.getTenDichVu().equals("")){
-            check = false ;
-            map.put("tenDichVu","không được để trống");
+        if (dichVu.getTenDichVu().equals("")) {
+            check = false;
+            map.put("tenDichVu", "không được để trống");
         }
-        if(dichVu.getDienTich().equals("")){
-            check = false ;
-            map.put("dienTich","không được để trống");
+        if (!dichVu.getDichVuCode().matches(Regex.MA_DICH_VU)) {
+            map.put("dichVuCode", "Sai định dạng ( VD : DV-0001 )");
         }
-        if(dichVu.getChiPhiThue().equals("")){
-            check = false ;
-            map.put("chiPhiThue","không được để trống");
+        if (dichVuRepository.checkDichVuCodeExist(dichVu.getDichVuCode())) {
+            map.put("dichVuCode", "mã dịch vụ đã tồn tại");
         }
-        if(dichVu.getSoNguoiToiDa().equals("")){
-            check = false ;
-            map.put("soNguoiToiDa","không được để trống");
+        if (dichVu.getDienTich().equals("")) {
+            check = false;
+            map.put("dienTich", "không được để trống");
         }
-        if(!(dichVu.getDienTich().matches(Regex.SO_THUC))){
-            check=false;
-            map.put("dienTich","phải là số thực");
+        if (dichVu.getChiPhiThue().equals("")) {
+            check = false;
+            map.put("chiPhiThue", "không được để trống");
         }
-        if(!dichVu.getChiPhiThue().matches(Regex.SO_THUC)){
-            check=false;
-            map.put("chiPhiThue","phải là số thực");
+        if (dichVu.getSoNguoiToiDa().equals("")) {
+            check = false;
+            map.put("soNguoiToiDa", "không được để trống");
         }
-        if(!dichVu.getSoNguoiToiDa().matches(Regex.SO_DUONG)){
-            check=false;
-            map.put("soNguoiToiDa","phải là số dương");
+        if (!(dichVu.getDienTich().matches(Regex.SO_THUC))) {
+            check = false;
+            map.put("dienTich", "phải là số thực");
+        }
+        if (!dichVu.getChiPhiThue().matches(Regex.SO_THUC)) {
+            check = false;
+            map.put("chiPhiThue", "phải là số thực");
+        }
+        if (!dichVu.getSoNguoiToiDa().matches(Regex.SO_DUONG)) {
+            check = false;
+            map.put("soNguoiToiDa", "phải là số dương");
         }
         if (loaiDichVu == 1) {
             Villa villa = (Villa) dichVu;
@@ -73,27 +79,27 @@ public class DichVuService implements IDichVuSerVice {
                 check = false;
                 map.put("soTang", "phải là số dương");
             }
-            if(villa.getMoTaTienNghiKhac().equals("")){
-                check=false;
-                map.put("moTaTienNghiKhac","không được để trống");
+            if (villa.getMoTaTienNghiKhac().equals("")) {
+                check = false;
+                map.put("moTaTienNghiKhac", "không được để trống");
             }
         }
-        if(loaiDichVu == 2){
+        if (loaiDichVu == 2) {
             House house = (House) dichVu;
-            if(!house.getSoTang().matches(Regex.SO_DUONG)){
+            if (!house.getSoTang().matches(Regex.SO_DUONG)) {
                 check = false;
                 map.put("soTang", "phải là số dương");
             }
-            if(house.getMoTaTienNghiKhac().equals("")){
-                check=false;
-                map.put("moTaTienNghiKhac","không được để trống");
+            if (house.getMoTaTienNghiKhac().equals("")) {
+                check = false;
+                map.put("moTaTienNghiKhac", "không được để trống");
             }
         }
-        if(loaiDichVu==3){
+        if (loaiDichVu == 3) {
             Room room = (Room) dichVu;
-            if(room.getMoTaTienNghiKhac().equals("")){
-                check=false;
-                map.put("moTaTienNghiKhac","không được để trống");
+            if (room.getMoTaTienNghiKhac().equals("")) {
+                check = false;
+                map.put("moTaTienNghiKhac", "không được để trống");
             }
         }
         if (check) {

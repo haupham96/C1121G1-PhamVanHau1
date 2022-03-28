@@ -22,4 +22,6 @@ public interface IKhachHangRepository {
     void deleteCustomerById(Integer id);
 
     List<KhachHangDTO> searchByName(String searchName);
+
+    boolean checkCustomerCodeExist(String code);
 }

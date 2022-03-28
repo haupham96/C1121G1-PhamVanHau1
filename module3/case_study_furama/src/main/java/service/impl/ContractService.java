@@ -114,4 +114,14 @@ public class ContractService implements IContractService {
         }
         return map;
     }
+
+    @Override
+    public void deleteContractById(Integer id) {
+        contractRepository.deleteContractById(id);
+    }
+
+    @Override
+    public List<TinhTienKhachHang> thanhToanKhachHang() {
+        return contractRepository.thanhToanKhachHang();
+    }
 }

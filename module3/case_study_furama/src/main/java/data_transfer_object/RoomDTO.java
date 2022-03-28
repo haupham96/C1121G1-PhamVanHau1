@@ -7,8 +7,8 @@ public class RoomDTO extends DichVuDTO{
     public RoomDTO() {
     }
 
-    public RoomDTO(Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
-        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
+    public RoomDTO(String dichVuCode,Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu, String moTaTienNghiKhac, String dichVuMienPhiDiKem) {
+        super(dichVuCode,maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.dichVuMienPhiDiKem = dichVuMienPhiDiKem;
     }

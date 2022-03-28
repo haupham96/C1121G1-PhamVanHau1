@@ -10,9 +10,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-  <title>Customer</title>
-  <title>Title</title>
-  <link rel="stylesheet" href="/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Customer</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 </head>
 <body>
 <br>
@@ -26,46 +26,48 @@
 <br>
 <h3 class="text-primary">Danh Sách Dịch Vụ</h3>
 <table class="table">
-  <thead class="table-dark">
-  <tr>
-    <th>Tên Dịch Vụ</th>
-    <th>Diện Tích</th>
-    <th>Chi phí thuê</th>
-    <th>Số người tối đa</th>
-    <th>Kiểu Thuê</th>
-    <th>Loại Dịch Vụ</th>
-    <th>Tiêu Chuẩn Phòng</th>
-    <th>Tiện Nghi Khác</th>
-    <th>Diện Tích Hồi bơi</th>
-    <th>Số Tầng</th>
-  </tr>
-  </thead>
-  <tbody>
- <c:forEach var="dichVu" items="${list}">
-   <tr>
-     <td>${dichVu.getTenDichVu()}</td>
-     <td>${dichVu.getDienTich()}</td>
-     <td>${dichVu.getChiPhiThue()}</td>
-     <td>${dichVu.getSoNguoiToiDa()}</td>
-     <td>${dichVu.getKieuThue()}</td>
-     <td>${dichVu.getLoaiDichVu()}</td>
-     <td>${dichVu.getTieuChuanPhong()}</td>
-     <td>${dichVu.getMoTaTienNghiKhac()}</td>
-     <c:if test="${dichVu.getDienTichHoBoi() == -1}">
-       <td>No hồ bơi</td>
-     </c:if>
-     <c:if test="${dichVu.getDienTichHoBoi() != -1}">
-       <td>${dichVu.getDienTichHoBoi()}</td>
-     </c:if>
-     <c:if test="${dichVu.getSoTang() == -1}">
-       <td>No Floor</td>
-     </c:if>
-     <c:if test="${dichVu.getSoTang() != -1}">
-       <td>${dichVu.getSoTang()}</td>
-     </c:if>
-   </tr>
- </c:forEach>
-  </tbody>
+    <thead class="table-dark">
+    <tr>
+        <th>Tên Dịch Vụ</th>
+        <th>Mã Dịch Vụ</th>
+        <th>Diện Tích</th>
+        <th>Chi phí thuê</th>
+        <th>Số người tối đa</th>
+        <th>Kiểu Thuê</th>
+        <th>Loại Dịch Vụ</th>
+        <th>Tiêu Chuẩn Phòng</th>
+        <th>Tiện Nghi Khác</th>
+        <th>Diện Tích Hồi bơi</th>
+        <th>Số Tầng</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="dichVu" items="${list}">
+        <tr>
+            <td>${dichVu.getTenDichVu()}</td>
+            <td>${dichVu.getDichVuCode()}</td>
+            <td>${dichVu.getDienTich()}</td>
+            <td>${dichVu.getChiPhiThue()}</td>
+            <td>${dichVu.getSoNguoiToiDa()}</td>
+            <td>${dichVu.getKieuThue()}</td>
+            <td>${dichVu.getLoaiDichVu()}</td>
+            <td>${dichVu.getTieuChuanPhong()}</td>
+            <td>${dichVu.getMoTaTienNghiKhac()}</td>
+            <c:if test="${dichVu.getDienTichHoBoi() == -1}">
+                <td>No hồ bơi</td>
+            </c:if>
+            <c:if test="${dichVu.getDienTichHoBoi() != -1}">
+                <td>${dichVu.getDienTichHoBoi()}</td>
+            </c:if>
+            <c:if test="${dichVu.getSoTang() == -1}">
+                <td>No Floor</td>
+            </c:if>
+            <c:if test="${dichVu.getSoTang() != -1}">
+                <td>${dichVu.getSoTang()}</td>
+            </c:if>
+        </tr>
+    </c:forEach>
+    </tbody>
 </table>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

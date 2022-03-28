@@ -1,6 +1,7 @@
 package data_transfer_object;
 
 public abstract class DichVuDTO {
+    private String dichVuCode ;
     private Integer maDichVu ;
     private String tenDichVu ;
     private Double dienTich ;
@@ -12,7 +13,8 @@ public abstract class DichVuDTO {
     public DichVuDTO() {
     }
 
-    public DichVuDTO(Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu) {
+    public DichVuDTO(String dichVuCode, Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu) {
+        this.dichVuCode = dichVuCode;
         this.maDichVu = maDichVu;
         this.tenDichVu = tenDichVu;
         this.dienTich = dienTich;
@@ -20,6 +22,14 @@ public abstract class DichVuDTO {
         this.soNguoiToiDa = soNguoiToiDa;
         this.kieuThue = kieuThue;
         this.loaiDichVu = loaiDichVu;
+    }
+
+    public String getDichVuCode() {
+        return dichVuCode;
+    }
+
+    public void setDichVuCode(String dichVuCode) {
+        this.dichVuCode = dichVuCode;
     }
 
     public Integer getMaDichVu() {

@@ -41,13 +41,25 @@ public class ContractServlet extends HttpServlet {
                 listCustomersUseService(request, response);
                 break;
             case "update-khachhang-dich-vu-di-kem":
-                updateDichVuDiKemForm(request,response);
+                updateDichVuDiKemForm(request, response);
                 break;
-            case "xoa-khachhang-dich-vu-di-kem":
-
+            case "tinhtien":
+                thanhToan(request,response);
                 break;
             default:
                 listContract(request, response);
+        }
+    }
+
+    private void thanhToan(HttpServletRequest request, HttpServletResponse response) {
+        List<TinhTienKhachHang> list = contractService.thanhToanKhachHang();
+        request.setAttribute("list",list);
+        try {
+            request.getRequestDispatcher("/contract/thanh-toan.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -56,11 +68,11 @@ public class ContractServlet extends HttpServlet {
         ContractDetail contractDetai = contractService.getContractDetail(maHopDongChiTiet);
         List<DichVuDiKem> dichVuDiKemList = contractService.getAllDichVuDiKem();
         List<MaNhanVien> maNhanVienList = contractService.getAllMaNhanVien();
-        request.setAttribute("contractDetai",contractDetai);
-        request.setAttribute("dichVuDiKemList",dichVuDiKemList);
-        request.setAttribute("maNhanVienList",maNhanVienList);
+        request.setAttribute("contractDetai", contractDetai);
+        request.setAttribute("dichVuDiKemList", dichVuDiKemList);
+        request.setAttribute("maNhanVienList", maNhanVienList);
         try {
-            request.getRequestDispatcher("/contract/edit-dichvudikem-khachhang.jsp").forward(request,response);
+            request.getRequestDispatcher("/contract/edit-dichvudikem-khachhang.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -71,9 +83,9 @@ public class ContractServlet extends HttpServlet {
 
     private void listCustomersUseService(HttpServletRequest request, HttpServletResponse response) {
         List<KhachHangSuDungDichVuDiKem> list = contractService.getAllCustomersUseService();
-        request.setAttribute("list",list);
+        request.setAttribute("list", list);
         try {
-            request.getRequestDispatcher("/contract/dichvudikem-khachhang.jsp").forward(request,response);
+            request.getRequestDispatcher("/contract/dichvudikem-khachhang.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -152,9 +164,18 @@ public class ContractServlet extends HttpServlet {
                 createContractDetail(request, response);
                 break;
             case "update-khachhang-dich-vu-di-kem":
-                updateDichVuDiKem(request,response);
+                updateDichVuDiKem(request, response);
+                break;
+            case "xoa-khachhang-dich-vu-di-kem":
+                deleteContractDetailById(request, response);
                 break;
         }
+    }
+
+    private void deleteContractDetailById(HttpServletRequest request, HttpServletResponse response) {
+        Integer id = Integer.valueOf(request.getParameter("idHopDongChiTiet"));
+        contractService.deleteContractById(id);
+        this.listCustomersUseService(request,response);
     }
 
     private void updateDichVuDiKem(HttpServletRequest request, HttpServletResponse response) {
@@ -164,21 +185,21 @@ public class ContractServlet extends HttpServlet {
         String soLuong = request.getParameter("soLuong");
         ContractDetail contractDetail = contractService.getContractDetail(maHopDongchiTiet);
 
-        ContractDetail contractDetailUpdate = new ContractDetail(maHopDongchiTiet,contractDetail.getMaHopDong(),maDichVuDiKem,soLuong);
-        Map<String,String> map = contractService.updateContractDetail(contractDetailUpdate);
+        ContractDetail contractDetailUpdate = new ContractDetail(maHopDongchiTiet, contractDetail.getMaHopDong(), maDichVuDiKem, soLuong);
+        Map<String, String> map = contractService.updateContractDetail(contractDetailUpdate);
         List<DichVuDiKem> dichVuDiKemList = contractService.getAllDichVuDiKem();
         List<MaNhanVien> maNhanVienList = contractService.getAllMaNhanVien();
-        if(map.isEmpty()){
-            request.setAttribute("dichVuDiKemList",dichVuDiKemList);
-            request.setAttribute("maNhanVienList",maNhanVienList);
-            request.setAttribute("message","chỉnh sửa thành công");
+        if (map.isEmpty()) {
+            request.setAttribute("dichVuDiKemList", dichVuDiKemList);
+            request.setAttribute("maNhanVienList", maNhanVienList);
+            request.setAttribute("message", "chỉnh sửa thành công");
         } else {
-            request.setAttribute("dichVuDiKemList",dichVuDiKemList);
-            request.setAttribute("maNhanVienList",maNhanVienList);
-            request.setAttribute("errors",map);
+            request.setAttribute("dichVuDiKemList", dichVuDiKemList);
+            request.setAttribute("maNhanVienList", maNhanVienList);
+            request.setAttribute("errors", map);
         }
         try {
-            request.getRequestDispatcher("/contract/edit-dichvudikem-khachhang.jsp").forward(request,response);
+            request.getRequestDispatcher("/contract/edit-dichvudikem-khachhang.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

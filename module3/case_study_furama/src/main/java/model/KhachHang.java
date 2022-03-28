@@ -10,22 +10,12 @@ public class KhachHang {
     private String email;
     private Integer loaiKhach;
     private String diaChi;
+    private String khachHangCode ;
 
     public KhachHang() {
     }
 
-    public KhachHang(String hoTen, String ngaySinh, Integer gioiTinh, String soCMND, String soDienThoai, String email, Integer loaiKhach, String diaChi) {
-        this.hoTen = hoTen;
-        this.ngaySinh = ngaySinh;
-        this.gioiTinh = gioiTinh;
-        this.soCMND = soCMND;
-        this.soDienThoai = soDienThoai;
-        this.email = email;
-        this.loaiKhach = loaiKhach;
-        this.diaChi = diaChi;
-    }
-
-    public KhachHang(Integer maKhachHang, String hoTen, String ngaySinh, Integer gioiTinh, String soCMND, String soDienThoai, String email, Integer loaiKhach, String diaChi) {
+    public KhachHang(Integer maKhachHang, String hoTen, String ngaySinh, Integer gioiTinh, String soCMND, String soDienThoai, String email, Integer loaiKhach, String diaChi, String khachHangCode) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.ngaySinh = ngaySinh;
@@ -35,6 +25,19 @@ public class KhachHang {
         this.email = email;
         this.loaiKhach = loaiKhach;
         this.diaChi = diaChi;
+        this.khachHangCode = khachHangCode;
+    }
+
+    public KhachHang(String hoTen, String ngaySinh, Integer gioiTinh, String soCMND, String soDienThoai, String email, Integer loaiKhach, String diaChi, String khachHangCode) {
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
+        this.soCMND = soCMND;
+        this.soDienThoai = soDienThoai;
+        this.email = email;
+        this.loaiKhach = loaiKhach;
+        this.diaChi = diaChi;
+        this.khachHangCode = khachHangCode;
     }
 
     public Integer getMaKhachHang() {
@@ -107,5 +110,13 @@ public class KhachHang {
 
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
+    }
+
+    public String getKhachHangCode() {
+        return khachHangCode;
+    }
+
+    public void setKhachHangCode(String khachHangCode) {
+        this.khachHangCode = khachHangCode;
     }
 }

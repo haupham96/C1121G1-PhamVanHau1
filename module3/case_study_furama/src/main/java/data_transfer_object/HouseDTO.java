@@ -8,8 +8,8 @@ public class HouseDTO extends DichVuDTO{
     public HouseDTO() {
     }
 
-    public HouseDTO(Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, Integer soTang) {
-        super(maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
+    public HouseDTO(String dichVuCode,Integer maDichVu, String tenDichVu, Double dienTich, Double chiPhiThue, Integer soNguoiToiDa, String kieuThue, String loaiDichVu, String tieuChuanPhong, String moTaTienNghiKhac, Integer soTang) {
+        super(dichVuCode,maDichVu, tenDichVu, dienTich, chiPhiThue, soNguoiToiDa, kieuThue, loaiDichVu);
         this.tieuChuanPhong = tieuChuanPhong;
         this.moTaTienNghiKhac = moTaTienNghiKhac;
         this.soTang = soTang;

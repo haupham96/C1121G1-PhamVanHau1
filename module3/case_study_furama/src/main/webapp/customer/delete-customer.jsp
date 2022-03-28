@@ -18,6 +18,7 @@
     <thead class="table-dark">
     <tr>
         <th>Tên Khách Hàng</th>
+        <th>Mã Khách Hàng</th>
         <th>Ngày Sinh</th>
         <th>Giới tính</th>
         <th>CMND</th>
@@ -29,6 +30,7 @@
     <tbody>
     <tr>
         <td><c:out value="${khachHang.hoTen}"/></td>
+        <td><c:out value="${khachHang.khachHangCode}"/></td>
         <td><c:out value="${khachHang.ngaySinh}"/></td>
         <c:if test="${khachHang.gioiTinh == 0}">
             <td><c:out value="Nữ"/></td>

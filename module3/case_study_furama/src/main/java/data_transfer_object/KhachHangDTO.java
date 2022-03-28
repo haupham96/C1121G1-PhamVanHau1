@@ -10,11 +10,12 @@ public class KhachHangDTO {
     private String email;
     private String diaChi;
     private String loaiKhach;
+    private String khachHangCode;
 
     public KhachHangDTO() {
     }
 
-    public KhachHangDTO(Integer maKhachHang, String hoTen, String ngaySinh, Integer gioiTinh, String soCMND, String soDienThoai, String email, String diaChi, String loaiKhach) {
+    public KhachHangDTO(Integer maKhachHang, String hoTen, String ngaySinh, Integer gioiTinh, String soCMND, String soDienThoai, String email, String diaChi, String loaiKhach, String khachHangCode) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.ngaySinh = ngaySinh;
@@ -24,6 +25,7 @@ public class KhachHangDTO {
         this.email = email;
         this.diaChi = diaChi;
         this.loaiKhach = loaiKhach;
+        this.khachHangCode = khachHangCode;
     }
 
     public Integer getMaKhachHang() {
@@ -96,5 +98,13 @@ public class KhachHangDTO {
 
     public void setLoaiKhach(String loaiKhach) {
         this.loaiKhach = loaiKhach;
+    }
+
+    public String getKhachHangCode() {
+        return khachHangCode;
+    }
+
+    public void setKhachHangCode(String khachHangCode) {
+        this.khachHangCode = khachHangCode;
     }
 }
